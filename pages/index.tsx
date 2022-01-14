@@ -13,7 +13,7 @@ import styles from './index.module.css'
 // import Overview from './overview.mdx'
 // import Examples from './examples.mdx'
 // import Row from '@lib/Row/Row'
-// import { StackIcon, RowIcon, ClampIcon, ColumnsIcon, GridIcon } from '../../src/Icons/Icons'
+import { StackIcon, RowIcon, ClampIcon, ColumnsIcon, GridIcon } from '@/components/Icons/Icons'
 // import Grid from '@lib/Grid/Grid'
 import Button from '../components/Button'
 import { Box, Stack, Row } from '@christiankaindl/lyts'
@@ -29,11 +29,11 @@ function App() {
             {/* Make it more wide here with visible labels */}
             {/* Slide in a similar variant for the navbar after initial scroll (with only tooltips) */}
             <Row className={otherStyles.nav}>
-              {/* <StackIcon />
+              <StackIcon />
               <RowIcon />
               <ClampIcon />
               <ColumnsIcon />
-              <GridIcon /> */}
+              <GridIcon />
             </Row>
             <p>
               Layout primitives for React
