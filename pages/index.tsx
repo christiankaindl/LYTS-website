@@ -17,6 +17,7 @@ import { StackIcon, RowIcon, ClampIcon, ColumnsIcon, GridIcon } from '@/componen
 // import Grid from '@lib/Grid/Grid'
 import Button from '../components/Button'
 import { Box, Stack, Row, Split } from '@christiankaindl/lyts'
+import Link from 'next/link'
 
 const otherStyles = { nav: '' }
 function App() {
@@ -29,11 +30,21 @@ function App() {
             {/* Make it more wide here with visible labels */}
             {/* Slide in a similar variant for the navbar after initial scroll (with only tooltips) */}
             <Row className={otherStyles.nav}>
-              <StackIcon />
-              <RowIcon />
-              <ClampIcon />
-              <ColumnsIcon />
-              <GridIcon />
+              <Link href='/components/stack'>
+                <a><StackIcon /></a>
+              </Link>
+              <Link href='/components/row'>
+                <a><RowIcon /></a>
+              </Link>
+              <Link href='/components/clamp'>
+                <a><ClampIcon /></a>
+              </Link>
+              <Link href='/components/columns'>
+                <a><ColumnsIcon /></a>
+              </Link>
+              <Link href='/components/grid'>
+                <a><GridIcon /></a>
+              </Link>
             </Row>
             <p>
               Layout primitives for React
