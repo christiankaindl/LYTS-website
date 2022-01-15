@@ -3,8 +3,9 @@
   font-family: sans-serif;
 }
 
-html, body {
+html, body, #__next {
   margin: 0%;
+  min-height: 100%;
 }
 
 .App-logo {

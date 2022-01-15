@@ -41,15 +41,13 @@ const Component: FunctionComponent = function ({ code, meta }) {
   const router = useRouter()
   const Icon = iconMappings[router.query.component]
   return (
-    <Clamp clamp='750px'>
+    <Clamp clamp='750px' style={{ padding: 30 }}>
       <Stack gap={1.5}>
         <Row>
           {Icon !== undefined && <Icon />}
-          <Stack gap={0.25}>
-            <h1>{meta.title}</h1>
-            <p>{meta.description}</p>
-          </Stack>
+          <h1>{meta.title}</h1>
         </Row>
+        <p style={{ fontSize: '1.4em', color: 'rgb(0 0 0 / 0.6)' }}>{meta.description}</p>
 
         <DebugProvider>
           <Content />
