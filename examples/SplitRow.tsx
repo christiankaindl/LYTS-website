@@ -7,6 +7,7 @@ const SplitRow: FunctionComponent = function () {
       <b>
         Awesome toolbar
       </b>
+      <Split />
       <button>
         button 1
       </button>
