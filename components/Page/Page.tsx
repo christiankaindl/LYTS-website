@@ -16,9 +16,6 @@ export function withDocsLayout (Component: FunctionComponent<any>) {
   return (props: PropsWithChildren<{}>) => {
     return (
       <Page>
-        <Box>
-          Test
-        </Box>
         <Columns ratio='1/3'>
           <Sidebar />
           <main>
