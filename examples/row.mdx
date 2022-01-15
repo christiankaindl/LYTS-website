@@ -1,8 +1,13 @@
-import { Stack, Row, Clamp, Columns, Grid, Split } from '@christiankaindl/lyts'
-import SplitRow from '@/examples/SplitRow'
-import CenterWrappedRow from '@/examples/CenterWrappedRow'
-import RowColumns from '@/examples/RowColumns'
-import RowColumnsCustomRatios from '@/examples/RowColumnsCustomRatios'
+---
+title: Something
+---
+
+import { Stack, Row, Clamp, Columns, Grid, Split, Box } from '@christiankaindl/lyts'
+import SplitRow from 'examples/SplitRow'
+import CenterWrappedRow from 'examples/CenterWrappedRow'
+import RowColumns from 'examples/RowColumns'
+import RowColumnsCustomRatios from 'examples/RowColumnsCustomRatios'
+import { RowIcon } from 'components/Icons/Icons'
 
 <Row>
   <RowIcon />
@@ -13,9 +18,9 @@ import RowColumnsCustomRatios from '@/examples/RowColumnsCustomRatios'
 </Row>
 
 <Row>
-  <button>Save</button>
-  <button>Delete</button>
-  <button>Share</button>
+  <Box>Item 1</Box>
+  <Box>Item 2</Box>
+  <Box>Item 3</Box>
 </Row>
 
 Row composes nicely with Split to create split layouts:

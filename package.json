@@ -8,13 +8,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@christiankaindl/lyts": "1.0.0-alpha.2",
+    "@christiankaindl/lyts": "1.0.0-alpha.7",
     "@mdx-js/loader": "^2.0.0-rc.2",
     "@mdx-js/react": "^2.0.0-rc.2",
     "@next/mdx": "^12.0.7",
     "@vanilla-extract/babel-plugin": "^1.1.4",
     "@vanilla-extract/css": "^1.6.8",
     "@vanilla-extract/next-plugin": "^2.0.1",
+    "esbuild": "^0.14.11",
+    "mdx-bundler": "^8.0.1",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2"

@@ -16,7 +16,7 @@ import styles from './index.module.css'
 import { StackIcon, RowIcon, ClampIcon, ColumnsIcon, GridIcon } from '@/components/Icons/Icons'
 // import Grid from '@lib/Grid/Grid'
 import Button from '../components/Button'
-import { Box, Stack, Row } from '@christiankaindl/lyts'
+import { Box, Stack, Row, Split } from '@christiankaindl/lyts'
 
 const otherStyles = { nav: '' }
 function App() {
