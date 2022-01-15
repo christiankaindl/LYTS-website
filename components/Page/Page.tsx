@@ -1,6 +1,5 @@
-import Sidebar from 'components/Sidebar/Sidebar'
-import { FunctionComponent, PropsWithChildren } from 'react'
-import { Columns, Box, BoxProps } from '@christiankaindl/lyts'
+import { FunctionComponent } from 'react'
+import { Box, BoxProps } from '@christiankaindl/lyts'
 
 const Page: FunctionComponent<BoxProps> = function ({ children, ...props }) {
   return (
@@ -11,18 +10,3 @@ const Page: FunctionComponent<BoxProps> = function ({ children, ...props }) {
 }
 
 export default Page
-
-export function withDocsLayout (Component: FunctionComponent<any>) {
-  return (props: PropsWithChildren<{}>) => {
-    return (
-      <Page asChild>
-        <Columns ratio='1/3' style={{ minHeight: '100%' }}>
-          <Sidebar />
-          <main>
-            <Component {...props} />
-          </main>
-        </Columns>
-      </Page>
-    )
-  }
-}

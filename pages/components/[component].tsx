@@ -1,4 +1,3 @@
-import { withDocsLayout } from "components/Page/Page"
 import { GetStaticPaths, GetStaticProps } from "next"
 import path from "path"
 import fs from 'fs'
@@ -9,6 +8,7 @@ import { iconMappings } from "components/Icons/Icons"
 import { useRouter } from "next/router"
 import { Clamp, Row, Stack } from "@christiankaindl/lyts"
 import DebugProvider from "components/DebugProvider/DebugProvider"
+import { withSidebarLayout } from "components/SidebarLayout/SidebarLayout"
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.component === undefined) {
@@ -57,4 +57,4 @@ const Component: FunctionComponent = function ({ code, meta }) {
   )
 }
 
-export default withDocsLayout(Component)
+export default withSidebarLayout(Component)

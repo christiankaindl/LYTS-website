@@ -1,4 +1,4 @@
-import { withDocsLayout } from "components/Page/Page"
+import { withSidebarLayout } from "components/SidebarLayout/SidebarLayout"
 import { GetStaticPaths, GetStaticProps } from "next"
 import { FunctionComponent } from "react"
 
@@ -27,4 +27,4 @@ const Example: FunctionComponent = function () {
   )
 }
 
-export default withDocsLayout(Example)
+export default withSidebarLayout(Example)

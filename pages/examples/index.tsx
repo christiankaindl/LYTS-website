@@ -1,5 +1,5 @@
-import { withDocsLayout } from "components/Page/Page"
 import { Stack, Row, Grid } from '@christiankaindl/lyts'
+import { withSidebarLayout } from 'components/SidebarLayout/SidebarLayout'
 import { GetStaticProps } from "next"
 import { FunctionComponent } from "react"
 
@@ -25,7 +25,7 @@ const Examples = function () {
   )
 }
 
-export default withDocsLayout(Examples)
+export default withSidebarLayout(Examples)
 
 /**
  * Renders toggle-buttons to filter examples for each component type
