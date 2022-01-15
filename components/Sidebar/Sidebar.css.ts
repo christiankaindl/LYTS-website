@@ -3,7 +3,7 @@ import { style } from "@vanilla-extract/css";
 export const sidebar = style({
   padding: 30,
   backgroundColor: 'rgb(0 0 0 / 0.06)',
-  minWidth: '21em',
+  minWidth: '19em',
   overflowY: 'auto',
   maxHeight: '100vh',
   position: 'sticky',

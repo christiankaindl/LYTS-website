@@ -7,12 +7,12 @@ import * as styles from './Sidebar.css'
 
 const Sidebar: FunctionComponent = function () {
   return (
-    <Stack gap={2} asChild padding={16} className={styles.sidebar}>
+    <Stack gap={1.5} asChild padding={16} className={styles.sidebar}>
       <nav>
         <Link href='/' passHref>
           <Stack gap={0} asChild>
             <a>
-              <h2>LYTS</h2>
+              <h2>LYTS <span style={{ fontWeight: 'normal',  }}>Docs</span></h2>
               <p>Layout primitives for React.</p>
             </a>
           </Stack>
