@@ -1,0 +1,50 @@
+---
+title: Grid
+description: Displays items in a responsive grid
+---
+
+import { Stack, Row, Columns, Grid } from '@christiankaindl/lyts'
+
+This example uses the CSS `gridColumn` property on the first element to stretch it the full width:
+
+<Grid gap='1.5em'>
+  <Columns style={{ gridColumn: '1 / -1' }} ratio='1/1.5'>
+    <img style={{ backgroundColor: 'grey' }} />
+    <Stack>
+      <span>Featured</span>
+      <h3>Product Card</h3>
+      <p>Lorem Ipsum</p>
+      <button>More details</button>
+    </Stack>
+  </Columns>
+  <Stack>
+    <b>Product Card</b>
+    <p>Lorem Ipsum</p>
+    <button>More details</button>
+  </Stack>
+  <Stack>
+    <b>Product Card</b>
+    <p>Lorem Ipsum</p>
+    <button>More details</button>
+  </Stack>
+  <Stack>
+    <b>Product Card</b>
+    <p>Lorem Ipsum</p>
+    <button>More details</button>
+  </Stack>
+  <Stack>
+    <b>Product Card</b>
+    <p>Lorem Ipsum</p>
+    <button>More details</button>
+  </Stack>
+  <Stack>
+    <b>Product Card</b>
+    <p>Lorem Ipsum</p>
+    <button>More details</button>
+  </Stack>
+  <Stack>
+    <b>Product Card</b>
+    <p>Lorem Ipsum</p>
+    <button>More details</button>
+  </Stack>
+</Grid>

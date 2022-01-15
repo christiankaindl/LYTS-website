@@ -44,7 +44,7 @@ const Component: FunctionComponent = function ({ code, meta }) {
     <Clamp clamp='750px'>
       <Stack gap={1.5}>
         <Row>
-          <Icon />
+          {Icon !== undefined && <Icon />}
           <Stack gap={0.25}>
             <h1>{meta.title}</h1>
             <p>{meta.description}</p>
