@@ -18,11 +18,11 @@ const Sidebar: FunctionComponent = function () {
           </Stack>
         </Link>
         <Stack gap={0}>
-          <Item title="Stack" icon={<StackIcon small />} href="/components/stack" />
-          <Item title="Row" icon={<RowIcon small />} href="/components/row" />
-          <Item title="Clamp" icon={<ClampIcon small />} href="/components/clamp" />
-          <Item title="Columns" icon={<ColumnsIcon small />} href="/components/columns" />
-          <Item title="Grid" icon={<GridIcon small />} href="/components/grid" />
+          <Item title="Stack" icon={<StackIcon small />} href="/components/stack" index={0} />
+          <Item title="Row" icon={<RowIcon small />} href="/components/row" index={1} />
+          <Item title="Clamp" icon={<ClampIcon small />} href="/components/clamp" index={2} />
+          <Item title="Columns" icon={<ColumnsIcon small />} href="/components/columns" index={3} />
+          <Item title="Grid" icon={<GridIcon small />} href="/components/grid" index={4} />
         </Stack>
         <Stack gap={0}>
           <Item title='Get started' href='/get-started' />
