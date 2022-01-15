@@ -9,6 +9,12 @@ export const container = style({
   boxShadow: '0 4px 15px -4px rgba(0, 0, 0, 0.15)'
 })
 
+export const small = style({
+  height: 48,
+  width: 48,
+  padding: '9px !important'
+})
+
 export const stack = style([container, {
   backgroundImage: 'linear-gradient(32grad, #ea9280, #e58fb1)'
 }])

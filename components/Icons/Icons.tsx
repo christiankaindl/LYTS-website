@@ -3,14 +3,14 @@ import React, { FunctionComponent } from 'react'
 import IconChild from './IconBox'
 import * as styles from './Icons.css'
 
-export const StackIcon: FunctionComponent = function StackIcon () {
+interface IconProps {
+  small?: boolean
+}
+
+export const StackIcon: FunctionComponent<IconProps> = function StackIcon ({ small }) {
+  const gap = small ? '4px' : '6px'
   return (
-    <Stack
-      gap='6px'
-      expandChildren
-      className={styles.stack}
-      style={{ backgroundImage: 'linear-gradient(32grad, #ea9280, #e58fb1)' }}
-    >
+    <Stack gap={gap} expandChildren className={`${styles.stack} ${small && styles.small}`}>
       <IconChild />
       <IconChild />
       <IconChild />
@@ -18,14 +18,10 @@ export const StackIcon: FunctionComponent = function StackIcon () {
   )
 }
 
-export const RowIcon: FunctionComponent = function StackIcon () {
+export const RowIcon: FunctionComponent<IconProps> = function StackIcon ({ small }) {
+  const gap = small ? '4px' : '6px'
   return (
-    <Row
-      gap='6px'
-      expandChildren
-      className={styles.row}
-      style={{ alignItems: 'stretch' }}
-    >
+    <Row gap={gap} expandChildren className={`${styles.row} ${small && styles.small}`} style={{ alignItems: 'stretch' }}>
       <IconChild />
       <IconChild />
       <IconChild />
@@ -33,26 +29,29 @@ export const RowIcon: FunctionComponent = function StackIcon () {
   )
 }
 
-export const ClampIcon: FunctionComponent = function StackIcon () {
+export const ClampIcon: FunctionComponent<IconProps> = function StackIcon ({ small }) {
+  const clamp = small ? '24px' : '32px'
   return (
-    <Clamp gap='6px' clamp='32px' className={styles.clamp}>
+    <Clamp clamp={clamp} className={`${styles.clamp} ${small && styles.small}`}>
       <IconChild style={{ height: '100%' }} />
     </Clamp>
   )
 }
 
-export const ColumnsIcon: FunctionComponent = function StackIcon () {
+export const ColumnsIcon: FunctionComponent<IconProps> = function StackIcon ({ small }) {
+  const gap = small ? '4px' : '6px'
   return (
-    <Columns gap='6px' ratio='1/2' className={styles.columns}>
+    <Columns gap={gap} ratio='1/2' className={`${styles.columns} ${small && styles.small}`}>
       <IconChild />
       <IconChild />
     </Columns>
   )
 }
 
-export const GridIcon: FunctionComponent = function StackIcon () {
+export const GridIcon: FunctionComponent<IconProps> = function StackIcon ({ small = false }) {
+  const gap = small ? '4px' : '6px'
   return (
-    <Grid gap='6px' gridItemMinWidth='8px' className={styles.grid}>
+    <Grid gap={gap} gridItemMinWidth='7px' className={`${styles.grid} ${small && styles.small}`}>
       <IconChild />
       <IconChild />
       <IconChild />
