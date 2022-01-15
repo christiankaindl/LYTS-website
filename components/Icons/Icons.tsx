@@ -65,3 +65,11 @@ export const GridIcon: FunctionComponent = function StackIcon () {
     </Grid>
   )
 }
+
+export const iconMappings = {
+  stack: StackIcon,
+  row: RowIcon,
+  clamp: ClampIcon,
+  columns: ColumnsIcon,
+  grid: GridIcon
+}
