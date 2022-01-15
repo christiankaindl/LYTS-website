@@ -1,5 +1,9 @@
 import { bundleMDX } from "mdx-bundler"
 import path from "path"
+const {
+  vanillaExtractPlugin
+} = require('@vanilla-extract/esbuild-plugin');
+
 export async function getComponentPage (component: string) {
   // const content = fs.readFileSync(path.join(process.cwd(), `/examples/${params.component}.mdx`))
   if (process.platform === 'win32') {
@@ -19,17 +23,19 @@ export async function getComponentPage (component: string) {
     )
   }
   const { code, frontmatter } = await bundleMDX<{title: string}>({
-    // source: content.toString(),
     file: path.join(process.cwd(), `/examples/${component}.mdx`),
     cwd: process.cwd(),
     esbuildOptions(options, frontmatter) {
-      options.platform = 'node'
-      // options.target = ['es6']
-      options.target = ['es6']
+      options.platform = 'browser'
+      // Use the esbuild vanilla-extract plugin to get the bundled classNames.
+      // The actual CSS is already bundled on the page globally (by the Next.js vanilla-extract plugin)
+      // Thankfully, the hashes are the same between the Next.js (webpack) plugin and the esbuild plugin
+      options.plugins?.unshift(vanillaExtractPlugin())
+      // The outfile does nothing and is not outputted anywhere as far as I can tell, but the vanilla-extract plugin errors otherwise.
+      options.outfile = 'out.js'
       return options
     }
   });
-  console.log('frontmatter', frontmatter)
   return {
     code,
     meta: frontmatter
