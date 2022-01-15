@@ -1,4 +1,8 @@
-# LYTS Overview
+export { default } from 'components/SidebarLayout/SidebarLayout'
+
+# Overview
+
+Get a high-level overview of LYTS and its design choices.
 
 ```
 Example of code and the final layout and how they look similar.
@@ -17,10 +21,10 @@ Sometimes what is technically aligned is not visually aligned to our eyes. For e
 Technically it is aligned perfectly with the rest of the card, but visually it does not work out the same way. To fix this LYTS has the `bleed` prop (and *Top/Right/Bottom/Left), which makes it easy to nudge the button to the left and "bleed" into the bounding box:
 [[Example here]]
 
-### Normalized xAlign/yAlign
+### Normalized `xAlign`/`yAlign`
 
-When working with flexbox in can be confusing on which axis alignItems and justifyContent operates. When `flexDirection` is "row" ... when ... is .... LYTS normalizes this into xAlign and YAlign props which can be used on all of the components. Of course, manually supplying alignItems/justifyContent still works as is.
+When working with flexbox in can be confusing on which axis alignItems and justifyContent operates. When `flexDirection` is "row" ... when ... is .... LYTS normalizes this into "xAlign" and "zAlign" props which can be used on all of the components. Of course, manually supplying alignItems/justifyContent still works as expected.
 
-### asChild
+### `asChild`
 
 Inspired by Radix UI's `asChild`, uses their implementation under the hood.
