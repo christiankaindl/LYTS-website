@@ -56,9 +56,10 @@ p {
   line-height: 1.5;
 }
 code {
-  padding: 6px 9px;
-  border-radius: 7px;
+  padding: 3px 6px;
+  border-radius: 6px;
   background-color: rgb(0 0 0 / .09);
+  font-family: monospace;
 }
 
 pre > code {

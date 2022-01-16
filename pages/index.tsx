@@ -4,6 +4,7 @@ import Button from '../components/Button'
 import { Stack, Row } from '@christiankaindl/lyts'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 
 const otherStyles = { nav: '' }
 function App() {
@@ -29,14 +30,18 @@ function App() {
                 )
               })}
             </Row>
-            <p>
-              Layout primitives for React
+            <p style={{ color: 'rgb(255 255 255 / 0.685' }}>
+              Layout primitives for React.
             </p>
+            <div />
             <Row>
-              <Button>
-                Get started &gt;
+              <Button href='/get-started'>
+                <span>Get started</span>
+                <ArrowRight size={20} />
               </Button>
-              <Button>GitHub</Button>
+              <Button href='https://github.com/christiankaindl/LYTS'>
+                GitHub
+              </Button>
             </Row>
           </header>
         </Stack>
