@@ -16,27 +16,44 @@ npm install @christiankaindl/lyts
 
 ## Usage
 
-Import the components you need and compose them until you achieve your desired layout:
+
+Import the library CSS styles early in your application. For example in a Next.js app, import in `_app.js`:
 
 ```jsx
+/** _app.js */
+import '@christiankaindl/lyts/style.css'
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+
+export default MyApp
+```
+
+That's the whole setup! Now import one of the available components--Stack, Row, Clamp, Columns, Grid--and use them to get nice and consistent layouts.
+
+Compose layout components until you achieve your desired layout. The following \<CenterCard> component creates a card with a max-width of 750px and centers it:
+
+```tsx
 const CenterCard: FunctionComponent = function () {
   return (
-    <Clamp>
+    // A card with a max-width of 750px and centers it
+    <Clamp clamp='750px'>
       <Stack gap={0.75} className='card'>
-        <img />
-        <h3></h3>
+        <img src='' />
+        <h3>Card title</h3>
         <Row wrap gap={0.5}>
-          items here
+          <InfoIcon />
+          <p>Info: This is a card</p>
         </Row>
-        <p></p>
-        <Box xAlign='end'>Aligned at the end</Box>
+        <Box xAlign='end'>Aligned to the right</Box>
       </Stack>
     </Clamp>
   )
 }
 ```
 
-Check out the Examples page for a comprehensive collection of layouts and how to build them with LYTS--Copy/Pasta ready of course :)
+Check out the Examples page for a comprehensive collection of layouts and how to build them with LYTS.
 
 ## Support & help
 

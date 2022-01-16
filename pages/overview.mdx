@@ -2,29 +2,49 @@ export { default } from 'components/SidebarLayout/SidebarLayout'
 
 # Overview
 
-Get a high-level overview of LYTS and its design choices.
+Build Get a high-level overview of LYTS and its design choices.
 
 ```
 Example of code and the final layout and how they look similar.
 
 ```
 
-## Global props
+One of the reasons why LYTS has a separate Stack and Row components (vertical and horinzontal) instead of simply VStack and HStack, is because it it is easier to scan in code (besides small API differences).
+
+## Layout as props
+
 
 In addition of the domain of each layout component, all components support a few handy props:
 
-### Bleed prop
+### Optical alignment: `bleed`
 
 Sometimes what is technically aligned is not visually aligned to our eyes. For example, consider this button:
 [[Example here]]
 
-Technically it is aligned perfectly with the rest of the card, but visually it does not work out the same way. To fix this LYTS has the `bleed` prop (and *Top/Right/Bottom/Left), which makes it easy to nudge the button to the left and "bleed" into the bounding box:
+Technically, the button is aligned perfectly with the rest of the card, but its internal padding makes it look visually un-aligned. To fix this LYTS provides the `bleed` prop (and *Top/*Right/*Bottom/*Left), which makes it easy to nudge the button to the left, and "bleed" into the bounding box to visually align it:
 [[Example here]]
 
-### Normalized `xAlign`/`yAlign`
+### Vertical & horizontal alignment: `xAlign`/`yAlign`
 
-When working with flexbox in can be confusing on which axis alignItems and justifyContent operates. When `flexDirection` is "row" ... when ... is .... LYTS normalizes this into "xAlign" and "zAlign" props which can be used on all of the components. Of course, manually supplying alignItems/justifyContent still works as expected.
+CSS Flexbox provides `alignItems` and `justifyContent` to control alignment of children from the parent element. Depending on the flex-direction the control either the vertical or horizontal alignment, which can be quite confusing and easy to forget which does which.
 
-### `asChild`
+LYTS normalizes this into "xAlign" and "yAlign" props which can be used on all components. Of course, manually setting alignItems/justifyContent still works as expected.
 
-Inspired by Radix UI's `asChild`, uses their implementation under the hood.
+### Render as anything: `asChild`
+
+By default, all LYTS components render a /<div> element. But if you use semantic HTML (which you should), you often want to change the rendered element to get the correct behaviors out-of-the-box (keyboard interactions, screen-readers).
+
+Side note: The `asChild` API is inspired by Radix UI (we use their \<Slot /> component internally). It is an alternative to the commonly used `as` prop. `asChild` gives you more indentation, but is a clearer API overall--in my opinion.
+
+## Compatability & browser support
+
+LYTS uses the CSS `gap` property for spacing, which is supported by the vast majority of users' browsers. An earlier version used the negative margin technique to achive the same effect (with better browser support), but had some drawbacks:
+
+- It renders 2 containers for every layout context
+- Bleeding via margins only possible with another additional wrapper element
+
+Layout components are used *a lot*, which can lead to a lot of unnecessary DOM elements on a page. The `gap` property is now well supported in browsers so the trade-off has been made to rely on it. Additionally, now negative `margin` values can be used to achieve visually align elements, like ghost buttons, easily.
+
+## Aknowledgements
+
+LYTS is the spiritual successor of @quantargo/react-layout, which is still used in production over at [quantargo.com](https://www.quantargo.com/dashboard/courses). However there are quite a few adaptations and changes compared to it. Some of them, such moving from the negative margin technique to using native CSS `gap` are because of better browser support. Others, like the API changes, are based on extensive usage of the library.

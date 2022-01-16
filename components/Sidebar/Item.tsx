@@ -20,7 +20,7 @@ const Item: FunctionComponent<ItemProps> = function ({ icon, title, href, index 
       <Row className={`${styles.item} ${isActive ? styles.active : ''}`} bleedLeft='18px' asChild>
         <a>
           {icon !== undefined && (
-            <motion.div layoutId={`icon-${index}`} style={{ zIndex: 2, position: 'relative' }} transition={{ delay: index * 0.04, type: 'spring', bounce: 0.1, duration: 0.4 }}>
+            <motion.div layoutId={`icon-${index}`} style={{ zIndex: 2, position: 'relative' }} transition={{ delay: (index ?? 0) * 0.04, type: 'spring', bounce: 0.1, duration: 0.4 }}>
               {icon}
             </motion.div>
           )}
