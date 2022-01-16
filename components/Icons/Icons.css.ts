@@ -10,9 +10,10 @@ export const container = style({
 })
 
 export const small = style({
-  height: 48,
-  width: 48,
-  padding: '9px !important'
+  height: 42,
+  width: 42,
+  padding: '9px !important',
+  borderRadius: '9px !important',
 })
 
 export const stack = style([container, {
