@@ -8,7 +8,7 @@ import * as styles from './Sidebar.css'
 
 const Sidebar: FunctionComponent = function () {
   return (
-    <Stack asChild padding={16} className={styles.sidebar}>
+    <Stack asChild className={styles.sidebar}>
       <nav>
         <Link href='/' passHref>
           <Stack gap={0} asChild>
