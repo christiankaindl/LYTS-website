@@ -7,5 +7,10 @@ export const button = style({
   borderRadius: 99,
   border: 'none',
   backgroundColor: 'rgb(255, 255, 255, 0.7)',
-  fontWeight: 'bold'
+  fontWeight: 'bold',
+  color: 'black',
+  textDecoration: 'none',
+  ':hover': {
+    backgroundColor: 'rgb(255, 255, 255, 0.8)'
+  }
 })

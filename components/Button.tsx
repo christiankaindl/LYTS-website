@@ -1,14 +1,17 @@
 import { FunctionComponent } from "react"
 import { Row } from "@christiankaindl/lyts"
 import * as styles from './Button.css'
+import Link from "next/link"
 
-const Button: FunctionComponent = function Button ({ children }) {
+const Button: FunctionComponent<{ href: string }> = function Button ({ children, href, ...props }) {
   return (
-    <Row asChild gap={0.75}>
-      <button className={styles.button}>
-        {children}
-      </button>
-    </Row>
+    <Link href={href} passHref {...props}>
+      <Row asChild gap={0.75}>
+        <a className={styles.button}>
+          {children}
+        </a>
+      </Row>
+    </Link>
   )
 }
 
