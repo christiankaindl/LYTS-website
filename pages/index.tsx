@@ -17,7 +17,7 @@ function App() {
             {/* Make it more wide here with visible labels */}
             {/* Slide in a similar variant for the navbar after initial scroll (with only tooltips) */}
             <Row className={otherStyles.nav}>
-              {icons.map((element, index) => {
+              {icons.map(({ name, icon, href }, index) => {
                 return (
                   <motion.div
                     key={index}
@@ -25,7 +25,9 @@ function App() {
                     layoutId={`icon-${index}`}
                     transition={{ type: 'spring', bounce: 0, duration: 0.5 }}
                   >
-                    {element}
+                    <Link href={href}>
+                      <a aria-label={name}>{icon}</a>
+                    </Link>
                   </motion.div>
                 )
               })}
@@ -59,19 +61,29 @@ function App() {
 export default App
 
 const icons = [
-  <Link href='/components/stack'>
-    <a><StackIcon /></a>
-  </Link>,
-  <Link href='/components/row'>
-    <a><RowIcon /></a>
-  </Link>,
-  <Link href='/components/clamp'>
-    <a><ClampIcon /></a>
-  </Link>,
-  <Link href='/components/columns'>
-    <a><ColumnsIcon /></a>
-  </Link>,
-  <Link href='/components/grid'>
-    <a><GridIcon /></a>
-  </Link>
+  {
+    name: 'Stack',
+    href: '/components/stack',
+    icon: <StackIcon />
+  },
+  {
+    name: 'Row',
+    href: '/components/row',
+    icon: <RowIcon />
+  },
+  {
+    name: 'Clamp',
+    href: '/components/clamp',
+    icon: <ClampIcon />
+  },
+  {
+    name: 'Columns',
+    href: '/components/columns',
+    icon: <ColumnsIcon />
+  },
+  {
+    name: 'Grid',
+    href: '/components/grid',
+    icon: <GridIcon />
+  }
 ]

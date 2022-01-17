@@ -5,10 +5,8 @@ import { FunctionComponent } from "react"
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   // TODO: Get static paths based on components in /example dir
   return {
-    notFound: response === undefined,
     // revalidate: 60,
     props: {
-      data: response
     }
   }
 }
@@ -23,7 +21,7 @@ export const getStaticPaths: GetStaticPaths = async function () {
 
 const Example: FunctionComponent = function () {
   return (
-    
+    <div />
   )
 }
 

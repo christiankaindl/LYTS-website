@@ -29,7 +29,7 @@ const SidebarLayout: FunctionComponent = function ({ children, ...props }) {
 export default SidebarLayout
 
 export function withSidebarLayout (Component: FunctionComponent<any>) {
-  return (props: PropsWithChildren<{}>) => {
+  return function WithChildren (props: PropsWithChildren<{}>) {
     return (
       <SidebarLayout>
         <Component {...props} />
