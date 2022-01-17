@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = async function ({ params }) {
   return {
     // revalidate: 60,
     props: {
-      ...(await getComponentPage(params.component))
+      ...(await getComponentPage(params.component as string))
     }
   }
 }
@@ -36,10 +36,15 @@ export const getStaticPaths: GetStaticPaths = async function () {
   }
 }
 
-const Component: FunctionComponent = function ({ code, meta }) {
+interface Props {
+  code: string
+  meta: { [key: string]: any }
+}
+
+const Component: FunctionComponent<Props> = function ({ code, meta }) {
   const Content = useMemo(() => getMDXComponent(code), [code])
   const router = useRouter()
-  const Icon = iconMappings[router.query.component]
+  const Icon = iconMappings[router.query.component as keyof typeof iconMappings]
   return (
     <Clamp clamp='750px' style={{ padding: 30 }}>
       <Stack gap={1.5}>

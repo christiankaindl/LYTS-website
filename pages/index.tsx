@@ -1,6 +1,6 @@
 import styles from './index.module.css'
 import { StackIcon, RowIcon, ClampIcon, ColumnsIcon, GridIcon } from '@/components/Icons/Icons'
-import Button from '../components/Button'
+import Button from '@/components/Button'
 import { Stack, Row } from '@christiankaindl/lyts'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
