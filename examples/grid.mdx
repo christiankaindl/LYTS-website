@@ -5,46 +5,29 @@ description: Responsive grid
 
 import { Stack, Row, Columns, Grid } from '@christiankaindl/lyts'
 
-This example uses the CSS `gridColumn` property on the first element to stretch it the full width:
-
 <Grid gap='1.5em'>
-  <Columns style={{ gridColumn: '1 / -1' }} ratio='1/1.5'>
-    <img style={{ backgroundColor: 'grey' }} />
-    <Stack>
-      <span>Featured</span>
-      <h3>Product Card</h3>
-      <p>Lorem Ipsum</p>
-      <button>More details</button>
-    </Stack>
-  </Columns>
-  <Stack>
-    <b>Product Card</b>
-    <p>Lorem Ipsum</p>
-    <button>More details</button>
+  <Stack style={{ gridColumn: '1 / -1' }}>
+    ### Featured card
+    This card spans all columns of the grid, via the standard CSS Grid property `gridColumn`. It is set to "1 / -1".
   </Stack>
   <Stack>
-    <b>Product Card</b>
-    <p>Lorem Ipsum</p>
-    <button>More details</button>
+    **Product #1**
+
+    <button>Buy now</button>
   </Stack>
   <Stack>
-    <b>Product Card</b>
-    <p>Lorem Ipsum</p>
-    <button>More details</button>
+    **Product #2**
+
+    <button>Buy now</button>
   </Stack>
   <Stack>
-    <b>Product Card</b>
-    <p>Lorem Ipsum</p>
-    <button>More details</button>
+    **Product #3**
+
+    <button>Buy now</button>
   </Stack>
   <Stack>
-    <b>Product Card</b>
-    <p>Lorem Ipsum</p>
-    <button>More details</button>
-  </Stack>
-  <Stack>
-    <b>Product Card</b>
-    <p>Lorem Ipsum</p>
-    <button>More details</button>
+    **Product #4**
+
+    <button>Buy now</button>
   </Stack>
 </Grid>

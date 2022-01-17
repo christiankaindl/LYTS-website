@@ -5,20 +5,12 @@ description: Stack elements vertically.
 
 import { Stack } from '@christiankaindl/lyts'
 
-<Stack gap={1.5}>
-  <h3>
-    This is a Stack
-  </h3>
-  <p>
-    No margins need to be used here. The Stack component takes care of everything!
-  </p>
-  <Stack gap={0.5}>
-    <p>
-      This is a nested stack
-    </p>
-    <p>
-      With different spacing
-    </p>
+<Stack>
+    ### This is a `<Stack>`
+    All elements within a Stack are vertically spaced consistently, via the `gap` prop.
+  <Stack gap={2.5}>
+    You can also nest stack within stacks. This stack has a `gap` of 2.5
+
+    Like this!
   </Stack>
-  <button>A button</button>
 </Stack>

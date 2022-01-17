@@ -1,17 +1,19 @@
 ---
 title: Columns
-description: Full-width horizontal columns.
+description: Responsive full-width horizontal columns.
 ---
 
 import { Stack, Columns } from '@christiankaindl/lyts'
 
-<Columns collapseAt='28em'>
-  <Stack bleed='10px 5px' bleedLeft='7px'>
-    <h3>Heading</h3>
-    <p>Lorem ipsum</p>
+<Columns collapseAt='28em' ratio='1/2'>
+  <Stack>
+    > “Perfect for landing page sections, or sidebar layouts”
   </Stack>
   <Stack>
-    <h3>Heading</h3>
-    <p>Lorem ipsum</p>
+    ### Equal columns
+
+    Columns are extrinsically distributed. By default every child takes up 1 fraction of the available space, but this can be customized by the `ratio` prop (this one has a ratio of "1/2").
+
+    Columns automatically collapses into a single-column layout when the `collapseAt` prop is reached, such as "28em" in this example (resize the window to try it out!).
   </Stack>
 </Columns>
