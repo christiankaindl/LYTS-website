@@ -1,4 +1,5 @@
 import { boxStyles, stackStyles, rowStyles, clampStyles, columnsStyles, gridStyles } from "@christiankaindl/lyts"
+import { blueA, crimsonA, mauveA, plumA, red, redA, tealA, tomato, tomatoA, violetA } from "@radix-ui/colors";
 import { globalStyle, style } from "@vanilla-extract/css";
 
 globalStyle('html, body', {
@@ -10,30 +11,39 @@ export const debug = style({
   display: 'contents'
 })
 globalStyle(`${debug} ${toClassName(boxStyles.box)}`, {
-  outline: '2px solid rgba(0, 0, 0, .2)',
+  outline: `2px solid ${mauveA.mauveA6}`,
   padding: 18,
-  borderRadius: 12,
-  backgroundColor: 'rgb(0 0 0 / 0.01)'
+  borderRadius: 15,
+  backgroundColor: mauveA.mauveA2
+})
+globalStyle(`${debug} ${toClassName(boxStyles.box)} > ${toClassName(boxStyles.box)}`, {
+  borderRadius: 9
 })
 
 globalStyle(`${debug} ${toClassName(stackStyles.stack)}`, {
-  outline: '2px solid #f9c6c6'
+  // outline: '2px solid #f9c6c6', // Red 6
+  outline: `2px solid ${redA.redA6}`,
+  backgroundImage: `linear-gradient(160deg, ${tomatoA.tomatoA1}, ${crimsonA.crimsonA1})`
 })
 
 globalStyle(`${debug} ${toClassName(rowStyles.row)}`, {
-  outline: '2px solid #f3c6e2'
+  outline: '2px solid #f3c6e2',
+  backgroundImage: `linear-gradient(160deg, ${crimsonA.crimsonA1}, ${plumA.plumA1})`
 })
 
 globalStyle(`${debug} ${toClassName(clampStyles.clamp)}`, {
-  outline: '2px solid #e3ccf4'
+  outline: '2px solid #e3ccf4',
+  backgroundImage: `linear-gradient(160deg, ${plumA.plumA1}, ${violetA.violetA1})`
 })
 
 globalStyle(`${debug} ${toClassName(columnsStyles.columns)}`, {
-  outline: '2px solid #c6d4f9'
+  outline: '2px solid #c6d4f9',
+  backgroundImage: `linear-gradient(160deg, ${violetA.violetA1}, ${blueA.blueA1})`
 })
 
 globalStyle(`${debug} ${toClassName(gridStyles.grid)}`, {
-  outline: '2px solid #aadee6'
+  outline: '2px solid #aadee6',
+  backgroundImage: `linear-gradient(160deg, ${blueA.blueA1}, ${tealA.tealA1})`
 })
 
 export const nav = style([debug, {
