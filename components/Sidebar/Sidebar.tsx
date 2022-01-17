@@ -35,7 +35,7 @@ const Sidebar: FunctionComponent = function () {
         </Stack>
         <Split />
         <Stack>
-          <Row gap={0.5}>
+          <Row bleedLeft='4px' gap={0.5}>
             <Badge href='https://github.com/christiankaindl/LYTS/issues'>
               <a>Report issue</a>
             </Badge>

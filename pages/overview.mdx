@@ -1,20 +1,15 @@
+---
+title: Overview
+description: What has LYTS to offer for you?
+---
+
 export { default } from 'components/SidebarLayout/SidebarLayout'
-
-# Overview
-
-Build Get a high-level overview of LYTS and its design choices.
-
-```
-Example of code and the final layout and how they look similar.
-
-```
 
 One of the reasons why LYTS has a separate Stack and Row components (vertical and horinzontal) instead of simply VStack and HStack, is because it it is easier to scan in code (besides small API differences).
 
 ## Layout as props
 
-
-In addition of the domain of each layout component, all components support a few handy props:
+Getting to your desired layout should be as straightforward as possible. That's why LYTS exposes layout-speciic functionality as props on its components. In addition to the domain of each layout component, all components support a few handy props:
 
 ### Optical alignment: `bleed`
 
@@ -35,6 +30,12 @@ LYTS normalizes this into "xAlign" and "yAlign" props which can be used on all c
 By default, all LYTS components render a \<div> element. But if you use semantic HTML (which you should), you often want to change the rendered element to get the correct behaviors out-of-the-box (keyboard interactions, screen-readers).
 
 Side note: The `asChild` API is inspired by Radix UI (we use their \<Slot /> component internally). It is an alternative to the commonly used `as` prop. `asChild` gives you more indentation, but is a clearer API overall--in my opinion.
+
+## Examples
+
+Most apps and websites use mostly the same types of layout primitives in their design. From navbars, cards, overlays, sidebars, breadcrumbs, etc. Most all of them are easily implemented with LYTS and a lot of them have examples you can copy to your projects.
+
+Check out the examples.
 
 ## Compatability & browser support
 

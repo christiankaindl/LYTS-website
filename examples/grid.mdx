@@ -1,33 +1,26 @@
 ---
 title: Grid
 description: Responsive grid
+category: Components
 ---
 
-import { Stack, Row, Columns, Grid } from '@christiankaindl/lyts'
+import { Box, Grid } from '@christiankaindl/lyts'
 
 <Grid gap='1.5em'>
-  <Stack style={{ gridColumn: '1 / -1' }}>
-    ### Featured card
+  <Box xAlign='center' yAlign='center'>
+    Card #1
+  </Box>
+  <Box xAlign='center' yAlign='center'>
+    Card #2
+  </Box>
+  <Box xAlign='center' yAlign='center'>
+    Card #3
+  </Box>
+  <Box xAlign='center' yAlign='center'>
+    Card #4
+  </Box>
+  <Box style={{ gridColumn: '1 / -1' }}>
+    Card #5:
     This card spans all columns of the grid, via the standard CSS Grid property `gridColumn`. It is set to "1 / -1".
-  </Stack>
-  <Stack>
-    **Product #1**
-
-    <button>Buy now</button>
-  </Stack>
-  <Stack>
-    **Product #2**
-
-    <button>Buy now</button>
-  </Stack>
-  <Stack>
-    **Product #3**
-
-    <button>Buy now</button>
-  </Stack>
-  <Stack>
-    **Product #4**
-
-    <button>Buy now</button>
-  </Stack>
+  </Box>
 </Grid>

@@ -43,22 +43,11 @@ interface Props {
 
 const Component: FunctionComponent<Props> = function ({ code, meta }) {
   const Content = useMemo(() => getMDXComponent(code), [code])
-  const router = useRouter()
-  const Icon = iconMappings[router.query.component as keyof typeof iconMappings]
-  return (
-    <Clamp clamp='750px' style={{ padding: 30 }}>
-      <Stack gap={1.5}>
-        <Row>
-          {Icon !== undefined && <Icon />}
-          <h1>{meta.title}</h1>
-        </Row>
-        <p style={{ fontSize: '1.4em', color: 'rgb(0 0 0 / 0.6)' }}>{meta.description}</p>
 
-        <DebugProvider>
-          <Content />
-        </DebugProvider>
-      </Stack>
-    </Clamp>
+  return (
+    <DebugProvider>
+      <Content />
+    </DebugProvider>
   )
 }
 
