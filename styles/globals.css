@@ -69,3 +69,8 @@ pre > code {
   background-color: rgb(0 0 0 / .07);
   overflow: auto;
 }
+blockquote {
+  font-size: 1.4em;
+  color: rgb(0 0 0 / 0.6);
+  font-style: italic;
+}
