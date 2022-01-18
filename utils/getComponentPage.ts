@@ -23,7 +23,7 @@ export async function getComponentPage (component: string) {
     )
   }
   const { code, frontmatter } = await bundleMDX<{title: string}>({
-    file: path.join(process.cwd(), `/examples/${component}.mdx`),
+    file: path.join(process.cwd(), `/docs/components/${component}.mdx`),
     cwd: process.cwd(),
     esbuildOptions(options, frontmatter) {
       options.platform = 'browser'
