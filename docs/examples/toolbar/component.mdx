@@ -1,0 +1,20 @@
+---
+title: Toolbar
+description: Compose Row with Split to create a toolbar layout, wrapping to the next line on small screens.
+components:
+  - Split
+  - Row
+  - Stack
+---
+
+import { Row, Split } from '@christiankaindl/lyts'
+import { Edit, Share } from 'lucide-react'
+
+<Row gap={1.5}>
+  <b>
+    Toolbar
+  </b>
+  <Split />
+  <Edit />
+  <Share />
+</Row>

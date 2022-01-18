@@ -1,0 +1,29 @@
+---
+title: Wrapped tags
+description: Use the `wrap` prop to achieve commonly used inline tags with wrapping behavior.
+components:
+  - Row
+  - Stack
+---
+
+import { Row, Clamp } from '@christiankaindl/lyts'
+
+<Clamp clamp='380px'>
+  <Row wrap>
+    <Pill>Published 01.01.1970</Pill>
+    <Pill>Christian Kaindl</Pill>
+    <Pill>JavaScript</Pill>
+    <Pill>CSS</Pill>
+    <Pill>React</Pill>
+    <Pill>package</Pill>
+    <Pill>layout</Pill>
+  </Row>
+</Clamp>
+
+export const Pill = ({ children }) => {
+  return (
+    <span style={{ borderRadius: 99, backgroundColor: 'rgb(0, 0, 0, .08)', padding: '4px 12px', fontSize: 14 }}>
+      {children}
+    </span>
+  )
+}

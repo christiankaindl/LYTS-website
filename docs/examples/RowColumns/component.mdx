@@ -1,0 +1,16 @@
+---
+title: Columns with Row
+description: Use the `expandChildren` prop to fill the entire row, and to customize the `flex-grow` ratios.
+components:
+  - Row
+  - Stack
+---
+
+import { Row, Box } from '@christiankaindl/lyts'
+
+<Row gap={1.5} expandChildren>
+  <Box>Column 1</Box>
+  <Box>Column 2</Box>
+  <Box>Column 3</Box>
+  <Box>Column 4</Box>
+</Row>

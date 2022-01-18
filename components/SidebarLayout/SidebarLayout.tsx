@@ -26,11 +26,13 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta }) {
               <Row>
                 Docs {meta?.category ? `> ${meta?.category}` : ''}&gt; {meta?.title} 
               </Row>
-              <Row>
-                {Icon !== undefined && <Icon />}
-                <h1>{meta?.title}</h1>
-              </Row>
-              <p style={{ fontSize: '1.4em', color: 'rgb(0 0 0 / 0.6)' }}>{meta?.description}</p>
+              {meta?.title && (
+                <Row>
+                  {Icon !== undefined && <Icon />}
+                  <h1>{meta?.title}</h1>
+                </Row>
+              )}
+              {meta?.description && <p style={{ fontSize: '1.4em', color: 'rgb(0 0 0 / 0.6)' }}>{meta?.description}</p>}
               {children}
             </Stack>
           </main>

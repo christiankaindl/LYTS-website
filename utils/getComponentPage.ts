@@ -1,30 +1,25 @@
 import { bundleMDX } from "mdx-bundler"
 import path from "path"
+import { mdxBundlerSetup } from "./mdxBundlerSetup";
 const {
   vanillaExtractPlugin
 } = require('@vanilla-extract/esbuild-plugin');
 
-export async function getComponentPage (component: string) {
-  // const content = fs.readFileSync(path.join(process.cwd(), `/examples/${params.component}.mdx`))
-  if (process.platform === 'win32') {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      process.cwd(),
-      'node_modules',
-      'esbuild',
-      'esbuild.exe',
-    )
-  } else {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      process.cwd(),
-      'node_modules',
-      'esbuild',
-      'bin',
-      'esbuild',
-    )
-  }
-  const { code, frontmatter } = await bundleMDX<{title: string}>({
-    file: path.join(process.cwd(), `/docs/components/${component}.mdx`),
+mdxBundlerSetup()
+
+// Rename to getMdxPage
+export async function getComponentPage (pathname: string) {
+  const { code, frontmatter } = await bundleMDX<{title: string, description?: string, components?: string[], id?: string}>({
+    file: path.join(process.cwd(), `/docs/${pathname}.mdx`),
     cwd: process.cwd(),
+    globals: {
+      '@christiankaindl/lyts': {
+        varName: 'lyts',
+        namedExports: ['Stack', 'Row', 'Clamp', 'Columns', 'Grid', 'Split', 'Box'],
+        type: 'esm',
+        defaultExport: false
+      }
+    },
     esbuildOptions(options, frontmatter) {
       options.platform = 'browser'
       // Use the esbuild vanilla-extract plugin to get the bundled classNames.
@@ -36,8 +31,9 @@ export async function getComponentPage (component: string) {
       return options
     }
   });
+  frontmatter.id = path.basename(path.dirname(pathname))
   return {
     code,
-    meta: frontmatter
+    meta: frontmatter,
   }
 }

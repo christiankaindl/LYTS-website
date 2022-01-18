@@ -1,26 +1,52 @@
+import DebugProvider from '@/components/DebugProvider/DebugProvider'
 import { Stack, Row, Grid } from '@christiankaindl/lyts'
 import { withSidebarLayout } from 'components/SidebarLayout/SidebarLayout'
+import { getMDXComponent, getMDXExport } from 'mdx-bundler/client'
 import { GetStaticProps } from "next"
-import { FunctionComponent } from "react"
+import Link from 'next/link'
+import { FunctionComponent, useState } from "react"
+import { lyts } from 'utils'
+import { getFilteredExamples } from 'utils/getFilteredExamples'
 
 export const getStaticProps: GetStaticProps = async function () {
-  // TODO: Get components from /example dir
   return {
     props: {
-
+      examples: await getFilteredExamples()
     }
   }
 }
 
-const Examples = function () {
+const Examples: FunctionComponent<any> = function ({ examples }) {
+  const [_examples] = useState(() => {
+    return examples.map(({ code, meta }: any) => {
+      return {
+        Component: getMDXComponent(code, { lyts }),
+        ...meta
+      }
+    })
+  })
+
   return (
     <Stack>
-      <h1>Examples &amp; Recipes</h1>
+      <h1>Examples</h1>
       <p>Copy/pasteable snippets for common layouts.</p>
-      <Filters />
-      <Grid>
-        Some stuff
-      </Grid>
+      <Stack>
+        {_examples.map(({ Component, title, description, id }: any) => {
+          return (
+            <Link href={`/examples/${id}`} passHref key={id}>
+              <Stack asChild style={{ padding: 30, boxShadow: '0px 4px 25px -10px rgb(0 0 0 / 0.2)', borderRadius: 30, textDecoration: 'none', color: 'black' }}>
+                <a>
+                  <h2>{title}</h2>
+                  <p>{description}</p>
+                  <DebugProvider>
+                    <Component />
+                  </DebugProvider>
+                </a>
+              </Stack>
+            </Link>
+          )
+        })}
+      </Stack>
     </Stack>
   )
 }
