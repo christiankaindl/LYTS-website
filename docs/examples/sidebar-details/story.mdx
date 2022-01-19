@@ -1,0 +1,24 @@
+import Component, { frontmatter } from './Component.mdx'
+
+export { frontmatter }
+
+<Component />
+
+First we must decide how much space the sidebar and details view will get. In this example it is split up in a 1:3 ratio, meaning the sidebar takes up 25% of the width and the details view take up 75%.
+
+This already gives us a nice baseline, but there's 2 things which should be improved still:
+
+1. The layout doesn't yet work well on small screens. That is because we haven't added the `collapseAt` prop yet, so the layout scales down until no space is left.
+1. When shrinking the screen you can notice that the sidebar gets too small (and too big when growing). That is because 25% of the width quickly becomes too little space to be legible.
+
+## Adding `collapseAt`
+
+The first issue is fixed quite easily. We simply specify a `collapseAt` value which we like, and Columns automatically collapses into a single-column layout after that. `collapseAt` specifies the *container* width at which the layout collapses. This is useful, because we could now also create a CSS media query to adapt the sidebar to something which works better for mobile.
+
+## Polishing the sidebar 
+
+To prevent the sidebar from getting to small or too big we ca usethe CSS `min-width` and `max-width` properties, which also play very nicely with the `ratio` prop. Together you get a smooth linear "width gradient" when resizing the window.
+
+---
+
+Fun fact: this is exactly how the sidebar/details view of this website is implemented. You can [have a look at the code]().

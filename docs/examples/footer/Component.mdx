@@ -1,0 +1,30 @@
+---
+title: Footer
+description: Leverage Columns to create a 4-columns footer layout, collapsing into a single column on small screens
+components:
+  - Columns
+  - Stack
+---
+
+import { Box, Stack, Columns } from '@christiankaindl/lyts'
+
+<Columns collapseAt='30em'>
+  <Box xAlign='center' yAlign='center'>
+    My logo
+  </Box>
+  <Stack gap={0.5}>
+    <Box>Producs</Box>
+    <Box>Services</Box>
+    <Box>For Business</Box>
+  </Stack>
+  <Stack gap={0.5}>
+    <Box>About Us</Box>
+    <Box>Terms of Use</Box>
+    <Box>Privacy Policy</Box>
+  </Stack>
+  <Stack gap={0.5}>
+    <Box>Facebook</Box>
+    <Box>Twitter</Box>
+    <Box>LinkedIn</Box>
+  </Stack>
+</Columns>

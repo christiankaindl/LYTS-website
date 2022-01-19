@@ -1,3 +1,4 @@
+import { crimson, tomato } from "@radix-ui/colors";
 import { style } from "@vanilla-extract/css";
 
 export const container = style({
@@ -17,7 +18,7 @@ export const small = style({
 })
 
 export const stack = style([container, {
-  backgroundImage: 'linear-gradient(32grad, #ea9280, #e58fb1)'
+  backgroundImage: `linear-gradient(32grad, ${tomato.tomato8}, ${crimson.crimson8})`
 }])
 
 export const row = style([container, {

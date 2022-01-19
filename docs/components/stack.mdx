@@ -4,14 +4,33 @@ description: Vertical stack
 category: Components
 ---
 
-import { Stack } from '@christiankaindl/lyts'
+import { Stack, Box } from '@christiankaindl/lyts'
 
 <Stack>
-  ### This is a `<Stack>`
-  All elements within a Stack are vertically spaced consistently, via the `gap` prop.
-  <Stack gap={2.5}>
-    You can also nest stack within stacks. This stack has a `gap` of 2.5
+  <Box>
+    Child #1
+  </Box>
+  <Box>
+    Child #2
+  </Box>
+</Stack>
 
-    Like this!
+Stacks can also be nested within each other, which makes it easy to [visually group](https://lawsofux.com/law-of-proximity/) elements together:
+
+<Stack>
+  <Box>
+    ### This is a `<Stack>`
+  </Box>
+  <Box>
+    All elements within a Stack are vertically spaced consistently, via the `gap` prop.
+  </Box>
+  <Stack gap={2.5}>
+    <Box>
+      You can also nest stack within stacks. This stack has a `gap` of 2.5
+    </Box>
+    <Box>
+      Like this!
+    </Box>
+    You can also nest stack within stacks. This stack has a `gap` of 2.5
   </Stack>
 </Stack>

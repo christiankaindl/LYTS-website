@@ -1,0 +1,21 @@
+---
+title: Sidebar/details view
+description: Use Columns with a combination of `ratio` and min-/max-width to create a responsive sidebar.
+components:
+  - Columns
+---
+
+import { Box, Columns } from '@christiankaindl/lyts'
+
+<Columns ratio='1/3'>
+  <Box
+    style={{
+      minWidth: '17em'
+    }}
+  >
+    Sidebar
+  </Box>
+  <Box>
+    Details view
+  </Box>
+</Columns>

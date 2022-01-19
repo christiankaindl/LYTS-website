@@ -4,17 +4,19 @@ description: Responsive full-width horizontal columns
 category: Components
 ---
 
-import { Box, Stack, Columns } from '@christiankaindl/lyts'
+import { Box, Columns } from '@christiankaindl/lyts'
 
 <Columns collapseAt='28em' ratio='1/2'>
   <Box>
-    > “Perfect for landing page sections, or sidebar layouts”
+    Column #1
   </Box>
-  <Stack>
-    ### Equal columns
-
-    Columns are extrinsically distributed. By default every child takes up 1 fraction of the available space, but this can be customized by the `ratio` prop (this one has a ratio of "1/2").
-
-    Columns automatically collapses into a single-column layout when the `collapseAt` prop is reached, such as "28em" in this example (resize the window to try it out!).
-  </Stack>
+  <Box>
+    Column #2
+  </Box>
 </Columns>
+
+Columns are extrinsically sized. This means that its children's width is determined by its parent (the Columns container). By default every child takes up 1 fraction of the available space, but this can be customized by the `ratio` prop (the example above has a ratio of "1/2").
+
+This behavior is perfect for landing page sections, where you want the same ratios for every section. This also works great for sidebar layouts. You can set a min- and maxWidth on the sidebar to get dynamic sizing, all while staying in a legible width (the sidebar layout of this very site is using \<Columns>!)
+
+To support mobile devices, Columns automatically collapses into a single-column layout when the Columns container reaches the width of the `collapseAt`, such as "28em" in this example (resize the window to try it out!).

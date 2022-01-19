@@ -1,5 +1,6 @@
 import { bundleMDX } from "mdx-bundler"
 import path from "path"
+import { lyts } from "utils";
 import { mdxBundlerSetup } from "./mdxBundlerSetup";
 const {
   vanillaExtractPlugin
@@ -15,7 +16,7 @@ export async function getComponentPage (pathname: string) {
     globals: {
       '@christiankaindl/lyts': {
         varName: 'lyts',
-        namedExports: ['Stack', 'Row', 'Clamp', 'Columns', 'Grid', 'Split', 'Box'],
+        namedExports: Object.keys(lyts),
         type: 'esm',
         defaultExport: false
       }

@@ -36,7 +36,6 @@ export const getStaticPaths: GetStaticPaths = async function () {
   const pages = fs.readdirSync(path.join(process.cwd(), 'docs/examples'))
     .filter((fileName) => !fileName.endsWith('.mdx') && fileName.toLowerCase() !== 'template')
     .map((fileName) => `/examples/${fileName}`)
-  console.log('static example pages: ', pages)
   return {
     paths: pages,
     fallback: 'blocking'

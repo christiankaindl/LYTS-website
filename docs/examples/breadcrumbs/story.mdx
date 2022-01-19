@@ -1,0 +1,23 @@
+import Component, { frontmatter } from './Component.mdx'
+import { Box, Row } from '@christiankaindl/lyts'
+import { ChevronRight } from 'lucide-react'
+
+export { frontmatter }
+
+<Component />
+
+On small screen sizes the chevrons can sometimes have odd in-between state. That is because the chevron arrows are independent of the text crumbs. This can be fixed by grouping chevron/crumb pairs in another row with the same spacing:
+
+<Row wrap gap={0.5}>
+  <Row gap={0.5} style={{ padding: '0px', background: 'none', outline: 'none' }}>
+    <span>Docs</span>
+    <ChevronRight size={20} />
+  </Row>
+  <Row gap={0.5} style={{ padding: '0px', background: 'none', outline: 'none' }}>
+    <span>Examples</span>
+    <ChevronRight size={20} />
+  </Row>
+  <span>Breadcrumbs</span>
+</Row>
+
+Now each crumb always collapses together with its chevron.

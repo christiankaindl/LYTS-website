@@ -29,7 +29,8 @@ const Examples: FunctionComponent<any> = function ({ examples }) {
   return (
     <Stack>
       <h1>Examples</h1>
-      <p>Copy/pasteable snippets for common layouts.</p>
+      <p>Copy/paste-able snippets for common layouts.</p>
+      <p>Examples focus on how to achieve different layouts by composing the different components. The components themselves are completely unstyled.</p>
       <Stack>
         {_examples.map(({ Component, title, description, id }: any) => {
           return (

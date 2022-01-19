@@ -1,15 +1,20 @@
 ---
 title: Overview
-description: What has LYTS to offer for you?
+description: Simple primitives to build any layout with minimal custom CSS.
 ---
+
+import { Box, Columns } from '@christiankaindl/lyts'
+import Link from 'next/link'
 
 export { default } from 'components/SidebarLayout/SidebarLayout'
 
-One of the reasons why LYTS has a separate Stack and Row components (vertical and horinzontal) instead of simply VStack and HStack, is because it it is easier to scan in code (besides small API differences).
+1. Drop-in. Use as much or as little as you need, no complicated setup
+1. Composable - Combine to create complex layouts
+1. Familiar - Apply standard CSS flexbox and grid knowledge
 
 ## Layout as props
 
-Getting to your desired layout should be as straightforward as possible. That's why LYTS exposes layout-speciic functionality as props on its components. In addition to the domain of each layout component, all components support a few handy props:
+Getting to your desired layout should be as straightforward as possible. That's why LYTS exposes layout-specific functionality as props on its components. The Box component, which all others inherit, support a few handy props:
 
 ### Optical alignment: `bleed`
 
@@ -18,6 +23,17 @@ Sometimes what is technically aligned is not visually aligned to our eyes. For e
 
 Technically, the button is aligned perfectly with the rest of the card, but its internal padding makes it look visually un-aligned. To fix this LYTS provides the `bleed` prop (and *Top/*Right/*Bottom/*Left), which makes it easy to nudge the button to the left, and "bleed" into the bounding box to visually align it:
 [[Example here]]
+
+<Columns collapseAt='30em'>
+  <Box>
+    Before
+    <img />
+  </Box>
+  <Box>
+    After
+    <img />
+  </Box>
+</Columns>
 
 ### Vertical & horizontal alignment: `xAlign`/`yAlign`
 
@@ -29,13 +45,13 @@ LYTS normalizes this into "xAlign" and "yAlign" props which can be used on all c
 
 By default, all LYTS components render a \<div> element. But if you use semantic HTML (which you should), you often want to change the rendered element to get the correct behaviors out-of-the-box (keyboard interactions, screen-readers).
 
-Side note: The `asChild` API is inspired by Radix UI (we use their \<Slot /> component internally). It is an alternative to the commonly used `as` prop. `asChild` gives you more indentation, but is a clearer API overall--in my opinion.
+Side note: The `asChild` API is inspired by Radix UI (we use their \<Slot /> component internally). It is an alternative to the commonly used `as` prop. `asChild` gives you more indentation, but composes in a clearer way with multiple `asChild` components.
 
 ## Examples
 
-Most apps and websites use mostly the same types of layout primitives in their design. From navbars, cards, overlays, sidebars, breadcrumbs, etc. Most all of them are easily implemented with LYTS and a lot of them have examples you can copy to your projects.
+Most apps and websites use the same types of layout primitives in their design. From navbars, cards, overlays, sidebars, breadcrumbs, etc. Most all of them are easily implemented with LYTS and a lot of them have examples you can copy/paste directly into your projects.
 
-Check out the examples.
+<Link href='/examples'>Check out all examples</Link>
 
 ## Compatability & browser support
 
@@ -48,4 +64,4 @@ Layout components are used *a lot*, which can lead to a lot of unnecessary DOM e
 
 ## Aknowledgements
 
-LYTS is the spiritual successor of @quantargo/react-layout, which is still used in production over at [quantargo.com](https://www.quantargo.com/dashboard/courses). However there are quite a few adaptations and changes compared to it. Some of them, such moving from the negative margin technique to using native CSS `gap` are because of better browser support. Others, like the API changes, are based on extensive usage of the library.
+LYTS is the spiritual successor of [@quantargo/react-layout](https://github.com/quantargo/react-layout), which is used in production at [quantargo.com](https://www.quantargo.com). However there are quite a few adaptations and changes compared to it. Some of them, such moving from the negative margin technique to using native CSS `gap` are because of better browser support these days. Others, like various API changes and improvements, are based on extensive usage of the library.

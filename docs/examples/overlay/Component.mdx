@@ -1,0 +1,15 @@
+---
+title: Overlay
+description: Use Clamp to create an overlay which is centered both horizontally and vertically.
+components:
+  - Clamp
+  - Box
+---
+
+import { Box, Clamp } from '@christiankaindl/lyts'
+
+<Clamp clamp={['300px', '250px']} style={{ height: '450px' }}>
+  <Box xAlign='center' yAlign='center'>
+    Centered overlay
+  </Box>
+</Clamp>

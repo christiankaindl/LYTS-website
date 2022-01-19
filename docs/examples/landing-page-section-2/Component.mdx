@@ -1,0 +1,25 @@
+---
+title: Landing page section (3 columns)
+description: Use Columns to create a three-columns landing page section, which collapses to a single column on small sizes.
+components:
+  - Columns
+  - Stack
+---
+
+import { Box, Stack, Columns } from '@christiankaindl/lyts'
+import { BatteryCharging, Smile, Gem } from 'lucide-react'
+
+<Columns collapseAt='30em' style={{ minHeight: '40vh' }}>
+  <Stack yAlign='center' xAlign='center'>
+    <BatteryCharging size='42px' />
+    So charged.
+  </Stack>
+  <Stack yAlign='center' xAlign='center'>
+    <Gem size='42px' />
+    Much wow.
+  </Stack>
+  <Stack yAlign='center' xAlign='center'>
+    <Smile size='42px' />
+    Such happy.
+  </Stack>
+</Columns>

@@ -1,0 +1,17 @@
+import Component, { frontmatter } from './Component.mdx'
+
+export { frontmatter }
+
+<Component />
+
+To achieve a simple article layout  the example is wrapped in a Clamp, which privides us with 3 things:
+
+1. Consistent Stack-style vertical spacing (via the `gap` prop)
+1. Horizontal clamping to a specified max-width
+1. The ability to create "break-out" children (more on that below)
+
+## What about that "break-out" thing?
+
+Clamp is using a technique popularized by Josh Comeau's [*Full-Bleed Layout Using CSS Grid*](https://www.joshwcomeau.com/css/full-bleed/). With this technique, any direct child can "opt-out" of the clamping by using `grid-column` to "1 / -1". LYTS implements this behavior with the \<Breakout> component.
+
+This makes it possible to use a Clamp at the top-level, but to still have the flexibility to include full-width content, such as section with a different background-color or -image.

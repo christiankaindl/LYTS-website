@@ -1,0 +1,17 @@
+---
+title: Breadcrumbs
+description: Use Row with the `wrap` prop to create mobile-friendly breadcrumbs
+components:
+  - Row
+---
+
+import { Box, Row } from '@christiankaindl/lyts'
+import { ChevronRight } from 'lucide-react'
+
+<Row wrap gap={0.5}>
+  <span>Docs</span>
+  <ChevronRight size={20} />
+  <span>Examples</span>
+  <ChevronRight size={20} />
+  <span>Breadcrumbs</span>
+</Row>
