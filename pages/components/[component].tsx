@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import path from "path"
 import fs from 'fs'
-import { FunctionComponent, useMemo, useState } from "react"
+import { FunctionComponent, useEffect, useMemo, useState } from "react"
 import { getMDXComponent } from 'mdx-bundler/client'
 import { getComponentPage } from "utils/getComponentPage"
 import DebugProvider from "components/DebugProvider/DebugProvider"
@@ -20,6 +20,7 @@ export const getStaticProps: GetStaticProps = async function ({ params }) {
   }
 
   const bundled = await getComponentPage(`components/${params.component as string}`)
+  console.log('bundled.meta.title', bundled.meta.title)
   return {
     // revalidate: 60,
     props: {
@@ -47,7 +48,7 @@ interface Props {
 
 const Component: FunctionComponent<Props> = function ({ code, meta, examples }) {
   const Content = useMemo(() => getMDXComponent(code, { lyts }), [code])
-  const [_examples] = useState(() => {
+  const [_examples, setExamples] = useState(() => {
     return examples.map(({ code, meta }: any) => {
       return {
         Component: getMDXComponent(code, { lyts }),
@@ -55,6 +56,14 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples }) 
       }
     })
   })
+  useEffect(() => {
+    setExamples(examples.map(({ code, meta }: any) => {
+      return {
+        Component: getMDXComponent(code, { lyts }),
+        ...meta
+      }
+    }))
+  }, [examples])
 
   return (
     <>
