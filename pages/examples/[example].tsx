@@ -38,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async function () {
     .map((fileName) => `/examples/${fileName}`)
   return {
     paths: pages,
-    fallback: 'blocking'
+    fallback: false
   }
 }
 

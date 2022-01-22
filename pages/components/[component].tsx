@@ -50,7 +50,7 @@ export const getStaticPaths: GetStaticPaths = async function () {
     .map((fileName) => `/components/${fileName.slice(0, -4)}`)
   return {
     paths: pages,
-    fallback: 'blocking'
+    fallback: false
   }
 }
 
