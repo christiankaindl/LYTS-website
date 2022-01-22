@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async function ({ params }) {
 
 export const getStaticPaths: GetStaticPaths = async function () {
   const pages = fs.readdirSync(path.join(process.cwd(), 'docs/examples'))
-    .filter((fileName) => !fileName.endsWith('.mdx') && fileName.toLowerCase() !== 'template')
+    .filter((fileName) => !fileName.endsWith('.mdx') && fileName.toLowerCase() !== 'template' && fileName !== '.DS_Store')
     .map((fileName) => `/examples/${fileName}`)
   return {
     paths: pages,
