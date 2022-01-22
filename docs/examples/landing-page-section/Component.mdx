@@ -10,7 +10,10 @@ components:
 import { Box, Stack, Columns } from '@christiankaindl/lyts'
 import { BatteryCharging } from 'lucide-react'
 
-<Columns collapseAt='30em' ratio='2/1' style={{ minHeight: '40vh' }}>
+<Columns collapseAt='30em' ratio='1/2' style={{ minHeight: '40vh' }}>
+  <Box xAlign='center' yAlign='center'>
+    <BatteryCharging size='42px' />
+  </Box>
   <Stack yAlign='center'>
     ### Batteries included
 
@@ -18,7 +21,4 @@ import { BatteryCharging } from 'lucide-react'
 
     <a>BUY NOW</a>
   </Stack>
-  <Box xAlign='center' yAlign='center'>
-    <BatteryCharging size='42px' />
-  </Box>
 </Columns>

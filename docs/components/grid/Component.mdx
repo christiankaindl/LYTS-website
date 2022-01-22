@@ -1,6 +1,6 @@
 import { Box, Grid } from '@christiankaindl/lyts'
 
-<Grid gap='1.5em'>
+<Grid gridItemMinWidth='13em'>
   <Box xAlign='center' yAlign='center'>
     Card #1
   </Box>
@@ -13,8 +13,10 @@ import { Box, Grid } from '@christiankaindl/lyts'
   <Box xAlign='center' yAlign='center'>
     Card #4
   </Box>
-  <Box style={{ gridColumn: '1 / -1' }}>
-    Card #5:
-    This card spans all columns of the grid, via the standard CSS Grid property `gridColumn`. It is set to "1 / -1".
+  <Box xAlign='center' yAlign='center'>
+    Card #5
+  </Box>
+  <Box xAlign='center' yAlign='center'>
+    Card #6
   </Box>
 </Grid>

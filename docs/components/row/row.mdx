@@ -4,6 +4,21 @@ description: Horizontal stack
 category: Components
 ---
 
-import { Row, Box } from '@christiankaindl/lyts'
+import { Row, Box, Split } from '@christiankaindl/lyts'
 
+Use Split when you need to stack elements horizontally. This has many use cases such as [toolbars](/examples/toolbar), [breadcrumbs](/examples/breadcrumbs) or a [list of tags](/examples/wrapped-tags).
 
+## Wrapping
+
+// TODO
+
+## Split-layouts
+
+It is common to  have elements on opposite sides of each other, but aligned on the same axis. LYTS provides the Split component, which can be used together with Row and Stack to "split" up the remaining space:
+
+<Row>
+  <Box>Item #1</Box>
+  <Box>Item #2</Box>
+  <Split />
+  <Box>Item #3</Box>
+</Row>

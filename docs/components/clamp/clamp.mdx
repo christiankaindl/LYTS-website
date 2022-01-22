@@ -6,21 +6,23 @@ category: Components
 
 import { Clamp, Box, Breakout } from '@christiankaindl/lyts'
 
-Clamp's direct child will be clamped and centered to the specified width. In the example above, the inner boxes are clamped to a width of 300px.
+Use Clamp when you want to center elements with a max-width/-height. Common use cases for this behavior are [articles](/examples/article) and [overlays](/examples/overlay).
 
 ## Clamping vertically
 
-You can also clamp elements vertically by providing an array for the `clamp` prop. This is useful for overlays:
+The most common use case is to  passages of text and elements, but you can also clamp elements vertically by providing an array for the `clamp` prop, where the second value is the maximum height. This is handy for overlays, where you typically need to clamp both horizontally (width) and vertically (height):
 
 <Clamp clamp={['400px', '200px']} style={{ height: 400 }}>
   <Box>
-    Child #1
+    Child
   </Box>
 </Clamp>
 
+In a real-world application, the Clamp container itself would be absolutely positioned to the viewport.
+
 ## Break-out elements
 
-Clamp also supports "break-out" elements, made popular by Josh Comeau's [*Full-Bleed Layout Using CSS Grid*](https://www.joshwcomeau.com/css/full-bleed/) (check it out, it's a great read!). With LYTS you can use the \<Breakout> component as a direct child to Clamp to make it "opt-out" of the clamping and make it full-width:
+Clamp also supports "break-out" elements, made popular by Josh Comeau's [*Full-Bleed Layout Using CSS Grid*](https://www.joshwcomeau.com/css/full-bleed/) (check it out, it's a great read!). With LYTS you can use the \<Breakout> component as a direct child to Clamp to make it "opt out" of the clamping and make it full-width:
 
 <Clamp clamp={'400px'}>
   <Box>

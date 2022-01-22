@@ -4,5 +4,27 @@ description: Responsive grid
 category: Components
 ---
 
-import { Box, Grid } from '@christiankaindl/lyts'
+import { Box, Grid, Breakout } from '@christiankaindl/lyts'
 
+Use Grid if you need a layout with shared column sizing across multiple rows. In a grid, even when not all spaces are filled, the space for all columns is always reserved, which makes it a great choice for structured content display, such as [blog posts]().
+
+## Break-out elements
+
+Grid also supports "break-out" elements, which are a common way to highlight the first item in a grid with a larger appearance. Break-out elements are supported via the \<Breakout> component:
+
+<Grid gridItemMinWidth='13em'>
+  <Breakout xAlign='center' yAlign='center'>
+    Hero card (Breakout)
+  </Breakout>
+  <Box xAlign='center' yAlign='center'>
+    Card #1
+  </Box>
+  <Box xAlign='center' yAlign='center'>
+    Card #2
+  </Box>
+  <Box xAlign='center' yAlign='center'>
+    Card #3
+  </Box>
+</Grid>
+
+Breakout is a helper component which sets CSS' `grid-column` to "1 / -1", which makes it span all columns within a row.

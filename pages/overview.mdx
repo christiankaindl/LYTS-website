@@ -47,6 +47,10 @@ By default, all LYTS components render a \<div> element. But if you use semantic
 
 Side note: The `asChild` API is inspired by Radix UI (we use their \<Slot /> component internally). It is an alternative to the commonly used `as` prop. `asChild` gives you more indentation, but composes in a clearer way with multiple `asChild` components.
 
+## Server-side rendering
+
+All components work out-of-the-box when rendering on the server. Container-based props such as Columns' `collapseAt` use CSS tequniques instead of resorting to a Resize Observer, which ensures that the first render on the client is always correct.
+
 ## Examples
 
 Most apps and websites use the same types of layout primitives in their design. From navbars, cards, overlays, sidebars, breadcrumbs, etc. Most all of them are easily implemented with LYTS and a lot of them have examples you can copy/paste directly into your projects.
