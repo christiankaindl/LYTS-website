@@ -6,15 +6,6 @@ category: Components
 
 import { Box, Columns } from '@christiankaindl/lyts'
 
-<Columns collapseAt='28em' ratio='1/2'>
-  <Box>
-    Column #1
-  </Box>
-  <Box>
-    Column #2
-  </Box>
-</Columns>
-
 Columns are extrinsically sized. This means that its children's width is determined by its parent (the Columns container). By default every child takes up 1 fraction of the available space, but this can be customized by the `ratio` prop (the example above has a ratio of "1/2").
 
 This behavior is perfect for landing page sections, where you want the same ratios for every section. This also works great for sidebar layouts. You can set a min- and maxWidth on the sidebar to get dynamic sizing, all while staying in a legible width (the sidebar layout of this very site is using \<Columns>!)

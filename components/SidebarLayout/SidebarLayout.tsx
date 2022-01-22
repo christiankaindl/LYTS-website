@@ -40,7 +40,6 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
                   {docs?.description || meta?.description}
                 </p>
               )}
-              {docs && <PropsTable {...docs} />}
               {children}
             </Stack>
           </main>

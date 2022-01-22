@@ -11,6 +11,7 @@ import { getFilteredExamples } from "utils/getFilteredExamples"
 import Link from "next/link"
 import { lyts } from "utils"
 import { withCustomConfig, PropItem } from 'react-docgen-typescript'
+import PropsTable from "@/components/PropsTable"
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.component === undefined) {
@@ -20,8 +21,8 @@ export const getStaticProps: GetStaticProps = async function ({ params }) {
     }
   }
 
-  const bundled = await getComponentPage(`components/${params.component as string}`)
-  // console.log('bundled.meta.title', bundled.meta.title)
+  const story = await getComponentPage(`components/${params.component as string}/${params.component as string}`)
+  const component = await getComponentPage(`components/${params.component as string}/Component`)
 
   const customParser = withCustomConfig(path.join(process.cwd(), 'node_modules/@christiankaindl/lyts/tsconfig.json'), {
     // @ts-expect-error
@@ -30,15 +31,14 @@ export const getStaticProps: GetStaticProps = async function ({ params }) {
     },
     savePropValueAsString: true
   })
-  const [componentInfo] = customParser.parse(path.join(process.cwd(), `node_modules/@christiankaindl/lyts/src/${bundled.meta.title}/${bundled.meta.title}.tsx`))
-  // console.log('Component info: ', JSON.stringify(componentInfo, null, 2))
+  const [componentInfo] = customParser.parse(path.join(process.cwd(), `node_modules/@christiankaindl/lyts/src/${story.meta.title}/${story.meta.title}.tsx`))
 
   return {
-    // revalidate: 60,
     props: {
-      ...bundled,
+      ...story,
+      component,
       docs: componentInfo,
-      examples: await getFilteredExamples([bundled.meta.title])
+      examples: await getFilteredExamples([story.meta.title])
     }
   }
 }
@@ -60,8 +60,9 @@ interface Props {
   docs: any
 }
 
-const Component: FunctionComponent<Props> = function ({ code, meta, examples, docs }) {
-  const Content = useMemo(() => getMDXComponent(code, { lyts }), [code])
+const Component: FunctionComponent<Props> = function ({ code, meta, examples, docs, component }) {
+  const Story = useMemo(() => getMDXComponent(code, { lyts }), [code])
+  const Component = useMemo(() => getMDXComponent(component.code, { lyts }), [component.code])
   const [_examples, setExamples] = useState(() => {
     return examples.map(({ code, meta }: any) => {
       return {
@@ -82,7 +83,11 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples, do
   return (
     <>
       <DebugProvider>
-        <Content />
+        <Component />
+      </DebugProvider>
+      <PropsTable {...docs} />
+      <DebugProvider>
+        <Story />
       </DebugProvider>
       <div />
       <Stack
