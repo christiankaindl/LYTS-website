@@ -8,7 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@christiankaindl/lyts": "1.0.0-alpha.19",  
+    "@christiankaindl/lyts": "1.0.0-alpha.21",
     "@mdx-js/loader": "^2.0.0-rc.2",
     "@mdx-js/react": "^2.0.0-rc.2",
     "@next/mdx": "^12.0.7",
@@ -33,6 +33,8 @@
     "acorn": "^8.7.0",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.7",
+    "react-docgen": "^5.4.0",
+    "react-docgen-typescript": "^2.2.2",
     "typescript": "4.5.4"
   }
 }
