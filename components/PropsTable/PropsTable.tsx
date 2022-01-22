@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { ComponentDoc } from 'react-docgen-typescript'
 import { Stack } from '@christiankaindl/lyts'
 import * as style from './PropsTable.css'
+import { mauve } from "@radix-ui/colors";
 
 const PropsTable: FunctionComponent<ComponentDoc> = function ({ props }) {
   return (
@@ -20,9 +21,16 @@ const PropsTable: FunctionComponent<ComponentDoc> = function ({ props }) {
             return (
               <tr key={name}>
                 <td>
-                  <Stack xAlign='start'>
+                  <Stack gap={0.5} xAlign='start'>
                     <code>{name}</code>
-                    <span>{test.type.name}</span>
+                    <span
+                      style={{
+                        color: mauve.mauve11,
+                        fontSize: '0.95em'
+                      }}
+                    >
+                      {test.type.name}
+                    </span>
                   </Stack>
                 </td>
                 <td>{test.defaultValue?.value}</td>

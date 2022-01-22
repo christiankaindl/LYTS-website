@@ -7,6 +7,18 @@ globalStyle('html, body', {
   fontFamily: 'sans-serif'
 })
 
+globalStyle('code', {
+  backgroundColor: mauveA.mauveA4
+})
+globalStyle('pre > code', {
+  backgroundColor: mauveA.mauveA3
+})
+
+export const article = style({})
+globalStyle(`${article} h2`, {
+  marginTop: '1.5em'
+})
+
 export const debug = style({
   display: 'contents'
 })

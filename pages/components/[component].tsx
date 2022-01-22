@@ -12,6 +12,7 @@ import Link from "next/link"
 import { lyts } from "utils"
 import { withCustomConfig, PropItem } from 'react-docgen-typescript'
 import PropsTable from "@/components/PropsTable"
+import { article } from "styles/index.css"
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.component === undefined) {
@@ -56,6 +57,7 @@ export const getStaticPaths: GetStaticPaths = async function () {
 interface Props {
   code: string
   meta: { [key: string]: any }
+  component: any
   examples: any
   docs: any
 }
@@ -85,14 +87,17 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples, do
       <DebugProvider>
         <Component />
       </DebugProvider>
+      <div />
+      <div />
       <PropsTable {...docs} />
-      <DebugProvider>
+      <DebugProvider className={article}>
         <Story />
       </DebugProvider>
       <div />
+      <div />
       <Stack
         gap={1.5}
-        style={{ backgroundColor: 'rgb(0 0 0 / 0.03)', padding: '42px 30px', borderRadius: 36 }}
+        style={{ backgroundColor: 'rgb(0 0 0 / 0.03)', padding: '36px 30px', borderRadius: 36 }}
         bleedLeft='30px'
         bleedRight='30px'
       >

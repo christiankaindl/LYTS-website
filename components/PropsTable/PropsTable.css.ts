@@ -14,7 +14,7 @@ globalStyle(`${propsTable} th`, {
   textTransform: 'uppercase',
   letterSpacing: '1px',
   fontWeight: 'normal',
-  color: mauve.mauve9,
+  color: mauve.mauve11,
   borderBottom: `1px solid ${mauve.mauve4}`
 })
 

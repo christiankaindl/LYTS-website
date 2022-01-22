@@ -4,9 +4,9 @@ import { debug } from '../../styles/index.css'
 /**
  * Render all children LYTS components with extra visual cues
  */
-const DebugProvider: FunctionComponent = function DebugProvider ({ children }) {
+const DebugProvider: FunctionComponent<{ className?: string }> = function DebugProvider ({ children, className, ...props }) {
   return (
-    <div className={debug}>
+    <div {...props} className={`${debug} ${className ?? ''}`}>
       {children}
     </div>
   )
