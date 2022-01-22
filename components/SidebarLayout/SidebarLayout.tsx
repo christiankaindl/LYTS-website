@@ -4,6 +4,8 @@ import Sidebar from "components/Sidebar/Sidebar"
 import { useRouter } from "next/router"
 import { FunctionComponent } from "react"
 import { iconMappings } from "../Icons/Icons"
+import { ComponentDoc } from 'react-docgen-typescript'
+import PropsTable from "../PropsTable/PropsTable"
 
 interface Props {
   meta: {
@@ -11,8 +13,9 @@ interface Props {
     description: string
     category?: string
   }
+  docs?: ComponentDoc
 }
-const SidebarLayout: FunctionComponent<Props> = function ({ children, meta }) {
+const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs }) {
   const router = useRouter()
   const Icon = iconMappings[router.query.component as keyof typeof iconMappings]
 
@@ -26,13 +29,18 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta }) {
               <Row>
                 Docs {meta?.category ? `> ${meta?.category}` : ''}&gt; {meta?.title} 
               </Row>
-              {meta?.title && (
+              {(docs?.displayName || meta?.title) && (
                 <Row>
                   {Icon !== undefined && <Icon />}
-                  <h1>{meta?.title}</h1>
+                  <h1>{docs?.displayName || meta?.title}</h1>
                 </Row>
               )}
-              {meta?.description && <p style={{ fontSize: '1.4em', color: 'rgb(0 0 0 / 0.6)' }}>{meta?.description}</p>}
+              {(docs?.description || meta?.description) && (
+                <p style={{ fontSize: '1.4em', color: 'rgb(0 0 0 / 0.6)' }}>
+                  {docs?.description || meta?.description}
+                </p>
+              )}
+              {docs && <PropsTable {...docs} />}
               {children}
             </Stack>
           </main>
