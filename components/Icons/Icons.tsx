@@ -32,7 +32,7 @@ export const RowIcon: FunctionComponent<IconProps> = function StackIcon ({ small
 export const ClampIcon: FunctionComponent<IconProps> = function StackIcon ({ small }) {
   const clamp = small ? '21px' : '32px'
   return (
-    <Clamp clamp={clamp} className={`${styles.clamp} ${small && styles.small}`}>
+    <Clamp clamp={[clamp, clamp]} className={`${styles.clamp} ${small && styles.small}`}>
       <IconChild style={{ height: '100%' }} />
     </Clamp>
   )
