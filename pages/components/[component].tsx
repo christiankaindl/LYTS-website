@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import path from "path"
 import fs from 'fs'
-import { FunctionComponent, useEffect, useMemo, useState } from "react"
+import { Component as ReactComponent, FunctionComponent, useEffect, useMemo, useState } from "react"
 import { getMDXComponent } from 'mdx-bundler/client'
 import { getComponentPage } from "utils/getComponentPage"
 import DebugProvider from "components/DebugProvider/DebugProvider"
@@ -10,6 +10,7 @@ import { Stack } from "@christiankaindl/lyts"
 import { getFilteredExamples } from "utils/getFilteredExamples"
 import Link from "next/link"
 import { lyts } from "utils"
+import { withCustomConfig, PropItem } from 'react-docgen-typescript'
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.component === undefined) {
@@ -20,11 +21,23 @@ export const getStaticProps: GetStaticProps = async function ({ params }) {
   }
 
   const bundled = await getComponentPage(`components/${params.component as string}`)
-  console.log('bundled.meta.title', bundled.meta.title)
+  // console.log('bundled.meta.title', bundled.meta.title)
+
+  const customParser = withCustomConfig(path.join(process.cwd(), 'node_modules/@christiankaindl/lyts/tsconfig.json'), {
+    // @ts-expect-error
+    propFilter: (prop: PropItem, component: ReactComponent) => {
+      return !prop.parent?.fileName.endsWith('react/index.d.ts')
+    },
+    savePropValueAsString: true
+  })
+  const [componentInfo] = customParser.parse(path.join(process.cwd(), `node_modules/@christiankaindl/lyts/src/${bundled.meta.title}/${bundled.meta.title}.tsx`))
+  // console.log('Component info: ', JSON.stringify(componentInfo, null, 2))
+
   return {
     // revalidate: 60,
     props: {
       ...bundled,
+      docs: componentInfo,
       examples: await getFilteredExamples([bundled.meta.title])
     }
   }
@@ -44,9 +57,10 @@ interface Props {
   code: string
   meta: { [key: string]: any }
   examples: any
+  docs: any
 }
 
-const Component: FunctionComponent<Props> = function ({ code, meta, examples }) {
+const Component: FunctionComponent<Props> = function ({ code, meta, examples, docs }) {
   const Content = useMemo(() => getMDXComponent(code, { lyts }), [code])
   const [_examples, setExamples] = useState(() => {
     return examples.map(({ code, meta }: any) => {
