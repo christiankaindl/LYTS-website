@@ -5,7 +5,9 @@ import { useRouter } from "next/router"
 import { FunctionComponent } from "react"
 import { iconMappings } from "../Icons/Icons"
 import { ComponentDoc } from 'react-docgen-typescript'
-import PropsTable from "../PropsTable/PropsTable"
+import Link from "next/link"
+import { ChevronRight } from "lucide-react"
+import { mauve } from "@radix-ui/colors"
 
 interface Props {
   meta: {
@@ -26,8 +28,12 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
         <Clamp clamp='750px' style={{ padding: 30, alignSelf: 'start' }} asChild>
           <main>
             <Stack gap={1.5}>
-              <Row>
-                Docs {meta?.category ? `> ${meta?.category}` : ''}&gt; {meta?.title} 
+              <Row gap={0.75}>
+                <Link href='/'>LYTS</Link>
+                <ChevronRight size={20} />
+                {/* {meta?.category ? `> ${meta?.category}` : ''}&gt;   */}
+                {/* <ChevronRight size={20} /> */}
+                <span style={{ color: mauve.mauve11 }}>{meta?.title}</span>
               </Row>
               {(docs?.displayName || meta?.title) && (
                 <Row>
