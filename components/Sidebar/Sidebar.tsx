@@ -1,4 +1,5 @@
 import { Row, Split, Stack } from "@christiankaindl/lyts";
+import { mauve } from "@radix-ui/colors";
 import Badge from "components/Badge/Badge";
 import { ClampIcon, ColumnsIcon, GridIcon, RowIcon, StackIcon } from "components/Icons/Icons";
 import { Github } from "lucide-react";
@@ -11,23 +12,37 @@ const Sidebar: FunctionComponent = function () {
   return (
     <Stack asChild className={styles.sidebar}>
       <nav>
-        <Row xAlign='space-between'>
-          <Link href='/' passHref>
-            <Stack gap={0} asChild>
-              <a style={{ textDecoration: 'none', color: 'black' }}>
-                <h2>LYTS <span style={{ fontWeight: 'normal',  }}>Docs</span></h2>
-                <p style={{ opacity: 0.6 }}>Layout primitives for React.</p>
-              </a>
-            </Stack>
-          </Link>
-          <Link href='https://github.com/christiankaindl/LYTS'>
-            <a target='_blank' aria-label='GitHub' rel='noopener'><Github size={24} /></a>
-          </Link>
-        </Row>
-        <Stack gap={0}>
-          <Item title='Get started' href='/get-started' />
+        <Stack gap={0.5}>
+          <Row xAlign='space-between'>
+            <Link href='/' passHref>
+              <Stack gap={0} asChild>
+                <a style={{ textDecoration: 'none', color: 'black' }}>
+                  <h2>LYTS <span style={{ fontWeight: 'normal' }}>Docs</span></h2>
+                </a>
+              </Stack>
+            </Link>
+            <Link href='https://github.com/christiankaindl/LYTS'>
+              <a target='_blank' aria-label='GitHub' rel='noopener'><Github size={24} /></a>
+            </Link>
+          </Row>
+          <Stack gap={0}>
+            <Item title='Get started' href='/get-started' />
+            <Item title='Overview' href='/overview' />
+            {/* <Item title='Layout fundamentals' href='/layout-fundamentals' /> */}
+          </Stack>
         </Stack>
         <Stack gap={0}>
+          <span
+            style={{
+              color: mauve.mauve11,
+              fontSize: '0.85em',
+              textTransform: 'uppercase',
+              letterSpacing: '1px',
+              fontWeight: 'normal',
+            }}
+          >
+            Components
+          </span>
           <Item title="Stack" icon={<StackIcon small />} href="/components/stack" index={0} />
           <Item title="Row" icon={<RowIcon small />} href="/components/row" index={1} />
           <Item title="Clamp" icon={<ClampIcon small />} href="/components/clamp" index={2} />
@@ -35,18 +50,30 @@ const Sidebar: FunctionComponent = function () {
           <Item title="Grid" icon={<GridIcon small />} href="/components/grid" index={4} />
         </Stack>
         <Stack gap={0}>
-          <Item title='Overview' href='/overview' />
+          {/* <span
+            style={{
+              color: mauve.mauve11,
+              fontSize: '0.85em',
+              textTransform: 'uppercase',
+              letterSpacing: '1px',
+              fontWeight: 'normal',
+            }}
+          >
+            Examples
+          </span> */}
           <Item title='Examples' href='/examples' />
-          <Item title='Layout fundamentals' href='/layout-fundamentals' />
+          {/* {examples.map(() => {
+
+          })} */}
         </Stack>
         <Split />
         <Stack>
           <Row bleedLeft='4px' gap={0.5}>
             <Badge href='https://github.com/christiankaindl/LYTS/issues'>
-              <a>Report issue</a>
+              Report issue
             </Badge>
             <Badge href='https://github.com/christiankaindl/LYTS'>
-              <a>Star on GitHub</a>
+              Star on GitHub
             </Badge>
           </Row>
           <p>Made with ❤️ by Christian Kaindl</p>
