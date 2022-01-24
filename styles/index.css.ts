@@ -1,10 +1,10 @@
 import { boxStyles, stackStyles, rowStyles, clampStyles, columnsStyles, gridStyles } from "@christiankaindl/lyts"
-import { blueA, crimsonA, mauveA, plumA, red, redA, tealA, tomato, tomatoA, violetA } from "@radix-ui/colors";
+import { blue, blueA, crimsonA, mauve, mauveA, plumA, redA, sand, tealA, tomatoA, violetA } from "@radix-ui/colors";
 import { globalStyle, style } from "@vanilla-extract/css";
 
 globalStyle('html, body', {
   margin: 0,
-  fontFamily: 'sans-serif'
+  fontFamily: 'Inter, Roboto, sans-serif'
 })
 
 globalStyle('code', {
@@ -17,6 +17,31 @@ globalStyle('pre > code', {
 export const article = style({})
 globalStyle(`${article} h2`, {
   marginTop: '1.5em'
+})
+
+const boxClassName = toClassName(boxStyles.box)
+globalStyle(`a:not(${boxClassName})`, {
+  color: blue.blue11,
+  borderRadius: 4,
+  padding: '1px 3px',
+  marginLeft: -3,
+  marginRight: -3,
+  // Get rid of the the "strange image gap": https://dev.to/christiankaindl/the-strange-img-gap-in-html
+  display: 'inline-flex'
+})
+
+globalStyle(`a:hover:not(${boxClassName})`, {
+  backgroundColor: blueA.blueA3
+})
+
+globalStyle(`a:active:not(${boxClassName})`, {
+  backgroundColor: blueA.blueA4
+})
+
+globalStyle('p', {
+  lineHeight: 1.5,
+  maxWidth: '65ch',
+  color: mauve.mauve12
 })
 
 export const debug = style({

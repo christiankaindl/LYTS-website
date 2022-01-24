@@ -4,6 +4,7 @@ export const badge = style({
   padding: '3px 12px',
   borderRadius: 99,
   backgroundColor: 'rgb(0 0 0 / 0.08)',
+  color: 'black',
   fontSize: 13.5,
   textDecoration: 'none',
   fontWeight: 500,

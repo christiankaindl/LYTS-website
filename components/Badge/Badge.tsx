@@ -6,7 +6,7 @@ import Link from "next/link";
 const Badge: FunctionComponent<{ href: string }> = function ({ children, href }) {
   return (
     <Link href={href} passHref>
-      <Row className={styles.badge}>
+      <Row className={styles.badge} asChild>
         <a>{children}</a>
       </Row>
     </Link>

@@ -6,7 +6,7 @@ export const item = style({
   minHeight: 42,
   color: 'black',
   textDecoration: 'none',
-  fontWeight: 600,
+  fontWeight: 500,
   transition: 'background-color 80ms linear',
   ':hover': {
     backgroundColor: 'rgb(0 0 0 / 0.08)',
@@ -16,6 +16,7 @@ export const item = style({
 
 export const active = style({
   backgroundColor: 'rgb(0 0 0 / 0.08)',
+  fontWeight: 600,
   ':hover': {
     backgroundColor: 'rgb(0 0 0 / 0.12)'
   }
