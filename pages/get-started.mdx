@@ -4,19 +4,18 @@ description: Add LYTS to your project in < 1 minute.
 ---
 
 import Link from 'next/link'
+import { Box, Stack, Row, Clamp } from '@christiankaindl/lyts'
+import DebugProvider from '@/components/DebugProvider/DebugProvider'
 
 export { default } from 'components/SidebarLayout/SidebarLayout'
 
-Build any kind of layout quickly and confidently. LYTS privdes a set of layout primitives which you can use directly, or build on top of. All components work out-of-the-box with zero configuration and sensible defaults.
+LYTS is a set of layout primitives to build any kind of layout quickly and confidently. There's nothing to configure, set up or mess up. Components work out-of-the-box with no configuration and sensible defaults.
 
 ## Installation
 
 ```sh
 npm install @christiankaindl/lyts
 ```
-
-## Usage
-
 
 Import the library's CSS styles into your application. For example in a Next.js app, import in `_app.js`:
 
@@ -31,36 +30,41 @@ function MyApp({ Component, pageProps }) {
 export default MyApp
 ```
 
-That's the whole setup! Now import one of the available components--Stack, Row, Clamp, Columns, Grid--and use them to get nice and consistent layouts.
+That's the whole setup! Now import one of the base components—<Link href='/components/stack'>Stack</Link>, <Link href='/components/row'>Row</Link>, <Link href='/components/clamp'>Clamp</Link>, <Link href='/components/columns'>Columns</Link>, <Link href='/components/grid'>Grid</Link>—and start building great layouts.
 
+## Usage
 
-## Examples
+Compose layout components until you achieve your desired layout. The following \<CenterCard> component creates a card with a max-width of 400px and centers it:
 
-Compose layout components until you achieve your desired layout. The following \<CenterCard> component creates a card with a max-width of 750px and centers it:
+<DebugProvider>
+  <Clamp clamp='400px'>
+    <Stack gap={0.75} className='card'>
+      <h3>Card title</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </Stack>
+  </Clamp>
+</DebugProvider>
 
 ```tsx
 const CenterCard: FunctionComponent = function () {
   return (
-    // A card with a max-width of 750px and centers it
-    <Clamp clamp='750px'>
+    // A card with clamped 400px and centered
+    <Clamp clamp='400px'>
       <Stack gap={0.75} className='card'>
-        <img src='' />
         <h3>Card title</h3>
-        <Row wrap gap={0.5}>
-          <InfoIcon />
-          <p>Info: This is a card</p>
-        </Row>
-        <Box xAlign='end'>Aligned to the right</Box>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </Stack>
     </Clamp>
   )
 }
 ```
 
-Check out the <Link href='/examples'>Examples</Link> page for a comprehensive collection of layouts and how to build them with LYTS.
+## Examples
+
+All components come **unstyled** and only add CSS necessary for layout. Check out the <Link href='/examples'>Examples</Link> page for a comprehensive collection of layouts and how to build them with LYTS.
+
+A real-world example using LYTS is this documentation site, which makes extensive use of all components. [Check out the code here](https://github.com/christiankaindl/LYTS-website/)!
 
 ## Support & help
 
-If you get stuck, open a discussion on GitHub or reach out to @christiankaindl on Twitter.
-
-In case of bugs, open an issue on GitHub.
+If you get stuck, [reach out to @christiankaindl](https://twitter.com/christiankaindl) on Twitter. In case of bugs, [open an issue on GitHub](https://github.com/christiankaindl/LYTS/issues).

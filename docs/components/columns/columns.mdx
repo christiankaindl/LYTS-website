@@ -6,7 +6,7 @@ category: Components
 
 import { Box, Columns } from '@christiankaindl/lyts'
 
-Use columns whenever you need extrinsic behavior. That is, when you want the layout to not be influenced by the contents of its children. Common use cases for such behavior are [Footers](/examples/footer), [Landing page sections](/examples/landing-page-section) and [sidebar/detail](/examples/sidebar-details) views.
+Use columns whenever you need extrinsic spacing behavior. That is, when you want the layout to not be influenced by the contents of its children. Common use cases for such behavior are [footers](/examples/footer), [landing page sections](/examples/landing-page-section) and [sidebar/detail](/examples/sidebar-details) views.
 
 ## Customizing space distribution
 
@@ -23,10 +23,10 @@ Columns are extrinsically sized. This means that its children's width is determi
   <Box>Column #2</Box>
 </Columns>
 
-This behavior is perfect for landing page sections, where you want the exact same ratios for every section. Columns also works great for sidebar layouts: you can set a min- and maxWidth on the sidebar to get dynamic sizing, all while staying in a legible width (fun fact: the sidebar layout of this very site is using \<Columns>!)
+This behavior is perfect for landing page sections, where you want the exact same widths for every section. Columns also works great for sidebar layouts: you can set additional min- and max-width values on the sidebar to get dynamic sizing, all while staying in a legible width (the sidebar layout of this very site is using \<Columns>! [Check it out here](https://github.com/christiankaindl/LYTS-website/blob/main/components/SidebarLayout/SidebarLayout.tsx))
 
 ## Collapsing on small screens
 
-To support mobile devices, Columns automatically collapses into a single-column layout when the *container* (not the viewport) reaches the width of `collapseAt`, such as "28em" in this example (resize the window to try it out!).
+To support mobile devices, Columns automatically collapses into a single-column layout when the *container* (not the viewport) reaches the width of `collapseAt`, such as "28em" in the example in the beginning (resize the window to try it out!).
 
-The collapsing behavior is entirely managed with CSS, using a flexbox tequnique called "Holy Albatross", coined by Haydon Pickering. The breakpoint is based on the container's width, which makes it adaptive even when embedded on large viewports.
+The collapsing behavior is entirely managed with CSS, using a flexbox tequnique called ["Holy Albatross"](https://heydonworks.com/article/the-flexbox-holy-albatross-reincarnated/), coined by Haydon Pickering. The breakpoint is based on the container's width, which makes it adaptive even when embedded on large viewports.

@@ -11,26 +11,45 @@ Use Stack when you need consistent spacing between elements and/or a way to grou
 
 ## Nesting stacks
 
-Stacks can be nested within each other, which makes it easy to [visually group](https://lawsofux.com/law-of-proximity/) elements together:
+Stacks can be nested within each other with different gaps, making it easy to [visually group](https://lawsofux.com/law-of-proximity/) elements together:
 
-<Stack>
-  <Box>
-    ### This is a `<Stack>`
-  </Box>
-  <Box>
-    All elements within a Stack are vertically spaced consistently, via the `gap` prop.
-  </Box>
-  <Stack gap={2.5}>
+<Stack gap={2.5}>
+  <Stack>
     <Box>
-      You can also nest stack within stacks. This stack has a `gap` of 2.5
+      Child #1
     </Box>
     <Box>
-      Like this!
+      Child #2
     </Box>
-    You can also nest stack within stacks. This stack has a `gap` of 2.5
+  </Stack>
+  <Stack>
+    <Box>
+      Child #1
+    </Box>
+    <Box>
+      Child #2
+    </Box>
   </Stack>
 </Stack>
 
-## Grouping elements
+## Aligning children
 
-// TODO
+By default Stack stretches its children to the full width (which is the CSS flexbox default), but this can be easily customized with the `xAlign` prop:
+
+<Stack xAlign='start'>
+  <Box>Some child</Box>
+  <Box>Longer than the others</Box>
+  <Box>Another child</Box>
+</Stack>
+
+<Stack xAlign='center'>
+  <Box>Some child</Box>
+  <Box>Longer than the others</Box>
+  <Box>Another child</Box>
+</Stack>
+
+<Stack xAlign='end'>
+  <Box>Some child</Box>
+  <Box>Longer than the others</Box>
+  <Box>Another child</Box>
+</Stack>

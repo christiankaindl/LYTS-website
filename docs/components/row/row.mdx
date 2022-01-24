@@ -10,7 +10,25 @@ Use Split when you need to stack elements horizontally. This has many use cases 
 
 ## Wrapping
 
-// TODO
+Row supports the `wrap` prop, which says that elements should *wrap* into the next line when the current row doesn't have enaugh space. This is commonly used when displaying a set of tags, or metadata where the content is often dynamic:
+
+<Row wrap style={{ maxWidth: 500 }}>
+  <Pill>Name: LYTS</Pill>
+  <Pill>By Christian Kaindl</Pill>
+  <Pill>Written in TypeScript</Pill>
+  <Pill>CSS</Pill>
+  <Pill>React</Pill>
+  <Pill>package</Pill>
+  <Pill>layout</Pill>
+</Row>
+
+export const Pill = ({ children }) => {
+  return (
+    <span style={{ borderRadius: 99, backgroundColor: 'rgb(0, 0, 0, .07)', padding: '4px 12px', fontSize: '0.9em' }}>
+      {children}
+    </span>
+  )
+}
 
 ## Split-layouts
 
@@ -20,5 +38,43 @@ It is common to  have elements on opposite sides of each other, but aligned on t
   <Box>Item #1</Box>
   <Box>Item #2</Box>
   <Split />
+  <Box>Item #3</Box>
+</Row>
+
+Split layouts also work great with the `wrap` prop. When used together you get a large layout on desktops which collapses below each other on small screens. This is perfect for toolbars:
+
+<Row gap={1.5} wrap>
+  <b>
+    Toolbar
+  </b>
+  <Split />
+  <Row>
+    <span>Edit</span>
+    <span>Share</span>
+    <span>Like</span>
+  </Row>
+</Row>
+
+The elements "Edit", "Share" and "Like" are contained in another Row (but could be any container) and will wrap to the next line at the same time, removing odd in-between states when resizing.
+
+## Aligning children
+
+By default, Row centers its children vertically, and start-aligns (left) items horizontally. But this can be easily customized with the `xAlign` and `yAlign` props:
+
+<Row>
+  <Box>Item #1</Box>
+  <Box>Item #2</Box>
+  <Box>Item #3</Box>
+</Row>
+
+<Row xAlign='center'>
+  <Box>Item #1</Box>
+  <Box>Item #2</Box>
+  <Box>Item #3</Box>
+</Row>
+
+<Row xAlign='end'>
+  <Box>Item #1</Box>
+  <Box>Item #2</Box>
   <Box>Item #3</Box>
 </Row>

@@ -17,7 +17,7 @@ const Sidebar: FunctionComponent = function () {
             <Link href='/' passHref>
               <Stack gap={0} asChild>
                 <a style={{ textDecoration: 'none', color: 'black' }}>
-                  <h2>LYTS <span style={{ fontWeight: 'normal' }}>Docs</span></h2>
+                  <h2>LYTS</h2>
                 </a>
               </Stack>
             </Link>

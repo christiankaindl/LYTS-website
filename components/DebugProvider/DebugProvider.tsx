@@ -4,7 +4,7 @@ import { debug } from '../../styles/index.css'
 /**
  * Render all children LYTS components with extra visual cues
  */
-const DebugProvider: FunctionComponent<{ className?: string }> = function DebugProvider ({ children, className, ...props }) {
+const DebugProvider: FunctionComponent<{ className?: string } & React.HTMLAttributes<HTMLElement>> = function DebugProvider ({ children, className, ...props }) {
   return (
     <div {...props} className={`${debug} ${className ?? ''}`}>
       {children}

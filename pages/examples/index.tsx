@@ -1,5 +1,6 @@
 import DebugProvider from '@/components/DebugProvider/DebugProvider'
 import { Stack, Row, Grid } from '@christiankaindl/lyts'
+import { mauve } from '@radix-ui/colors'
 import { withSidebarLayout } from 'components/SidebarLayout/SidebarLayout'
 import { getMDXComponent, getMDXExport } from 'mdx-bundler/client'
 import { GetStaticProps } from "next"
@@ -27,10 +28,15 @@ const Examples: FunctionComponent<any> = function ({ examples }) {
   })
 
   return (
-    <Stack>
+    <Stack gap={1.5}>
       <h1>Examples</h1>
-      <p>Copy/paste-able snippets for common layouts.</p>
-      <p>Examples focus on how to achieve different layouts by composing the different components. The components themselves are completely unstyled.</p>
+      <p style={{ fontSize: '1.3em', color: mauve.mauve11 }}>Copy/paste-able snippets for common layouts.</p>
+      <p>All components come unstyled and only add CSS necessary for layout. Examples focus on how to achieve different layouts by composing the different components. The components themselves are completely unstyled.</p>
+
+      <p>Also, <a href='https://github.com/christiankaindl/LYTS-website/'>check out the source code for this very site</a>, which makes extensive use of all the components.</p>
+
+      <div />
+
       <Stack>
         {_examples.map(({ Component, title, description, id }: any) => {
           return (

@@ -109,7 +109,7 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples, do
                 <a>
                   <h3>{title}</h3>
                   <p>{description}</p>
-                  <DebugProvider>
+                  <DebugProvider style={{ fontSize: '0.85em' }}>
                     <Component />
                   </DebugProvider>
                 </a>
