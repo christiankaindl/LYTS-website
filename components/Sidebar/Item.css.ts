@@ -16,7 +16,7 @@ export const item = style({
 
 export const active = style({
   backgroundColor: 'rgb(0 0 0 / 0.08)',
-  fontWeight: 600,
+  fontWeight: 700,
   ':hover': {
     backgroundColor: 'rgb(0 0 0 / 0.12)'
   }

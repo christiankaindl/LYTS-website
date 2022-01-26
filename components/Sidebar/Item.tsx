@@ -16,10 +16,10 @@ const Item: FunctionComponent<ItemProps> = function ({ icon, title, href, index 
   const isActive = router.asPath === href
   return (
     <Link href={href} passHref>
-      <Row className={`${styles.item} ${isActive ? styles.active : ''}`} bleed='0 18px' asChild>
+      <Row bleed='0 18px' asChild className={`${styles.item} ${isActive ? styles.active : ''}`} xAlign='space-between'>
         <a>
-          {icon !== undefined && icon}
           <span>{title}</span>
+          {icon !== undefined && icon}
         </a>
       </Row>
     </Link>
