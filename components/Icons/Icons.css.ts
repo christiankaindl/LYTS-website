@@ -11,10 +11,10 @@ export const container = style({
 })
 
 export const small = style({
-  height: 42,
-  width: 42,
-  padding: '9px !important',
-  borderRadius: '9px !important',
+  height: 32,
+  width: 32,
+  padding: '6px !important',
+  borderRadius: '7px !important',
 })
 
 export const stack = style([container, {
@@ -34,5 +34,6 @@ export const columns = style([container, {
 }])
 
 export const grid = style([container, {
-  backgroundImage: 'linear-gradient(32grad, #5eb0ef, #53b9ab)'
+  backgroundImage: 'linear-gradient(32grad, #5eb0ef, #53b9ab)',
+  padding: '7px !important'
 }])

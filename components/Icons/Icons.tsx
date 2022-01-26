@@ -30,7 +30,7 @@ export const RowIcon: FunctionComponent<IconProps> = function StackIcon ({ small
 }
 
 export const ClampIcon: FunctionComponent<IconProps> = function StackIcon ({ small }) {
-  const clamp = small ? '21px' : '32px'
+  const clamp = small ? '15px' : '32px'
   return (
     <Clamp clamp={[clamp, clamp]} className={`${styles.clamp} ${small && styles.small}`}>
       <IconChild style={{ height: '100%' }} />
@@ -49,8 +49,8 @@ export const ColumnsIcon: FunctionComponent<IconProps> = function StackIcon ({ s
 }
 
 export const GridIcon: FunctionComponent<IconProps> = function StackIcon ({ small = false }) {
-  const gap = small ? '4px' : '6px'
-  const gridItemMinWidth = small ? '5px' : '7px'
+  const gap = small ? '3px' : '6px'
+  const gridItemMinWidth = small ? '3px' : '7px'
   return (
     <Grid gap={gap} gridItemMinWidth={gridItemMinWidth} className={`${styles.grid} ${small && styles.small}`}>
       <IconChild />
