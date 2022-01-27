@@ -10,7 +10,7 @@ export const propsTable = style({
 globalStyle(`${propsTable} th`, {
   textAlign: 'left',
   padding: '9px 15px',
-  fontSize: '0.85em',
+  fontSize: '0.8em',
   textTransform: 'uppercase',
   letterSpacing: '1px',
   fontWeight: 'normal',

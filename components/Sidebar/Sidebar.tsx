@@ -35,7 +35,7 @@ const Sidebar: FunctionComponent = function () {
           <span
             style={{
               color: mauve.mauve11,
-              fontSize: '0.85em',
+              fontSize: '0.8em',
               textTransform: 'uppercase',
               letterSpacing: '1px',
               fontWeight: 'normal',

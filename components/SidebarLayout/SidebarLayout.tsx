@@ -42,7 +42,7 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
                 </Row>
               )}
               {(docs?.description || meta?.description) && (
-                <p style={{ fontSize: '1.3em', color: mauve.mauve11 }}>
+                <p style={{ fontSize: '1.3em', color: mauve.mauve11, fontWeight: 300 }}>
                   {docs?.description || meta?.description}
                 </p>
               )}
