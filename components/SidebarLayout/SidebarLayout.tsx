@@ -31,7 +31,7 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
             <Sidebar />
           </Media>
           <Media lessThan="mobile">
-            <NavMenu currentTitle={docs?.displayName || meta.title} />
+            <NavMenu currentTitle={docs?.displayName || meta?.title} />
           </Media>
         </div>
         <Clamp clamp='750px' style={{ padding: 30, alignSelf: 'start' }} asChild>
