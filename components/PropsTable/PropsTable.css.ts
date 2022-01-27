@@ -4,7 +4,10 @@ import { globalStyle, style } from "@vanilla-extract/css";
 export const propsTable = style({
   border: `1px solid ${mauve.mauve4}`,
   borderRadius: 12,
-  borderSpacing: 0
+  borderSpacing: 0,
+  display: 'block',
+  overflowX: 'auto',
+  whiteSpace: 'nowrap'
 })
 
 globalStyle(`${propsTable} th`, {
@@ -22,7 +25,8 @@ globalStyle(`${propsTable} td, ${propsTable} th`, {
   textAlign: 'left',
   padding: 9,
   borderRight: `1px solid ${mauve.mauve4}`,
-  verticalAlign: 'top'
+  verticalAlign: 'top',
+  whiteSpace: 'initial'
 })
 globalStyle(`${propsTable} th`, {
   verticalAlign: 'top'
