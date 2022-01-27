@@ -38,11 +38,8 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
           <main>
             <Stack gap={1.5}>
               <Row gap={0.75}>
-                <Link href='/'>LYTS</Link>
+                <Link href='/'>Docs</Link>
                 <ChevronRight size={20} />
-                {/* {meta?.category ? `> ${meta?.category}` : ''}&gt;   */}
-                {/* <ChevronRight size={20} /> */}
-                <span style={{ color: mauve.mauve11 }}>{meta?.title}</span>
               </Row>
               {(docs?.displayName || meta?.title) && (
                 <Row>
