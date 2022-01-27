@@ -22,8 +22,13 @@ export const getStaticProps: GetStaticProps = async function ({ params }) {
     }
   }
 
-  const story = await getComponentPage(`components/${params.component as string}/${params.component as string}`)
-  const component = await getComponentPage(`components/${params.component as string}/Component`)
+  const [
+    story,
+    component
+  ] = await Promise.all([
+    getComponentPage(`components/${params.component as string}/${params.component as string}`),
+    getComponentPage(`components/${params.component as string}/Component`)
+  ])
 
   const customParser = withCustomConfig(path.join(process.cwd(), 'node_modules/@christiankaindl/lyts/tsconfig.json'), {
     // @ts-expect-error
@@ -33,13 +38,14 @@ export const getStaticProps: GetStaticProps = async function ({ params }) {
     savePropValueAsString: true
   })
   const [componentInfo] = customParser.parse(path.join(process.cwd(), `node_modules/@christiankaindl/lyts/src/${story.meta.title}/${story.meta.title}.tsx`))
+  const examples = await getFilteredExamples([story.meta.title])
 
   return {
     props: {
       ...story,
       component,
       docs: componentInfo,
-      examples: await getFilteredExamples([story.meta.title])
+      examples
     }
   }
 }

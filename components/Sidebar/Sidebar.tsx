@@ -48,6 +48,9 @@ const Sidebar: FunctionComponent = function () {
           <Item title="Clamp" icon={<ClampIcon small />} href="/components/clamp" index={2} />
           <Item title="Columns" icon={<ColumnsIcon small />} href="/components/columns" index={3} />
           <Item title="Grid" icon={<GridIcon small />} href="/components/grid" index={4} />
+          <Item title="Box" href="/components/box" index={5} />
+          <Item title="Split" href="/components/split" index={6} />
+          <Item title="Breakout" href="/components/breakout" index={7} />
         </Stack>
         <Stack gap={0}>
           {/* <span

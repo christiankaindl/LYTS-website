@@ -31,9 +31,7 @@ const Examples: FunctionComponent<any> = function ({ examples }) {
     <Stack gap={1.5}>
       <h1>Examples</h1>
       <p style={{ fontSize: '1.3em', color: mauve.mauve11 }}>Copy/paste-able snippets for common layouts.</p>
-      <p>All components come unstyled and only add CSS necessary for layout. Examples focus on how to achieve different layouts by composing the different components. The components themselves are completely unstyled.</p>
-
-      <p>Also, <a href='https://github.com/christiankaindl/LYTS-website/'>check out the source code for this very site</a>, which makes extensive use of all the components.</p>
+      <p>All components come unstyled and only add CSS necessary for layout. Examples focus on how to achieve different layouts by composing the available components. Also, <a href='https://github.com/christiankaindl/LYTS-website/'>check out the source code for this very site</a>, which makes extensive use of all the components.</p>
 
       <div />
 
