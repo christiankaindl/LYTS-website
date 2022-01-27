@@ -7,7 +7,7 @@ import * as styles from './NavMenu.css'
 
 const NavMenu: FunctionComponent<{ currentTitle: string }> = function ({ currentTitle  }) {
   return (
-    <Stack className={styles.navMenu} gap={0.75}>
+    <Stack className={styles.navMenu} gap={0.5}>
       <h2>LYTS</h2>
       <Dialog.Root>
         <Row xAlign='space-between' asChild bleedLeft='6px' bleedRight='6px'>

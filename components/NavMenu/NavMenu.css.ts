@@ -3,6 +3,7 @@ import { style } from "@vanilla-extract/css";
 
 export const navMenu = style({
   padding: 30,
+  paddingTop: 21,
   paddingBottom: 0,
   backgroundImage: 'linear-gradient(to bottom, rgb(255 255 255 / 0.95) 35%, rgb(255 255 255 / 0.7) 100%)'
 }, 'nav-menu')
