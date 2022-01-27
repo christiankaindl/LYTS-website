@@ -1,6 +1,7 @@
-import { boxStyles, stackStyles, rowStyles, clampStyles, columnsStyles, gridStyles } from "@christiankaindl/lyts"
+import { boxStyles, stackStyles, rowStyles, clampStyles, columnsStyles, gridStyles, splitStyles } from "@christiankaindl/lyts"
 import { blue, blueA, crimsonA, mauve, mauveA, plumA, redA, sand, tealA, tomatoA, violetA } from "@radix-ui/colors";
 import { globalStyle, style } from "@vanilla-extract/css";
+import { toClassName } from "utils/toClassName";
 
 globalStyle('html, body', {
   margin: 0,
@@ -82,6 +83,26 @@ globalStyle(`${debug} ${toClassName(gridStyles.grid)}`, {
   outline: '1.5px solid #aadee6',
   backgroundImage: `linear-gradient(160deg, ${blueA.blueA1}, ${tealA.tealA1})`
 })
+globalStyle(`${debug} ${toClassName(splitStyles.split)}`, {
+  outline: `1px solid ${mauve.mauve8}`,
+  padding: 0,
+  height: 0,
+  position: 'relative'
+})
+globalStyle(`${debug} ${toClassName(splitStyles.split)}::before, ${debug} ${toClassName(splitStyles.split)}::after`, {
+  content: '',
+  display: 'block',
+  height: 12,
+  width: 2,
+  backgroundColor: mauve.mauve8,
+  left: -1,
+  top: -6,
+  position: 'absolute'
+})
+globalStyle(`${debug} ${toClassName(splitStyles.split)}::after`, {
+  left: 'initial',
+  right: -1
+})
 
 export const nav = style([debug, {
   borderRadius: 24,
@@ -91,8 +112,3 @@ export const nav = style([debug, {
   boxShadow: '0 5px 24px -7px rgb(0 0 0 / 0.1)',
   padding: 18
 }])
-
-// Convert class name string as used in HTML's `class` attribute (separated by a space " ") to the CSS dot-notation so that they can be composed with vanilla extract more easily
-function toClassName (htmlClassNames: string) {
-  return `.${htmlClassNames.split(' ').join('.')}`
-}
