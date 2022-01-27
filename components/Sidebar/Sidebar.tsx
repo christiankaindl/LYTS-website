@@ -71,7 +71,7 @@ const Sidebar: FunctionComponent = function () {
         </Stack>
         <Split />
         <Stack>
-          <Row bleedLeft='4px' gap={0.5}>
+          <Row bleedLeft='4px' gap={0.5} wrap>
             <Badge href='https://github.com/christiankaindl/LYTS/issues'>
               Report issue
             </Badge>
