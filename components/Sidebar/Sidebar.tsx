@@ -12,7 +12,7 @@ const Sidebar: FunctionComponent = function () {
     <Stack asChild className={styles.sidebar}>
       <nav>
         <Stack gap={0.5}>
-          <Row xAlign='space-between'>
+          <Row yAlign='baseline'>
             <Link href='/' passHref>
               <Stack gap={0} asChild>
                 <a style={{ textDecoration: 'none', color: 'black' }}>
@@ -20,6 +20,7 @@ const Sidebar: FunctionComponent = function () {
                 </a>
               </Stack>
             </Link>
+            <span style={{ color: mauve.mauve11, fontSize: 14 }}>{libraryVersion}</span>
           </Row>
           <Stack gap={0}>
             <Item title='Get started' href='/get-started' />
