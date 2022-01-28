@@ -4,12 +4,13 @@ import Badge from "components/Badge/Badge";
 import { ClampIcon, ColumnsIcon, GridIcon, RowIcon, StackIcon } from "components/Icons/Icons";
 import Link from "next/link";
 import { FunctionComponent } from "react";
+import { libraryVersion } from "utils/data";
 import Item from "./Item";
 import * as styles from './Sidebar.css'
 
 const Sidebar: FunctionComponent = function () {
   return (
-    <Stack asChild className={styles.sidebar}>
+    <Stack gap={1.5} asChild className={styles.sidebar}>
       <nav>
         <Stack gap={0.5}>
           <Row yAlign='baseline'>
