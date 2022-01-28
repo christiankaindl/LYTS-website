@@ -10,7 +10,7 @@ export const navMenu = style({
     content: '',
     display: 'block',
     position: 'absolute',
-    backgroundImage: 'linear-gradient(to bottom, rgb(255 255 255 / 0.9) 50%, transparent 100%)',
+    backgroundImage: 'linear-gradient(to bottom, rgb(255 255 255 / 0.9) 50%, rgb(255 255 255 / 0) 100%)',
     height: 130,
     top: 0,
     left: 0,
