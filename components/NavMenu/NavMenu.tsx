@@ -2,17 +2,17 @@ import { FunctionComponent } from "react";
 import * as Dialog from '@radix-ui/react-dialog';
 import Sidebar from "../Sidebar/Sidebar";
 import { ChevronsUpDown, X } from "lucide-react";
-import { Row, Stack } from "@christiankaindl/lyts";
+import { Row } from "@christiankaindl/lyts";
 import * as styles from './NavMenu.css'
 
 const NavMenu: FunctionComponent<{ currentTitle: string }> = function ({ currentTitle  }) {
   return (
-    <Stack className={styles.navMenu} gap={0.5}>
+    <Row className={styles.navMenu} gap={0.5} xAlign='space-between' yAlign='start'>
       <h2>LYTS</h2>
       <Dialog.Root>
         <Row xAlign='space-between' asChild bleedLeft='6px' bleedRight='6px'>
           <Dialog.Trigger className={styles.trigger}>
-            <span>{currentTitle || 'Menu'}</span>
+            <span>Menu</span>
             <ChevronsUpDown />
           </Dialog.Trigger>
         </Row>
@@ -26,7 +26,7 @@ const NavMenu: FunctionComponent<{ currentTitle: string }> = function ({ current
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
-    </Stack>
+    </Row>
   )
 }
 

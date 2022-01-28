@@ -10,7 +10,8 @@ export const sidebarWrapper = style({
   '@media': {
     '(max-width: 768px)': {
       maxWidth: 'unset',
-      minWidth: 'unset'
+      minWidth: 'unset',
+      overflow: 'visible'
     }
   }
 })

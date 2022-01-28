@@ -3,9 +3,20 @@ import { style } from "@vanilla-extract/css";
 
 export const navMenu = style({
   padding: 30,
-  paddingTop: 21,
+  position: 'relative',
   paddingBottom: 0,
-  backgroundImage: 'linear-gradient(to bottom, rgb(255 255 255 / 0.95) 35%, rgb(255 255 255 / 0.7) 100%)'
+  // Use a pseudo-element here so the gradient can extend beyond the actual size of the navbar
+  '::after': {
+    content: '',
+    display: 'block',
+    position: 'absolute',
+    backgroundImage: 'linear-gradient(to bottom, rgb(255 255 255 / 0.85) 50%, transparent 100%)',
+    height: 150,
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: -1
+  }
 }, 'nav-menu')
 
 export const trigger = style({
