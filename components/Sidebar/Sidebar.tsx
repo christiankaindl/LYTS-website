@@ -2,7 +2,6 @@ import { Row, Split, Stack } from "@christiankaindl/lyts";
 import { mauve } from "@radix-ui/colors";
 import Badge from "components/Badge/Badge";
 import { ClampIcon, ColumnsIcon, GridIcon, RowIcon, StackIcon } from "components/Icons/Icons";
-import { Github } from "lucide-react";
 import Link from "next/link";
 import { FunctionComponent } from "react";
 import Item from "./Item";
@@ -20,9 +19,6 @@ const Sidebar: FunctionComponent = function () {
                   <h2>LYTS</h2>
                 </a>
               </Stack>
-            </Link>
-            <Link href='https://github.com/christiankaindl/LYTS'>
-              <a target='_blank' aria-label='GitHub' rel='noopener'><Github size={24} /></a>
             </Link>
           </Row>
           <Stack gap={0}>
