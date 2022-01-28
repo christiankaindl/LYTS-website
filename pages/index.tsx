@@ -10,7 +10,7 @@ import Page from '@/components/Page/Page'
 const otherStyles = { nav: '' }
 function App() {
   return (
-    <Page className={styles.App} title='Layout primitives for React.'>
+    <Page className={styles.App} title='LYTS—Layout primitives for React.'>
       <div>
         <Stack asChild>
           <header className={styles['App-header']}>
