@@ -23,15 +23,18 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
   const router = useRouter()
   const Icon = iconMappings[router.query.component as keyof typeof iconMappings]
 
+  const title = docs?.displayName || meta?.title
+  const description = docs?.description || meta?.description
+
   return (
-    <Page asChild>
+    <Page asChild title={title} description={description}>
       <Columns gap={0} ratio='1/2' collapseAt="48em" style={{ minHeight: '100%' }}>
         <div className={styles.sidebarWrapper}>
           <Media greaterThanOrEqual="mobile">
             <Sidebar />
           </Media>
           <Media lessThan="mobile">
-            <NavMenu currentTitle={docs?.displayName || meta?.title} />
+            <NavMenu />
           </Media>
         </div>
         <Clamp clamp='750px' style={{ padding: 30, alignSelf: 'start' }} asChild>
@@ -41,15 +44,15 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
                 <Link href='/'>Docs</Link>
                 <ChevronRight size={20} />
               </Row>
-              {(docs?.displayName || meta?.title) && (
+              {title && (
                 <Row>
                   {Icon !== undefined && <Icon />}
-                  <h1>{docs?.displayName || meta?.title}</h1>
+                  <h1>{title}</h1>
                 </Row>
               )}
-              {(docs?.description || meta?.description) && (
+              {description && (
                 <p style={{ fontSize: '1.3em', color: mauve.mauve11, fontWeight: 300 }}>
-                  {docs?.description || meta?.description}
+                  {description}
                 </p>
               )}
               {children}

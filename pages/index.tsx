@@ -5,18 +5,19 @@ import { Stack, Row } from '@christiankaindl/lyts'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import Page from '@/components/Page/Page'
 
 const otherStyles = { nav: '' }
 function App() {
   return (
-    <div className={styles.App}>
+    <Page className={styles.App} title='Layout primitives for React.'>
       <div>
         <Stack asChild>
           <header className={styles['App-header']}>
             <h1>L<span className={styles.why}>Y</span>TS</h1>
             {/* Make it more wide here with visible labels */}
             {/* Slide in a similar variant for the navbar after initial scroll (with only tooltips) */}
-            <Row className={otherStyles.nav}>
+            <Row style={{ padding: '0 2em' }} wrap xAlign='center'>
               {icons.map(({ name, icon, href }, index) => {
                 return (
                   <motion.div
@@ -52,9 +53,13 @@ function App() {
         <main>
           <p style={{ fontSize: '1.7em', color: 'rgb(0 0 0 / 0.6)' }}>Build any layout quickly with well-designed composable components.</p>
           <p style={{ fontSize: '1.7em', color: 'rgb(0 0 0 / 0.6)' }}>Each component has a minimal API surface, is well documented and has plenty of examples (copy-pasta compatible!).</p>
+          <Button href='/get-started'>
+            <span>Get started</span>
+            <ArrowRight size={20} />
+          </Button>
         </main>
       </Stack>
-    </div>
+    </Page>
   )
 }
 
