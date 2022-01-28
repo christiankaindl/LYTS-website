@@ -49,42 +49,42 @@ export const debug = style({
   display: 'contents'
 })
 globalStyle(`${debug} ${toClassName(boxStyles.box)}`, {
-  outline: `1.5px solid ${mauveA.mauveA6}`,
+  border: `1.5px solid ${mauveA.mauveA6}`,
   padding: 18,
   borderRadius: 15,
   backgroundColor: mauveA.mauveA2
 })
 globalStyle(`${debug} ${toClassName(boxStyles.box)} > ${toClassName(boxStyles.box)}`, {
-  borderRadius: 9
+  borderRadius: 12
 })
 
 globalStyle(`${debug} ${toClassName(stackStyles.stack)}`, {
-  // outline: '2px solid #f9c6c6', // Red 6
-  outline: `1.5px solid ${redA.redA6}`,
+  // border: '2px solid #f9c6c6', // Red 6
+  border: `1.5px solid ${redA.redA6}`,
   backgroundImage: `linear-gradient(160deg, ${tomatoA.tomatoA1}, ${crimsonA.crimsonA1})`
 })
 
 globalStyle(`${debug} ${toClassName(rowStyles.row)}`, {
-  outline: '1.5px solid #f3c6e2',
+  border: '1.5px solid #f3c6e2',
   backgroundImage: `linear-gradient(160deg, ${crimsonA.crimsonA1}, ${plumA.plumA1})`
 })
 
 globalStyle(`${debug} ${toClassName(clampStyles.clamp)}`, {
-  outline: '1.5px solid #e3ccf4',
+  border: '1.5px solid #e3ccf4',
   backgroundImage: `linear-gradient(160deg, ${plumA.plumA1}, ${violetA.violetA1})`
 })
 
 globalStyle(`${debug} ${toClassName(columnsStyles.columns)}`, {
-  outline: '1.5px solid #c6d4f9',
+  border: '1.5px solid #c6d4f9',
   backgroundImage: `linear-gradient(160deg, ${violetA.violetA1}, ${blueA.blueA1})`
 })
 
 globalStyle(`${debug} ${toClassName(gridStyles.grid)}`, {
-  outline: '1.5px solid #aadee6',
+  border: '1.5px solid #aadee6',
   backgroundImage: `linear-gradient(160deg, ${blueA.blueA1}, ${tealA.tealA1})`
 })
 globalStyle(`${debug} ${toClassName(splitStyles.split)}`, {
-  outline: `1px solid ${mauve.mauve8}`,
+  border: `1px solid ${mauve.mauve8}`,
   padding: 0,
   height: 0,
   position: 'relative'
