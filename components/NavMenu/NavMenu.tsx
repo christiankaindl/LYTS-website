@@ -5,7 +5,7 @@ import { ChevronsUpDown, X } from "lucide-react";
 import { Box, Row } from "@christiankaindl/lyts";
 import * as styles from './NavMenu.css'
 
-const NavMenu: FunctionComponent<{ currentTitle: string }> = function ({ currentTitle  }) {
+const NavMenu: FunctionComponent = function () {
   return (
     <Row className={styles.navMenu} gap={0.5} xAlign='space-between' yAlign='start'>
       <h2>LYTS</h2>

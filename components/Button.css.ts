@@ -6,11 +6,11 @@ export const button = style({
   padding: '0px 27px',
   borderRadius: 99,
   border: 'none',
-  backgroundColor: 'rgb(255, 255, 255, 0.7)',
+  backgroundColor: 'rgb(255, 255, 255, 0.8)',
   fontWeight: 'bold',
   color: 'black',
   textDecoration: 'none',
   ':hover': {
-    backgroundColor: 'rgb(255, 255, 255, 0.8)'
+    backgroundColor: 'rgb(255, 255, 255, 0.95)'
   }
 })
