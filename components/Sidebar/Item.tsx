@@ -15,6 +15,7 @@ interface ItemProps {
 const Item: FunctionComponent<ItemProps> = function ({ icon, title, href, id }) {
   const router = useRouter()
   const isActive = router.asPath === href
+  // @ts-expect-error
   const Icon = iconMappings[id]
   return (
     <Link href={href} passHref>
