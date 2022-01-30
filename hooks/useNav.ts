@@ -48,8 +48,8 @@ function getNav (path: string): { current: NavObject, next: NavObject, previous:
   
   const currentIndex = flatList.findIndex((item) => item.id === id)
   return {
-    current: flatList[currentIndex],
-    next: flatList?.[currentIndex + 1],
-    previous: flatList?.[currentIndex - 1]
+    current: flatList[currentIndex] || {},
+    next: flatList?.[currentIndex + 1] || {},
+    previous: flatList?.[currentIndex - 1] || {}
   }
 }

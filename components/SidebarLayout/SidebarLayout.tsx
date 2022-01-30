@@ -48,7 +48,7 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
               <Row gap={0.75}>
                 <Link href='/'>Docs</Link>
                 <ChevronRight size={20} />
-                {nav.current.sectionName && (
+                {nav.current?.sectionName && (
                   <>
                     <span>{nav.current.sectionName}</span>
                     <ChevronRight size={20} />
