@@ -51,9 +51,11 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
                 </Row>
               )}
               {description && (
-                <p style={{ fontSize: '1.3em', color: mauve.mauve11, fontWeight: 300 }}>
-                  {description}
-                </p>
+                <div style={{ fontSize: '1.2em', color: mauve.mauve11, fontWeight: 300 }}>
+                  <ReactMarkdown>
+                    {description}
+                  </ReactMarkdown>
+                </div>
               )}
               {children}
             </Stack>
