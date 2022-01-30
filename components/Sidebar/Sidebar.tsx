@@ -8,6 +8,7 @@ import { libraryVersion } from "utils/data";
 import Item from "./Item";
 import * as styles from './Sidebar.css'
 import navigationData from '../../navigation-data.json'
+import Logo from "../Logo/Logo";
 
 const Sidebar: FunctionComponent = function () {
   return (
@@ -17,7 +18,7 @@ const Sidebar: FunctionComponent = function () {
         <Link href='/' passHref>
           <Stack gap={0} asChild>
             <a style={{ textDecoration: 'none', color: 'black' }}>
-              <h2>LYTS</h2>
+              <h2><Logo /></h2>
             </a>
           </Stack>
         </Link>

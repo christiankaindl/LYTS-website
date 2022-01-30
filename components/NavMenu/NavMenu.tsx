@@ -4,12 +4,13 @@ import Sidebar from "../Sidebar/Sidebar";
 import { ChevronsUpDown, X } from "lucide-react";
 import { Box, Row } from "@christiankaindl/lyts";
 import * as styles from './NavMenu.css'
+import Logo from "../Logo/Logo";
 
 const NavMenu: FunctionComponent = function () {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <Row className={styles.navMenu} gap={0.5} xAlign='space-between' yAlign='start'>
-      <h2>LYTS</h2>
+      <h2><Logo /></h2>
       <Dialog.Root open={isOpen} onOpenChange={(isOpen) => setIsOpen(isOpen)}>
         <Row xAlign='space-between' asChild bleedLeft='6px' bleedRight='6px'>
           <Dialog.Trigger className={styles.trigger}>

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Page from '@/components/Page/Page'
+import Logo from '@/components/Logo/Logo'
 
 const otherStyles = { nav: '' }
 function App() {
@@ -14,7 +15,9 @@ function App() {
       <div>
         <Stack asChild>
           <header className={styles['App-header']}>
-            <h1>L<span className={styles.why}>Y</span>TS</h1>
+            <h1>
+              <Logo size='large' accentColor='#0090ff' />
+            </h1>
             {/* Make it more wide here with visible labels */}
             {/* Slide in a similar variant for the navbar after initial scroll (with only tooltips) */}
             <Row style={{ padding: '0 2em' }} wrap xAlign='center'>
