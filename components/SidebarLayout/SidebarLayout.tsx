@@ -44,6 +44,12 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
               <Row gap={0.75}>
                 <Link href='/'>Docs</Link>
                 <ChevronRight size={20} />
+                {pathMappings[router.asPath.split('/')[1]] && (
+                  <>
+                    <span>{pathMappings[router.asPath.split('/')[1]]}</span>
+                    <ChevronRight size={20} />
+                  </>
+                )}
               </Row>
               {title && (
                 <Row>
@@ -77,4 +83,9 @@ export function withSidebarLayout (Component: FunctionComponent<any>) {
       </SidebarLayout>
     )
   }
+}
+
+const pathMappings = {
+  examples: 'Examples',
+  components: 'Components'
 }
