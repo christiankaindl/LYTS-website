@@ -7,65 +7,55 @@ import { FunctionComponent } from "react";
 import { libraryVersion } from "utils/data";
 import Item from "./Item";
 import * as styles from './Sidebar.css'
+import navigationData from '../../navigation-data.json'
 
 const Sidebar: FunctionComponent = function () {
   return (
     <Stack gap={1.5} asChild className={styles.sidebar}>
       <nav>
-        <Stack gap={0.5}>
-          <Row yAlign='baseline'>
-            <Link href='/' passHref>
-              <Stack gap={0} asChild>
-                <a style={{ textDecoration: 'none', color: 'black' }}>
-                  <h2>LYTS</h2>
-                </a>
-              </Stack>
-            </Link>
-            <span style={{ color: mauve.mauve11, fontSize: 14 }}>{libraryVersion}</span>
-          </Row>
-          <Stack gap={0}>
-            <Item title='Get started' href='/get-started' />
-            <Item title='Overview' href='/overview' />
-            {/* <Item title='Layout fundamentals' href='/layout-fundamentals' /> */}
+      <Row yAlign='baseline'>
+        <Link href='/' passHref>
+          <Stack gap={0} asChild>
+            <a style={{ textDecoration: 'none', color: 'black' }}>
+              <h2>LYTS</h2>
+            </a>
           </Stack>
-        </Stack>
-        <Stack gap={0}>
-          <span
-            style={{
-              color: mauve.mauve11,
-              fontSize: '0.8em',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              fontWeight: 'normal',
-            }}
-          >
-            Components
-          </span>
-          <Item title="Stack" icon={<StackIcon small />} href="/components/stack" index={0} />
-          <Item title="Row" icon={<RowIcon small />} href="/components/row" index={1} />
-          <Item title="Clamp" icon={<ClampIcon small />} href="/components/clamp" index={2} />
-          <Item title="Columns" icon={<ColumnsIcon small />} href="/components/columns" index={3} />
-          <Item title="Grid" icon={<GridIcon small />} href="/components/grid" index={4} />
-          <Item title="Box" href="/components/box" index={5} />
-          <Item title="Split" href="/components/split" index={6} />
-          <Item title="Breakout" href="/components/breakout" index={7} />
-        </Stack>
-        <Stack gap={0}>
-          {/* <span
-            style={{
-              color: mauve.mauve11,
-              fontSize: '0.85em',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              fontWeight: 'normal',
-            }}
-          >
-            Examples
-          </span> */}
-          <Item title='Examples' href='/examples' />
-          {/* {examples.map(() => {
+        </Link>
+        <span style={{ color: mauve.mauve11, fontSize: 14 }}>{libraryVersion}</span>
+      </Row>
 
-          })} */}
+        <Stack gap={1.5}>
+          {navigationData.sections.map((item) => {
+            if (item.content === undefined) return null
+
+            return (
+              <Stack gap='1px' key={item.id}>
+                {item.title && (
+                  <span
+                    style={{
+                      color: mauve.mauve11,
+                      fontSize: '0.8em',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px',
+                      fontWeight: 'normal',
+                    }}
+                  >
+                    {item.title}
+                  </span>
+                )}
+                {item.content.map(({ title, id }) => {
+                  return (
+                    <Item
+                      key={id}
+                      title={title}
+                      href={`/${item.id ? `${item.id}/` : ''}${id}`}
+                      id={id}
+                    />
+                  )
+                })}
+              </Stack>
+            )
+          })}
         </Stack>
         <Split />
         <Stack>
