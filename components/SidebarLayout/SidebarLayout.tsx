@@ -13,6 +13,7 @@ import NavMenu from "../NavMenu/NavMenu"
 import * as styles from './SidebarLayout.css'
 import ReactMarkdown from 'react-markdown'
 import Footer from "../Footer/Footer"
+import { useNav } from "hooks/useNav"
 interface Props {
   meta: {
     title: string
@@ -28,6 +29,8 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
   const title = docs?.displayName || meta?.title
   const description = docs?.description || meta?.description
 
+  const nav = useNav()
+
   return (
     <Page asChild title={title} description={description}>
       <Columns gap={0} ratio='1/2' collapseAt="48em" style={{ minHeight: '100%' }}>
@@ -39,15 +42,15 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
             <NavMenu />
           </Media>
         </div>
-        <Clamp clamp='750px' style={{ padding: 30, alignSelf: 'start' }} asChild>
+        <Clamp gap={2.5} clamp='750px' style={{ padding: 30, alignSelf: 'start', backgroundColor: mauve.mauve1 }} asChild>
           <main>
             <Stack gap={1.5}>
               <Row gap={0.75}>
                 <Link href='/'>Docs</Link>
                 <ChevronRight size={20} />
-                {pathMappings[router.asPath.split('/')[1]] && (
+                {nav.current.sectionName && (
                   <>
-                    <span>{pathMappings[router.asPath.split('/')[1]]}</span>
+                    <span>{nav.current.sectionName}</span>
                     <ChevronRight size={20} />
                   </>
                 )}
@@ -86,9 +89,4 @@ export function withSidebarLayout (Component: FunctionComponent<any>) {
       </SidebarLayout>
     )
   }
-}
-
-const pathMappings = {
-  examples: 'Examples',
-  components: 'Components'
 }
