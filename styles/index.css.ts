@@ -1,5 +1,5 @@
 import { boxStyles, stackStyles, rowStyles, clampStyles, columnsStyles, gridStyles, splitStyles } from "@christiankaindl/lyts"
-import { blue, blueA, crimsonA, mauve, mauveA, plumA, redA, sand, tealA, tomatoA, violetA } from "@radix-ui/colors";
+import { blue, blueA, crimsonA, cyanA, indigoA, mauve, mauveA, pinkA, plumA, purpleA, redA, sand, tealA, tomatoA, violetA } from "@radix-ui/colors";
 import { globalStyle, style } from "@vanilla-extract/css";
 import { toClassName } from "utils/toClassName";
 
@@ -9,9 +9,14 @@ globalStyle('html, body', {
 })
 
 globalStyle('code', {
-  backgroundColor: mauveA.mauveA4
+  backgroundColor: mauveA.mauveA3,
+  color: mauve.mauve12
 })
 globalStyle('pre > code', {
+  backgroundColor: mauveA.mauveA2,
+  marginLeft: -18,
+  marginRight: -18
+})
 
 globalStyle('hr', {
   border: 'none',
@@ -54,39 +59,42 @@ export const debug = style({
   display: 'contents'
 })
 globalStyle(`${debug} ${toClassName(boxStyles.box)}`, {
-  border: `1.5px solid ${mauveA.mauveA6}`,
+  border: `1.5px solid transparent`,
   padding: 18,
+  minHeight: 48,
   borderRadius: 15,
-  backgroundColor: mauveA.mauveA2
+  backgroundImage: `linear-gradient(rgb(255 255 255 / 1), rgb(255 255 255 / 1))`
+})
+globalStyle(`${debug} ${toClassName(boxStyles.box)}:not(${toClassName(stackStyles.stack)}):not(${toClassName(rowStyles.row)}):not(${toClassName(clampStyles.clamp)}):not(${toClassName(columnsStyles.columns)}):not(${toClassName(gridStyles.grid)})`, {
+  boxShadow: 'rgb(0 0 0 / 0.15) 0 3px 15px -5px, rgb(0 0 0 / 0.04) 0 0 0 1px',
 })
 globalStyle(`${debug} ${toClassName(boxStyles.box)} > ${toClassName(boxStyles.box)}`, {
   borderRadius: 12
 })
 
 globalStyle(`${debug} ${toClassName(stackStyles.stack)}`, {
-  // border: '2px solid #f9c6c6', // Red 6
-  border: `1.5px solid ${redA.redA6}`,
-  backgroundImage: `linear-gradient(160deg, ${tomatoA.tomatoA1}, ${crimsonA.crimsonA1})`
+  borderColor: redA.redA4,
+  backgroundImage: `linear-gradient(160deg, ${tomatoA.tomatoA2}, ${crimsonA.crimsonA2})`
 })
 
 globalStyle(`${debug} ${toClassName(rowStyles.row)}`, {
-  border: '1.5px solid #f3c6e2',
-  backgroundImage: `linear-gradient(160deg, ${crimsonA.crimsonA1}, ${plumA.plumA1})`
+  borderColor: pinkA.pinkA4,
+  backgroundImage: `linear-gradient(160deg, ${crimsonA.crimsonA2}, ${plumA.plumA2})`
 })
 
 globalStyle(`${debug} ${toClassName(clampStyles.clamp)}`, {
-  border: '1.5px solid #e3ccf4',
-  backgroundImage: `linear-gradient(160deg, ${plumA.plumA1}, ${violetA.violetA1})`
+  borderColor: purpleA.purpleA4,
+  backgroundImage: `linear-gradient(160deg, ${plumA.plumA2}, ${violetA.violetA2})`
 })
 
 globalStyle(`${debug} ${toClassName(columnsStyles.columns)}`, {
-  border: '1.5px solid #c6d4f9',
-  backgroundImage: `linear-gradient(160deg, ${violetA.violetA1}, ${blueA.blueA1})`
+  borderColor: indigoA.indigoA4,
+  backgroundImage: `linear-gradient(160deg, ${violetA.violetA2}, ${blueA.blueA2})`
 })
 
 globalStyle(`${debug} ${toClassName(gridStyles.grid)}`, {
-  border: '1.5px solid #aadee6',
-  backgroundImage: `linear-gradient(160deg, ${blueA.blueA1}, ${tealA.tealA1})`
+  borderColor: cyanA.cyanA4,
+  backgroundImage: `linear-gradient(160deg, ${blueA.blueA2}, ${tealA.tealA2})`
 })
 globalStyle(`${debug} ${toClassName(splitStyles.split)}`, {
   border: `1px solid ${mauve.mauve8}`,
@@ -98,7 +106,7 @@ globalStyle(`${debug} ${toClassName(splitStyles.split)}::before, ${debug} ${toCl
   content: '',
   display: 'block',
   height: 12,
-  width: 2,
+  width: 1,
   backgroundColor: mauve.mauve8,
   left: -1,
   top: -6,
