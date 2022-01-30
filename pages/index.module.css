@@ -21,7 +21,8 @@
 .why {
   transform: translateY(-6px) translateX(-3px) rotate(-10deg);
   display: inline-block;
-  padding: 0 8px;
+  padding: 3px 8px 0;
+  letter-spacing: 0;
   line-height: 1.2;
   border-radius: 7px;
   background-color: white;
