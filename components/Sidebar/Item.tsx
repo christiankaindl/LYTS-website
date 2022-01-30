@@ -16,7 +16,7 @@ const Item: FunctionComponent<ItemProps> = function ({ icon, title, href, index 
   const isActive = router.asPath === href
   return (
     <Link href={href} passHref>
-      <Row bleed='0 18px' asChild className={`${styles.item} ${isActive ? styles.active : ''}`} xAlign='space-between'>
+      <Row bleed='0 15px' asChild className={`${styles.item} ${isActive ? styles.active : ''}`} xAlign='space-between'>
         <a>
           <span>{title}</span>
           {icon !== undefined && icon}

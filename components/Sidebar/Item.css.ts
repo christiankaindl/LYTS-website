@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 export const item = style({
   borderRadius: 9,
-  padding: '3px 18px',
+  padding: '3px 15px',
   minHeight: 42,
   color: 'black',
   textDecoration: 'none',
