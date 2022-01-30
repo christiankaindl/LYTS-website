@@ -6,27 +6,24 @@ category: Components
 
 import { Row, Box, Split } from '@christiankaindl/lyts'
 
-Use Split when you need to stack elements horizontally. This has many use cases such as [toolbars](/examples/toolbar), [breadcrumbs](/examples/breadcrumbs) or a [list of tags](/examples/wrapped-tags).
+Use Row when you need to stack elements horizontally. This has many use cases such as [toolbars](/examples/toolbar), [breadcrumbs](/examples/breadcrumbs) or a [list of tags](/examples/wrapped-tags).
 
 ## Wrapping
 
 Row supports the `wrap` prop, which says that elements should *wrap* into the next line when the current row doesn't have enaugh space. This is commonly used when displaying a set of tags, or metadata where the content is often dynamic:
 
 <Row wrap style={{ maxWidth: 500 }}>
-  <Pill>Name: LYTS</Pill>
-  <Pill>By Christian Kaindl</Pill>
-  <Pill>Written in TypeScript</Pill>
-  <Pill>CSS</Pill>
-  <Pill>React</Pill>
-  <Pill>package</Pill>
-  <Pill>layout</Pill>
+  <Pill width={65} />
+  <Pill width={150} />
+  <Pill width={100} />
+  <Pill width={150} />
+  <Pill width={10} />
+  <Pill width={75} />
 </Row>
 
-export const Pill = ({ children }) => {
+export const Pill = ({ width = 60 }) => {
   return (
-    <span style={{ borderRadius: 99, backgroundColor: 'rgb(0, 0, 0, .07)', padding: '4px 12px', fontSize: '0.9em' }}>
-      {children}
-    </span>
+    <Box style={{ width }} />
   )
 }
 
@@ -35,23 +32,21 @@ export const Pill = ({ children }) => {
 It is common to  have elements on opposite sides of each other, but aligned on the same axis. LYTS provides the Split component, which can be used together with Row and Stack to "split" up the remaining space:
 
 <Row>
-  <Box>Item #1</Box>
-  <Box>Item #2</Box>
+  <Box style={{ width: 70 }} />
+  <Box style={{ width: 120 }} />
   <Split />
-  <Box>Item #3</Box>
+  <Box style={{ width: 85 }} />
 </Row>
+
 
 Split layouts also work great with the `wrap` prop. When used together you get a large layout on desktops which collapses below each other on small screens. This is perfect for toolbars:
 
 <Row gap={1.5} wrap>
-  <b>
-    Toolbar
-  </b>
+  <Box style={{ width: 70 }} />
   <Split />
   <Row>
-    <span>Edit</span>
-    <span>Share</span>
-    <span>Like</span>
+    <Box style={{ width: 120 }} />
+    <Box style={{ width: 85 }} />
   </Row>
 </Row>
 
@@ -62,19 +57,19 @@ The elements "Edit", "Share" and "Like" are contained in another Row (but could 
 By default, Row centers its children vertically, and start-aligns (left) items horizontally. But this can be easily customized with the `xAlign` and `yAlign` props:
 
 <Row>
-  <Box>Item #1</Box>
-  <Box>Item #2</Box>
-  <Box>Item #3</Box>
+  <Box style={{ width: 70 }} />
+  <Box style={{ width: 120 }} />
+  <Box style={{ width: 85 }} />
 </Row>
 
 <Row xAlign='center'>
-  <Box>Item #1</Box>
-  <Box>Item #2</Box>
-  <Box>Item #3</Box>
+  <Box style={{ width: 70 }} />
+  <Box style={{ width: 120 }} />
+  <Box style={{ width: 85 }} />
 </Row>
 
 <Row xAlign='end'>
-  <Box>Item #1</Box>
-  <Box>Item #2</Box>
-  <Box>Item #3</Box>
+  <Box style={{ width: 70 }} />
+  <Box style={{ width: 120 }} />
+  <Box style={{ width: 85 }} />
 </Row>

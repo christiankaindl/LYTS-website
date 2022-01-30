@@ -1,10 +1,7 @@
 import { Clamp, Box } from '@christiankaindl/lyts'
 
-<Clamp clamp='400px'>
-  <Box>
-    Child #1
-  </Box>
-  <Box>
-    Child #2
-  </Box>
+<Clamp clamp='min(350px, 50vw)'>
+  <Box
+    style={{ height: '200px' }}
+  />
 </Clamp>

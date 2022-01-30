@@ -10,28 +10,34 @@ Use Clamp when you want to center elements with a max-width/-height. Common use 
 
 ## Clamping vertically
 
-The most common use case for Clamp is to give a maximum width to passages of text and other elements. But you can also clamp elements vertically by providing an array for the `clamp` prop, where the second value is the maximum height. This is handy for overlays, where you typically need to clamp both horizontally (width) and vertically (height):
+Clamp can also constrain an elements *height* rather than only its width, so that elements don't stretch the full *height* of the container. To clamp vertically, pass an array to the `clamp` prop, where the first value is the maximum width and the second value is the maximum *height*.
 
-<Clamp clamp={['400px', '200px']} style={{ height: 400 }}>
-  <Box>
-    Child
-  </Box>
+This overlay is clamped both horizontally (width) and vertically (height):
+
+<Clamp clamp={['min(350px, 50vw)', '200px']} style={{ height: 400 }}>
+  <Box />
 </Clamp>
 
-In a real-world application, the Clamp container itself would be absolutely positioned to the viewport.
+Note: in a real-world application, the Clamp container itself would be absolutely positioned to the viewport.
+
+## Multiple children
+
+Clamp supports multiple children when only horizontal clamping is used. When using multiple children, Clamp can be used similar to a Stack:
+
+<Clamp clamp='min(350px, 50vw)'>
+  <Box />
+  <Box />
+  <Box />
+</Clamp>
 
 ## Break-out elements
 
 Clamp also supports "break-out" elements, as described in Josh Comeau's [Full-Bleed Layout Using CSS Grid](https://www.joshwcomeau.com/css/full-bleed/) (check it out, it's a great read!). With LYTS you can use the \<Breakout> component as a direct child to Clamp to make it "opt out" of the clamping and make it full-width:
 
-<Clamp clamp={'400px'}>
-  <Box>
-    Clamped child
-  </Box>
+<Clamp clamp='min(350px, 50vw)'>
+  <Box />
   <Breakout xAlign='center'>
-    I am full-width!
+    Full-width element with `<Breakout>`
   </Breakout>
-  <Box>
-    Clamped child
-  </Box>
+  <Box />
 </Clamp>

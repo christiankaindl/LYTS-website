@@ -5,6 +5,7 @@ category: Components
 ---
 
 import { Box, Columns } from '@christiankaindl/lyts'
+import Component from './Component.mdx'
 
 Use columns whenever you need extrinsic spacing behavior. That is, when you want the layout to not be influenced by the contents of its children. Common use cases for such behavior are [footers](/examples/footer), [landing page sections](/examples/landing-page-section) and [sidebar/detail](/examples/sidebar-details) views.
 
@@ -13,14 +14,14 @@ Use columns whenever you need extrinsic spacing behavior. That is, when you want
 Columns are extrinsically sized. This means that its children's width is determined by its parent (the Columns container). By default every child takes up 1 fraction of the available space, but this can be customized by the `ratio` prop (the example above has a ratio of "1/2").
 
 <Columns ratio='1/3/1'>
-  <Box>Column #1</Box>
-  <Box>Column #2</Box>
-  <Box>Column #3</Box>
+  <Box />
+  <Box />
+  <Box />
 </Columns>
 
 <Columns ratio='1/2'>
-  <Box>Column #1</Box>
-  <Box>Column #2</Box>
+  <Box />
+  <Box />
 </Columns>
 
 This behavior is perfect for landing page sections, where you want the exact same widths for every section. Columns also works great for sidebar layouts: you can set additional min- and max-width values on the sidebar to get dynamic sizing, all while staying in a legible width (the sidebar layout of this very site is using \<Columns>! [Check it out here](https://github.com/christiankaindl/LYTS-website/blob/main/components/SidebarLayout/SidebarLayout.tsx))

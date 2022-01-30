@@ -20,8 +20,8 @@ npm install @christiankaindl/lyts
 Import the library's CSS styles into your application. For example in a Next.js app, import in `_app.js`:
 
 ```jsx
-/** _app.js */
-import '@christiankaindl/lyts/style.css'
+/* _app.js */
+import '@christiankaindl/lyts/style.css' // Import the library styles here
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
@@ -45,7 +45,7 @@ Compose layout components until you achieve your desired layout. The following \
   </Clamp>
 </DebugProvider>
 
-```tsx
+```jsx
 const CenterCard: FunctionComponent = function () {
   return (
     // A card with clamped 400px and centered

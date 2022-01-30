@@ -14,17 +14,11 @@ Grid also supports "break-out" elements, which are a common way to highlight the
 
 <Grid gridItemMinWidth='13em'>
   <Breakout xAlign='center' yAlign='center'>
-    Hero card (Breakout)
+    Hero card with `<Breakout>`
   </Breakout>
-  <Box xAlign='center' yAlign='center'>
-    Card #1
-  </Box>
-  <Box xAlign='center' yAlign='center'>
-    Card #2
-  </Box>
-  <Box xAlign='center' yAlign='center'>
-    Card #3
-  </Box>
+  <Box />
+  <Box />
+  <Box />
 </Grid>
 
 Breakout is a helper component which sets CSS' `grid-column` to "1 / -1", which makes it span all columns within a row.

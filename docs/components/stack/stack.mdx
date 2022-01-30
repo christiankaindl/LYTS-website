@@ -15,20 +15,12 @@ Stacks can be nested within each other with different gaps, making it easy to [v
 
 <Stack gap={2.5}>
   <Stack>
-    <Box>
-      Child #1
-    </Box>
-    <Box>
-      Child #2
-    </Box>
+    <Box />
+    <Box />
   </Stack>
   <Stack>
-    <Box>
-      Child #1
-    </Box>
-    <Box>
-      Child #2
-    </Box>
+    <Box />
+    <Box />
   </Stack>
 </Stack>
 
@@ -37,19 +29,19 @@ Stacks can be nested within each other with different gaps, making it easy to [v
 By default Stack stretches its children to the full width (which is the CSS flexbox default), but this can be easily customized with the `xAlign` prop:
 
 <Stack xAlign='start'>
-  <Box>Some child</Box>
-  <Box>Longer than the others</Box>
-  <Box>Another child</Box>
+  <Box style={{ width: 100 }} />
+  <Box style={{ width: 170 }} />
+  <Box style={{ width: 120 }} />
 </Stack>
 
 <Stack xAlign='center'>
-  <Box>Some child</Box>
-  <Box>Longer than the others</Box>
-  <Box>Another child</Box>
+  <Box style={{ width: 100 }} />
+  <Box style={{ width: 170 }} />
+  <Box style={{ width: 120 }} />
 </Stack>
 
 <Stack xAlign='end'>
-  <Box>Some child</Box>
-  <Box>Longer than the others</Box>
-  <Box>Another child</Box>
+  <Box style={{ width: 100 }} />
+  <Box style={{ width: 170 }} />
+  <Box style={{ width: 120 }} />
 </Stack>

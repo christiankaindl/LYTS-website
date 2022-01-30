@@ -5,4 +5,18 @@ description: Lowest common denominator
 
 import { Box } from '@christiankaindl/lyts'
 
-Box is a generic component, providing useful features such as `bleed`, `asChild`, `xAlign` and `yAlign`. All layout components render a Box under-the-hood and inherit its props.
+Use Box as a generic flexbox component, providing useful features such as `bleed`, `asChild`, `xAlign` and `yAlign`. All layout components render a Box under-the-hood and inherit its props.
+
+## Tweaking the gap
+
+The most fundamental prop is the `gap` prop which responds to the size of the space between elements. Takes an integer, which is multiplied by 1em, or a pixel value, or any other valid CSS length.
+
+## Rendering as custom element
+
+Box renders a `<div>` by default, but this is customizable with the `asChild` prop. When `asChild={true}` then the first child element is used as the wrapper. This is similar to the `as` tag of many libraries, but takes a different approach [inspired by Radix UI](https://www.radix-ui.com/docs/primitives/utilities/slot). In fact, LYTS uses Radix UI's `<Slot>` for its implementation.
+
+Essentially, all props from Box are forwarded to the direct child and Box itself does not render an additional `<div>`.
+
+## Visually aligning elements
+
+bleed prop
