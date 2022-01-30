@@ -19,8 +19,14 @@
   font-size: 3em;
 }
 .why {
-  transform: translateY(-3px) translateX(-1px) rotate(-7deg);
+  transform: translateY(-6px) translateX(-3px) rotate(-10deg);
   display: inline-block;
+  padding: 0 8px;
+  line-height: 1.2;
+  border-radius: 7px;
+  background-color: white;
+  font-size: 0.8em;
+  color: #0090ff;
 }
 .App {
   position: relative;
