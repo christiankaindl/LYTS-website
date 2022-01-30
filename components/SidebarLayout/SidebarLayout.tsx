@@ -12,6 +12,7 @@ import { Media } from "@/components/MediaQuery/MediaQuery"
 import NavMenu from "../NavMenu/NavMenu"
 import * as styles from './SidebarLayout.css'
 import ReactMarkdown from 'react-markdown'
+import Footer from "../Footer/Footer"
 interface Props {
   meta: {
     title: string
@@ -66,6 +67,8 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
               )}
               {children}
             </Stack>
+            <hr />
+            <Footer />
           </main>
         </Clamp>
       </Columns>

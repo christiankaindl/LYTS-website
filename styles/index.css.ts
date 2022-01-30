@@ -12,7 +12,12 @@ globalStyle('code', {
   backgroundColor: mauveA.mauveA4
 })
 globalStyle('pre > code', {
-  backgroundColor: mauveA.mauveA3
+
+globalStyle('hr', {
+  border: 'none',
+  height: '1px !important',
+  backgroundColor: mauve.mauve4,
+  width: '100%'
 })
 
 export const article = style({})
