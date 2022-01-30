@@ -1,0 +1,165 @@
+{
+  "sections": [
+    {
+      "content": [
+        {
+          "id": "get-started",
+          "title": "Get started",
+          "description": "Add LYTS to your project in < 1 minute."
+        },
+        {
+          "id": "overview",
+          "title": "Overview",
+          "description": "Simple primitives to build any layout with minimal CSS."
+        }
+      ]
+    },
+    {
+      "title": "Components",
+      "id": "components",
+      "content": [
+        {
+          "id": "stack",
+          "title": "Stack",
+          "description": "Vertical stack",
+          "category": "Components"
+        },
+        {
+          "id": "row",
+          "title": "Row",
+          "description": "Horizontal stack",
+          "category": "Components"
+        },
+        {
+          "id": "clamp",
+          "title": "Clamp",
+          "description": "Clamps its child to a maximum width and/or height",
+          "category": "Components"
+        },
+        {
+          "id": "columns",
+          "title": "Columns",
+          "description": "Responsive full-width horizontal columns",
+          "category": "Components"
+        },
+        {
+          "id": "grid",
+          "title": "Grid",
+          "description": "Responsive grid",
+          "category": "Components"
+        },
+        {
+          "id": "box",
+          "title": "Box",
+          "description": "Lowest common denominator"
+        },
+        {
+          "id": "split",
+          "title": "Split",
+          "description": "Separates items along a single axis."
+        },
+        {
+          "id": "breakout",
+          "title": "Breakout",
+          "description": "Separates items along a single axis."
+        }
+      ]
+    },
+    {
+      "title": "Examples",
+      "id": "examples",
+      "content": [
+        {
+          "id": "article",
+          "title": "Article",
+          "description": "Create a common article layout with Clamp, with support for full-width \"break out\" elements.",
+          "components": [
+            "Clamp",
+            "Breakout"
+          ]
+        },
+        {
+          "id": "breadcrumbs",
+          "title": "Breadcrumbs",
+          "description": "Use Row with the `wrap` prop to create mobile-friendly breadcrumbs",
+          "components": [
+            "Row"
+          ]
+        },
+        {
+          "id": "card",
+          "title": "Card",
+          "description": "Compose multiple layout components to achieve the common card style",
+          "components": [
+            "Stack",
+            "Row",
+            "Box",
+            "Split"
+          ]
+        },
+        {
+          "id": "footer",
+          "title": "Footer",
+          "description": "Leverage Columns to create a 4-columns footer layout, collapsing into a single column on small screens",
+          "components": [
+            "Columns",
+            "Stack"
+          ]
+        },
+        {
+          "id": "landing-page-section",
+          "title": "Landing page section (2 columns)",
+          "description": "Use Columns to create a two-columns landing page section, which collapses to a single column on small sizes.",
+          "components": [
+            "Columns",
+            "Stack",
+            "Box"
+          ]
+        },
+        {
+          "id": "landing-page-section-2",
+          "title": "Landing page section (3 columns)",
+          "description": "Use Columns to create a three-columns landing page section, which collapses to a single column on small sizes.",
+          "components": [
+            "Columns",
+            "Stack"
+          ]
+        },
+        {
+          "id": "overlay",
+          "title": "Overlay",
+          "description": "Use Clamp to create an overlay which is centered both horizontally and vertically.",
+          "components": [
+            "Clamp",
+            "Box"
+          ]
+        },
+        {
+          "id": "sidebar-details",
+          "title": "Sidebar/details view",
+          "description": "Use Columns with a combination of `ratio` and min-/max-width to create a responsive sidebar.",
+          "components": [
+            "Columns"
+          ]
+        },
+        {
+          "id": "toolbar",
+          "title": "Toolbar",
+          "description": "Compose Row with Split to create a toolbar layout, wrapping to the next line on small screens.",
+          "components": [
+            "Split",
+            "Row"
+          ]
+        },
+        {
+          "id": "wrapped-tags",
+          "title": "Wrapped tags",
+          "description": "Use the `wrap` prop to achieve commonly used inline tags with wrapping behavior.",
+          "components": [
+            "Row"
+          ]
+        }
+      ]
+    }
+  ]
+}
