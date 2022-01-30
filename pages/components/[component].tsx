@@ -35,7 +35,8 @@ export const getStaticProps: GetStaticProps = async function ({ params }) {
     propFilter: (prop: PropItem, component: ReactComponent) => {
       return !prop.parent?.fileName.endsWith('react/index.d.ts')
     },
-    savePropValueAsString: true
+    savePropValueAsString: true,
+    shouldRemoveUndefinedFromOptional: true
   })
   const [componentInfo] = customParser.parse(path.join(process.cwd(), `node_modules/@christiankaindl/lyts/src/${story.meta.title}/${story.meta.title}.tsx`))
   const examples = await getFilteredExamples([story.meta.title])
