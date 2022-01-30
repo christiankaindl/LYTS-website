@@ -32,12 +32,12 @@ Clamp supports multiple children when only horizontal clamping is used. When usi
 
 ## Break-out elements
 
-Clamp also supports "break-out" elements, as described in Josh Comeau's [Full-Bleed Layout Using CSS Grid](https://www.joshwcomeau.com/css/full-bleed/) (check it out, it's a great read!). With LYTS you can use the \<Breakout> component as a direct child to Clamp to make it "opt out" of the clamping and make it full-width:
+Clamp also supports "break-out" elements, as described in Josh Comeau's [Full-Bleed Layout Using CSS Grid](https://www.joshwcomeau.com/css/full-bleed/) (check it out, it's a great read!). LYTS provides [Breakout](/components/breakout), which can be used as a direct child to Clamp to make it "opt out" of the clamping and become full-width:
 
 <Clamp clamp='min(350px, 50vw)'>
   <Box />
   <Breakout xAlign='center'>
-    Full-width element with `<Breakout>`
+    Full-width element using `<Breakout>`
   </Breakout>
   <Box />
 </Clamp>
