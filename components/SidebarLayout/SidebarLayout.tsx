@@ -11,6 +11,7 @@ import { mauve } from "@radix-ui/colors"
 import { Media } from "@/components/MediaQuery/MediaQuery"
 import NavMenu from "../NavMenu/NavMenu"
 import * as styles from './SidebarLayout.css'
+import ReactMarkdown from 'react-markdown'
 interface Props {
   meta: {
     title: string
