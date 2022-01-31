@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "build:navigation && next build",
+    "build": "npm run build:navigation && next build",
     "start": "next start",
     "lint": "next lint",
     "build:navigation": "node ./utils/buildNavigationData.js"
