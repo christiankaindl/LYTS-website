@@ -74,7 +74,7 @@ interface Props {
 const Component: FunctionComponent<Props> = function ({ code, meta, examples, docs, component }) {
   const Story = useMemo(() => getMDXComponent(code, { lyts }), [code])
   const Component = useMemo(() => getMDXComponent(component.code, { lyts }), [component.code])
-  const [_examples, setExamples] = useState(() => {
+  const [_examples, setExamples] = useState<[]>(() => {
     return examples.map(({ code, meta }: any) => {
       return {
         Component: getMDXComponent(code, { lyts }),
