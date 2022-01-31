@@ -1,14 +1,13 @@
 import styles from './index.module.css'
 import { StackIcon, RowIcon, ClampIcon, ColumnsIcon, GridIcon } from '@/components/Icons/Icons'
 import Button from '@/components/Button'
-import { Stack, Row } from '@christiankaindl/lyts'
+import { Stack, Row, Clamp } from '@christiankaindl/lyts'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Page from '@/components/Page/Page'
 import Logo from '@/components/Logo/Logo'
 
-const otherStyles = { nav: '' }
 function App() {
   return (
     <Page className={styles.App} title='LYTS—Layout primitives for React.'>
@@ -18,8 +17,6 @@ function App() {
             <h1>
               <Logo size='large' accentColor='#0090ff' />
             </h1>
-            {/* Make it more wide here with visible labels */}
-            {/* Slide in a similar variant for the navbar after initial scroll (with only tooltips) */}
             <Row style={{ padding: '0 2em' }} wrap xAlign='center'>
               {icons.map(({ name, icon, href }, index) => {
                 return (
@@ -52,16 +49,15 @@ function App() {
           </header>
         </Stack>
       </div>
-      <Stack asChild>
+      <Clamp clamp='65ch' asChild gap={1.5} xAlign='center' style={{ textAlign: 'center' }}>
         <main>
           <p style={{ fontSize: '1.7em', color: 'rgb(0 0 0 / 0.6)' }}>Build any layout quickly with well-designed composable components.</p>
-          <p style={{ fontSize: '1.7em', color: 'rgb(0 0 0 / 0.6)' }}>Each component has a minimal API surface, is well documented and has plenty of examples (copy-pasta compatible!).</p>
           <Button href='/get-started'>
             <span>Get started</span>
             <ArrowRight size={20} />
           </Button>
         </main>
-      </Stack>
+      </Clamp>
     </Page>
   )
 }
