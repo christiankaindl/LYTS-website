@@ -2,10 +2,12 @@ import DebugProvider from '@/components/DebugProvider/DebugProvider'
 import { Stack, Row, Grid } from '@christiankaindl/lyts'
 import { mauve } from '@radix-ui/colors'
 import { withSidebarLayout } from 'components/SidebarLayout/SidebarLayout'
+import { ArrowRight } from 'lucide-react'
 import { getMDXComponent, getMDXExport } from 'mdx-bundler/client'
 import { GetStaticProps } from "next"
 import Link from 'next/link'
 import { FunctionComponent, useState } from "react"
+import { link } from 'styles/index.css'
 import { lyts } from 'utils'
 import { getFilteredExamples } from 'utils/getFilteredExamples'
 
@@ -35,17 +37,20 @@ const Examples: FunctionComponent<any> = function ({ examples }) {
 
       <div />
 
-      <Stack>
+      <Stack gap={2.5}>
         {_examples.map(({ Component, title, description, id }: any) => {
           return (
             <Link href={`/examples/${id}`} passHref key={id}>
-              <Stack asChild style={{ padding: 30, boxShadow: '0px 4px 25px -10px rgb(0 0 0 / 0.2)', borderRadius: 30, textDecoration: 'none', color: 'black' }}>
+              <Stack bleedLeft={30} bleedRight={30} asChild style={{ padding: 30, backgroundColor: mauve.mauve2, borderRadius: 30, textDecoration: 'none', color: 'black' }}>
                 <a>
-                  <h2>{title}</h2>
+                  <h3>{title}</h3>
                   <p>{description}</p>
                   <DebugProvider>
                     <Component />
                   </DebugProvider>
+                  <Row gap={0.5} className={link} style={{ display: 'inline-flex', alignSelf: 'start' }}>
+                    <span>View full example</span><ArrowRight size={20} />
+                  </Row>
                 </a>
               </Stack>
             </Link>
