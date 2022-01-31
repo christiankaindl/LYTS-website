@@ -21,17 +21,17 @@ globalStyle('pre > code', {
 globalStyle('hr', {
   border: 'none',
   height: '1px !important',
-  backgroundColor: mauve.mauve4,
+  backgroundColor: mauveA.mauveA4,
   width: '100%'
 })
 
-export const article = style({})
-globalStyle(`${article} h2`, {
-  marginTop: '1.5em'
+globalStyle(`main h2`, {
+  marginTop: '1.5em !important'
 })
 
+export const link = style({})
 const boxClassName = toClassName(boxStyles.box)
-globalStyle(`a:not(${boxClassName})`, {
+globalStyle(`a:not(${boxClassName}), ${link}`, {
   color: blue.blue11,
   borderRadius: 4,
   padding: '1px 3px',
@@ -41,11 +41,11 @@ globalStyle(`a:not(${boxClassName})`, {
   display: 'inline-flex'
 })
 
-globalStyle(`a:hover:not(${boxClassName})`, {
+globalStyle(`a:hover:not(${boxClassName}), ${link}:hover`, {
   backgroundColor: blueA.blueA3
 })
 
-globalStyle(`a:active:not(${boxClassName})`, {
+globalStyle(`a:active:not(${boxClassName}), ${link}:active`, {
   backgroundColor: blueA.blueA4
 })
 
