@@ -6,13 +6,15 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import { getComponentPage } from "utils/getComponentPage"
 import DebugProvider from "components/DebugProvider/DebugProvider"
 import { withSidebarLayout } from "components/SidebarLayout/SidebarLayout"
-import { Stack } from "@christiankaindl/lyts"
+import { Row, Stack } from "@christiankaindl/lyts"
 import { getFilteredExamples } from "utils/getFilteredExamples"
 import Link from "next/link"
 import { lyts } from "utils"
 import { withCustomConfig, PropItem } from 'react-docgen-typescript'
 import PropsTable from "@/components/PropsTable"
-import { article } from "styles/index.css"
+import { mauve } from '@radix-ui/colors'
+import { ArrowRight } from "lucide-react"
+import { link } from "styles/index.css"
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.component === undefined) {
@@ -94,34 +96,37 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples, do
       <DebugProvider>
         <Component />
       </DebugProvider>
-      <div />
-      <div />
       <PropsTable {...docs} />
-      <DebugProvider className={article}>
+      <DebugProvider>
         <Story />
       </DebugProvider>
       <div />
-      <div />
+      <h2>Examples using <code>{meta.title}</code></h2>
       <Stack
-        gap={1.5}
-        style={{ backgroundColor: 'rgb(0 0 0 / 0.03)', padding: '36px 30px', borderRadius: 36 }}
+        gap={2.5}
+        style={{ backgroundColor: mauve.mauve2, padding: '30px 30px', borderRadius: 30 }}
         bleedLeft='30px'
         bleedRight='30px'
       >
-        <h2>Examples using <code>{meta.title}</code></h2>
-        {_examples.map(({ Component, title, description, id }: any) => {
+        {_examples.map(({ Component, title, description, id }: any, index) => {
           return (
-            <Link href={`/examples/${id}`} passHref key={id}>
-              <Stack asChild style={{ padding: 30, boxShadow: '0px 4px 25px -10px rgb(0 0 0 / 0.2)', borderRadius: 24, textDecoration: 'none', color: 'black', backgroundColor: 'white' }}>
-                <a>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                  <DebugProvider style={{ fontSize: '0.85em' }}>
-                    <Component />
-                  </DebugProvider>
-                </a>
-              </Stack>
-            </Link>
+            <>
+              {index > 0 && <hr />}
+              <Link href={`/examples/${id}`} passHref key={id}>
+                <Stack asChild style={{ textDecoration: 'none', color: 'black' }}>
+                  <a>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                    <DebugProvider style={{ fontSize: '0.85em' }}>
+                      <Component />
+                    </DebugProvider>
+                    <Row gap={0.5} className={link} style={{ display: 'inline-flex', alignSelf: 'start' }}>
+                      <span>View full example</span><ArrowRight size={20} />
+                    </Row>
+                  </a>
+                </Stack>
+              </Link>
+            </>
           )
         })}
       </Stack>
