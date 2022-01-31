@@ -9,7 +9,11 @@ import DebugProvider from '@/components/DebugProvider/DebugProvider'
 
 export { default } from 'components/SidebarLayout/SidebarLayout'
 
-LYTS is a set of layout primitives to build any kind of layout quickly and confidently. There's nothing to configure, set up or mess up. Components work out-of-the-box with no configuration and sensible defaults.
+LYTS is a set of layout primitives to build any kind of layout. All components are unstyled so you can use the styling solution of your choice, like vanilla-extract, Stitches or emotion. LYTS can be adopted gradually and works with any framework or library setup.
+
+1. Drop-in: Use as much or as little as you need
+1. Composable: Combine to create complex layouts
+1. Familiar: Apply standard CSS flexbox and grid knowledge
 
 ## Installation
 
@@ -17,7 +21,7 @@ LYTS is a set of layout primitives to build any kind of layout quickly and confi
 npm install @christiankaindl/lyts
 ```
 
-Import the library's CSS styles into your application. For example in a Next.js app, import in `_app.js`:
+After intallation, import the necessary CSS styles into your application. For example in a Next.js app, import them in `_app.js`:
 
 ```jsx
 /* _app.js */
@@ -30,11 +34,11 @@ function MyApp({ Component, pageProps }) {
 export default MyApp
 ```
 
-That's the whole setup! Now import one of the base components—<Link href='/components/stack'>Stack</Link>, <Link href='/components/row'>Row</Link>, <Link href='/components/clamp'>Clamp</Link>, <Link href='/components/columns'>Columns</Link>, <Link href='/components/grid'>Grid</Link>—and start building great layouts.
+And that's all there is to set up! Now import one of the base components—<Link href='/components/stack'>Stack</Link>, <Link href='/components/row'>Row</Link>, <Link href='/components/clamp'>Clamp</Link>, <Link href='/components/columns'>Columns</Link>, <Link href='/components/grid'>Grid</Link>—and start building great layouts.
 
 ## Usage
 
-Compose layout components until you achieve your desired layout. The following \<CenterCard> component creates a card with a max-width of 400px and centers it:
+Layout components can be composed until you achieve your desired layout. For example, The following \<CenterCard> component renders a card with a max-width of 400px, centers it and uses a <Link href='/components/stack'><a>Stack</a></Link> to get consistent spacing:
 
 <DebugProvider>
   <Clamp clamp='400px'>
@@ -59,9 +63,7 @@ const CenterCard: FunctionComponent = function () {
 }
 ```
 
-## Examples
-
-All components come **unstyled** and only add CSS necessary for layout. Check out the <Link href='/examples'>Examples</Link> page for a comprehensive collection of layouts and how to build them with LYTS.
+All components are **unstyled** and only CSS necessary for the components to work is applied. Check out the <Link href='/examples'>Examples</Link> page for a comprehensive collection of layouts and how to build them with LYTS.
 
 A real-world example using LYTS is this documentation site, which makes extensive use of all components. [Check out the code here](https://github.com/christiankaindl/LYTS-website/)!
 

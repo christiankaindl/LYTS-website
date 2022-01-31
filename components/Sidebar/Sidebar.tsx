@@ -22,7 +22,10 @@ const Sidebar: FunctionComponent = function () {
             </a>
           </Stack>
         </Link>
-        <span style={{ color: mauve.mauve11, fontSize: 14 }}>{libraryVersion}</span>
+        <Link href='https://github.com/christiankaindl/LYTS'>
+          <a style={{ color: mauve.mauve11, fontSize: 14 }}>{libraryVersion}</a>
+        </Link>
+        
       </Row>
 
         <Stack gap={1.5}>

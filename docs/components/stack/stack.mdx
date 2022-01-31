@@ -7,7 +7,7 @@ category: Components
 import { Stack, Box } from '@christiankaindl/lyts'
 import Component from './Component.mdx'
 
-Use Stack when you need consistent spacing between elements and/or a way to group elements together easily. Most commonly used to space passages of text, controls like links in a sidebar, or sections on a landing page. Stack can be used large and small.
+Use Stack when you need consistent spacing between elements and/or a way to group elements together easily. Perfect to space passages of text, controls like links & buttons or page sections. Stack can be used both in large contexts (e.g. page sections) and small contexts (e.g. links in the footer).
 
 ## Nesting stacks
 
@@ -45,3 +45,5 @@ By default Stack stretches its children to the full width (which is the CSS flex
   <Box style={{ width: 170 }} />
   <Box style={{ width: 120 }} />
 </Stack>
+
+Note: `xAlign` and `yAlign` are convenience props. The same effect can be achieved using "align-items" (`xAlign`) and "justify-content" (`yAlign`)

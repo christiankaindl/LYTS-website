@@ -6,23 +6,23 @@ category: Components
 
 import { Clamp, Box, Breakout } from '@christiankaindl/lyts'
 
-Use Clamp when you want to center elements with a max-width/-height. Common use cases for this behavior are [articles](/examples/article) and [overlays](/examples/overlay).
+Use Clamp when you want to center elements with a maximum width and/or height. Common use cases for this are [articles](/examples/article) and [overlays](/examples/overlay).
 
 ## Clamping vertically
 
-Clamp can also constrain an elements *height* rather than only its width, so that elements don't stretch the full *height* of the container. To clamp vertically, pass an array to the `clamp` prop, where the first value is the maximum width and the second value is the maximum *height*.
+Clamp can also constrain an elements height rather than only its width. To clamp vertically, pass an array to the `clamp` prop, where the first value is the maximum width and the second value is the maximum height.
 
-This overlay is clamped both horizontally (width) and vertically (height):
+For example, this overlay is clamped both horizontally (width) and vertically (height):
 
 <Clamp clamp={['min(350px, 50vw)', '200px']} style={{ height: 400 }}>
   <Box />
 </Clamp>
 
-Note: in a real-world application, the Clamp container itself would be absolutely positioned to the viewport.
+If the previous example were to be an overlay, the Clamp container could be positioned aboslutely.
 
 ## Multiple children
 
-Clamp supports multiple children when only horizontal clamping is used. When using multiple children, Clamp can be used similar to a Stack:
+Clamp supports multiple children (not when vertical clamping is used). When using multiple children, Clamp can be used similar to a Stack, with consistent spacing between elements, provided via the `gap` prop:
 
 <Clamp clamp='min(350px, 50vw)'>
   <Box />
