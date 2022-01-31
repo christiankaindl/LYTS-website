@@ -29,10 +29,7 @@ const PropsTable: FunctionComponent<ComponentDoc> = function ({ props }) {
             return (
               <tr key={name}>
                 <td>
-                  <Row gap={0.5} xAlign='start'>
-                    <code>{name}</code>
-                    <InfoPopover text={test.description} />
-                  </Row>
+                  <InfoPopover propName={name} text={test.description} />
                 </td>
                 <td><code style={{ color: mauve.mauve11 }}>{test.type.name}</code></td>
                 <td style={{ color: mauve.mauve11 }}>
@@ -50,33 +47,35 @@ const PropsTable: FunctionComponent<ComponentDoc> = function ({ props }) {
 
 export default PropsTable
 
-const InfoPopover: FunctionComponent<{ text: string }> = function ({ text }) {
+const InfoPopover: FunctionComponent<{ text: string, propName: string }> = function ({ text, propName }) {
   return (
-    <div>
-      <Popover.Root>
-        <Popover.Trigger>
+    <Popover.Root>
+      <Popover.Trigger asChild title="Click to view description">
+        <Row gap={0.5} xAlign='start'>
+          <code>{propName}</code>
           <Info size={16} />
-        </Popover.Trigger>
-        <Popover.Anchor />
-        <Popover.Content
-          style={{
-            backgroundColor: 'white',
-            borderRadius: '12px',
-            padding: '15px',
-            fontSize: '0.8em',
-            boxShadow: 'rgba(0 0 0 / 0.2) 0px 5px 20px -4px, rgba(0 0 0 / 0.15) 0px 0px 7px -4px',
-            maxWidth: '50ch'
-          }}
-        >
-          {/* <Popover.Close /> */}
-          <Popover.Arrow />
-          <Stack>
-            <ReactMarkdown>
-              {text}
-            </ReactMarkdown>
-          </Stack>
-        </Popover.Content>
-      </Popover.Root>
-    </div>
+        </Row>
+      </Popover.Trigger>
+      <Popover.Anchor />
+      <Popover.Content
+        align="start"
+        style={{
+          backgroundColor: 'white',
+          borderRadius: 9,
+          padding: 12,
+          fontSize: '0.8em',
+          boxShadow: 'rgba(0 0 0 / 0.2) 0px 4px 22px -4px, rgba(0 0 0 / 0.2) 0px 0px 6px -3px',
+          maxWidth: 'min(calc(100vw - 60px), 50ch)',
+          width: '100%',
+        }}
+      >
+        <Popover.Arrow fill="white" offset={12} />
+        <Stack>
+          <ReactMarkdown>
+            {text}
+          </ReactMarkdown>
+        </Stack>
+      </Popover.Content>
+    </Popover.Root>
   )
 }
