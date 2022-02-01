@@ -5,12 +5,15 @@ import { ChevronsUpDown, X } from "lucide-react";
 import { Box, Row } from "@christiankaindl/lyts";
 import * as styles from './NavMenu.css'
 import Logo from "../Logo/Logo";
+import Link from "next/link";
 
 const NavMenu: FunctionComponent = function () {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <Row className={styles.navMenu} gap={0.5} xAlign='space-between' yAlign='start'>
-      <Logo />
+      <Link href='/'>
+        <a><Logo /></a>
+      </Link>
       <Dialog.Root open={isOpen} onOpenChange={(isOpen) => setIsOpen(isOpen)}>
         <Row xAlign='space-between' asChild bleedLeft='6px' bleedRight='6px'>
           <Dialog.Trigger className={styles.trigger}>

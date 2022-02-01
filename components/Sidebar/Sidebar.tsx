@@ -9,6 +9,7 @@ import Item from "./Item";
 import * as styles from './Sidebar.css'
 import navigationData from '../../navigation-data.json'
 import Logo from "../Logo/Logo";
+import { link } from "styles/index.css";
 
 const Sidebar: FunctionComponent = function () {
   return (
@@ -16,8 +17,8 @@ const Sidebar: FunctionComponent = function () {
       <nav>
       <Row yAlign='end'>
         <Link href='/' passHref>
-          <Stack gap={0} asChild>
-            <a style={{ textDecoration: 'none', color: 'black' }}>
+          <Stack gap={0} asChild className={link}>
+            <a>
               <Logo />
             </a>
           </Stack>
