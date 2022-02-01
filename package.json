@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@artsy/fresnel": "^3.2.1",
-    "@christiankaindl/lyts": "1.0.0-alpha.28",
+    "@christiankaindl/lyts": "1.0.0",
     "@mdx-js/loader": "^2.0.0-rc.2",
     "@mdx-js/react": "^2.0.0-rc.2",
     "@next/mdx": "^12.0.7",
