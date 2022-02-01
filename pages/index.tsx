@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Page from '@/components/Page/Page'
 import Logo from '@/components/Logo/Logo'
+import { Tooltip } from '@/components/Tooltip/Tooltip'
 
 function App() {
   return (
@@ -20,16 +21,16 @@ function App() {
             <Row style={{ padding: '0 2em' }} wrap xAlign='center'>
               {icons.map(({ name, icon, href }, index) => {
                 return (
-                  <motion.div
-                    key={index}
-                    whileHover={{ y: -4 }}
-                    layoutId={`icon-${index}`}
-                    transition={{ type: 'spring', bounce: 0, duration: 0.5 }}
-                  >
-                    <Link href={href}>
-                      <a aria-label={name}>{icon}</a>
-                    </Link>
-                  </motion.div>
+                  <Tooltip delayDuration={0}>
+                      <Link href={href} passHref>
+                        <Tooltip.Trigger asChild>
+                          <a aria-label={name}>{icon}</a>
+                        </Tooltip.Trigger>
+                      </Link>
+                    <Tooltip.Content>
+                      {name}
+                    </Tooltip.Content>
+                  </Tooltip>
                 )
               })}
             </Row>
@@ -51,7 +52,7 @@ function App() {
       </div>
       <Clamp clamp='65ch' asChild gap={1.5} xAlign='center' style={{ textAlign: 'center' }}>
         <main>
-          <p style={{ fontSize: '1.7em', color: 'rgb(0 0 0 / 0.6)' }}>Build any layout quickly with well-designed composable components.</p>
+          <p style={{ fontSize: '1.7em', color: 'rgb(0 0 0 / 0.6)' }}>Build any layout quickly with well-designed composable components and convenient props.</p>
           <Button href='/get-started'>
             <span>Get started</span>
             <ArrowRight size={20} />
