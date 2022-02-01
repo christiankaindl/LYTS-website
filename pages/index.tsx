@@ -11,7 +11,12 @@ import { Tooltip } from '@/components/Tooltip/Tooltip'
 
 function App() {
   return (
-    <Page className={styles.App} title='LYTS' description='Layout primitives for React.'>
+    <Page
+      className={styles.App}
+      title='LYTS—Layout primitives for React'
+      description='Layout primitives for React.'
+      ogTitle='LYTS'
+    >
       <div>
         <Stack asChild>
           <header className={styles['App-header']}>
