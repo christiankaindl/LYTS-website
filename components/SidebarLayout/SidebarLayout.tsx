@@ -1,4 +1,4 @@
-import { Clamp, Columns, Row, Stack } from "@christiankaindl/lyts"
+import { Clamp, Columns, Row, Split, Stack } from "@christiankaindl/lyts"
 import Page from "components/Page/Page"
 import Sidebar from "components/Sidebar/Sidebar"
 import { useRouter } from "next/router"
@@ -6,7 +6,7 @@ import { FunctionComponent } from "react"
 import { iconMappings } from "../Icons/Icons"
 import { ComponentDoc } from 'react-docgen-typescript'
 import Link from "next/link"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, Github } from "lucide-react"
 import { mauve } from "@radix-ui/colors"
 import { Media } from "@/components/MediaQuery/MediaQuery"
 import NavMenu from "../NavMenu/NavMenu"
@@ -56,9 +56,20 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
                 )}
               </Row>
               {title && (
-                <Row>
+                <Row wrap>
                   {Icon !== undefined && <Icon />}
                   <h1>{title}</h1>
+                  <Split />
+                  {nav.current?.sectionName && (
+                    <Link passHref href={`https://github.com/christiankaindl/LYTS-website/tree/${process.env.VERCEL_GIT_COMMIT_SHA}/docs/${nav.current?.sectionName?.toLowerCase()}/${nav.current?.id}`}>
+                      <Row gap={0.5} asChild style={{ color: mauve.mauve11 }}>
+                        <a>
+                          <Github size={20} />
+                          <span>Page source</span>
+                        </a>
+                      </Row>
+                    </Link>
+                  )}
                 </Row>
               )}
               {description && (
