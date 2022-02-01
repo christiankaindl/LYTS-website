@@ -53,6 +53,11 @@ function App() {
       <Clamp clamp='65ch' asChild gap={1.5} xAlign='center' style={{ textAlign: 'center' }}>
         <main>
           <p style={{ fontSize: '1.7em', color: 'rgb(0 0 0 / 0.6)' }}>Build any layout quickly with well-designed composable components and convenient props.</p>
+          <pre>
+            <code>
+              npm install @christiankaindl/lyts
+            </code>
+          </pre>
           <Button href='/get-started'>
             <span>Get started</span>
             <ArrowRight size={20} />
