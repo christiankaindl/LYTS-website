@@ -19,9 +19,9 @@ function App() {
               <Logo size='large' accentColor='#0090ff' />
             </h1>
             <Row style={{ padding: '0 2em' }} wrap xAlign='center'>
-              {icons.map(({ name, icon, href }, index) => {
+              {icons.map(({ name, icon, href }) => {
                 return (
-                  <Tooltip delayDuration={0}>
+                  <Tooltip delayDuration={0} key={name}>
                       <Link href={href} passHref>
                         <Tooltip.Trigger asChild>
                           <a aria-label={name}>{icon}</a>
