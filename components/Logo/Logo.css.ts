@@ -6,13 +6,13 @@ export const logo = style({
 })
 
 export const small = style({
-  fontSize: '2rem'
+  height: '2rem'
 })
 export const large = style({
-  fontSize: '3.5rem'
+  height: '4.5rem'
 })
 export const xlarge = style({
-  fontSize: '6.5rem'
+  height: '8rem'
 })
 
 export const why = style({

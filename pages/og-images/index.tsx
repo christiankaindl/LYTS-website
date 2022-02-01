@@ -54,7 +54,9 @@ const OgImage: FunctionComponent<Props> = function ({
         }}
       >
         <Stack gap={home ? 1.65 : 0.8} xAlign={home ? 'center' : undefined} style={{ textAlign: home ? 'center' : undefined }}>
-          <Logo size={home ? 'xlarge' : 'large'} accentColor='#0090ff' />
+          <div>
+            <Logo size={home ? 'xlarge' : 'large'} accentColor='#0090ff' />
+          </div>
           {!home && (
             <Row gap={2}>
               <h1 style={{ fontSize: '3em' }}>{title}</h1>

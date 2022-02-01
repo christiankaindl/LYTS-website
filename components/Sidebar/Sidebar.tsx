@@ -14,11 +14,11 @@ const Sidebar: FunctionComponent = function () {
   return (
     <Stack gap={1.5} asChild className={styles.sidebar}>
       <nav>
-      <Row yAlign='baseline'>
+      <Row yAlign='end'>
         <Link href='/' passHref>
           <Stack gap={0} asChild>
             <a style={{ textDecoration: 'none', color: 'black' }}>
-              <h2><Logo /></h2>
+              <Logo />
             </a>
           </Stack>
         </Link>

@@ -10,7 +10,7 @@ const NavMenu: FunctionComponent = function () {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <Row className={styles.navMenu} gap={0.5} xAlign='space-between' yAlign='start'>
-      <h2><Logo /></h2>
+      <Logo />
       <Dialog.Root open={isOpen} onOpenChange={(isOpen) => setIsOpen(isOpen)}>
         <Row xAlign='space-between' asChild bleedLeft='6px' bleedRight='6px'>
           <Dialog.Trigger className={styles.trigger}>

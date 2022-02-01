@@ -15,9 +15,8 @@ function App() {
       <div>
         <Stack asChild>
           <header className={styles['App-header']}>
-            <h1>
-              <Logo size='large' accentColor='#0090ff' />
-            </h1>
+            <Logo size='large' accentColor='#0090ff' />
+            <div />
             <Row style={{ padding: '0 2em' }} wrap xAlign='center'>
               {icons.map(({ name, icon, href }) => {
                 return (
