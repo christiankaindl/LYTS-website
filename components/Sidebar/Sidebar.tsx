@@ -72,7 +72,7 @@ const Sidebar: FunctionComponent = function () {
               Star on GitHub
             </Badge>
           </Row>
-          <p>Made with ❤️ by Christian Kaindl</p>
+          <p>Made with ❤️ by <Link href='https://twitter.com/christiankaindl'><a>Christian Kaindl</a></Link></p>
         </Stack>
       </nav>
     </Stack>

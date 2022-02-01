@@ -24,7 +24,7 @@ const Page: FunctionComponent<PageProps & BoxProps> = function ({
   const router = useRouter()
 
   const image = `${domain}/api/og-image?title=${encodeURIComponent(title)}${description ? `&description=${encodeURIComponent(description)}` : ''}${router.pathname === '/' ? `&home=1` : ''}`
-  const url = `${domain}/${router.asPath}`
+  const url = `${domain}${router.asPath}`
 
   return (
     <>
