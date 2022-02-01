@@ -3,7 +3,7 @@ import * as styles from './Logo.css'
 
 interface Props {
   accentColor?: string
-  size?: 'small' | 'large'
+  size?: 'small' | 'large' | 'xlarge'
 }
 
 const Logo: FunctionComponent<Props> = function ({ size = 'small', accentColor = 'white' }) {

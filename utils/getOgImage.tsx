@@ -1,23 +1,15 @@
 import { launchChromium } from 'playwright-aws-lambda'
-import OgImage from '@/components/OgImage/OgImage'
-import { renderToStaticMarkup } from 'react-dom/server'
+import { domain } from 'utils';
 
-async function getOgImage(title: string, description?: string) {
-
-  // if (process.env.NODE_ENV === 'development') {
-  //   return 'og image will be generated in production';
-  // }
-
+async function getOgImage(title: string, description?: string, home?: string) {
   const browser = await launchChromium({ headless: true })
 
   const page = await browser.newPage();
   await page.setViewportSize({ width: 1200, height: 630 })
 
-  // Render the OG image component
-  page.setContent(
-    renderToStaticMarkup(<OgImage title={title} description={description} />)
-  )
-
+  await page.goto(`${domain}/og-images?title=${encodeURIComponent(title)}${description ? `&description=${encodeURIComponent(description)}` : ''}${home ? `&home=${encodeURIComponent(home)}` : ''}`, {
+    waitUntil: 'networkidle'
+  })
   const buffer = await page.screenshot({ type: 'png' });
   await browser.close();
 

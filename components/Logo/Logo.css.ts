@@ -1,7 +1,8 @@
 import { style } from "@vanilla-extract/css";
 
 export const logo = style({
-  letterSpacing: '0.1em'
+  letterSpacing: '0.1em',
+  fontWeight: 'bold'
 })
 
 export const small = style({
@@ -9,6 +10,9 @@ export const small = style({
 })
 export const large = style({
   fontSize: '3.5rem'
+})
+export const xlarge = style({
+  fontSize: '6.5rem'
 })
 
 export const why = style({

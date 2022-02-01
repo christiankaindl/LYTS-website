@@ -23,7 +23,7 @@ const Page: FunctionComponent<PageProps & BoxProps> = function ({
         {title && <meta property="og:title" content={title}/>}
         {description && <meta property="og:description" content={description}/>}
         <meta property="og:url" content={`${domain}/${router.asPath}`}/>
-        <meta property="og:image" content={`${domain}/api/og-image?title=${title}${description ? `&description=${description}` : ''}`} />
+        <meta property="og:image" content={`${domain}/api/og-image?title=${encodeURIComponent(title)}${description ? `&description=${encodeURIComponent(description)}` : ''}`} />
       </Head>
       <Box {...props} orientation='column'>
         {children}

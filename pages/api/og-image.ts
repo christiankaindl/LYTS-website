@@ -13,6 +13,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const props = req.query
   res.end(
     // @ts-expect-error
-    await getOgImage(props.title, props.description)
+    await getOgImage(props.title, props.description, props.home)
   );
 }
