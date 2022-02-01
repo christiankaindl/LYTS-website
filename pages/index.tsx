@@ -1,13 +1,22 @@
 import styles from './index.module.css'
-import { StackIcon, RowIcon, ClampIcon, ColumnsIcon, GridIcon } from '@/components/Icons/Icons'
+import { StackIcon, RowIcon, ClampIcon, ColumnsIcon, GridIcon, iconMappings } from '@/components/Icons/Icons'
 import Button from '@/components/Button'
 import { Stack, Row, Clamp } from '@christiankaindl/lyts'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Page from '@/components/Page/Page'
 import Logo from '@/components/Logo/Logo'
 import { Tooltip } from '@/components/Tooltip/Tooltip'
+import { FunctionComponent } from 'react'
+import ReactMarkdown from 'react-markdown'
+import { mauve } from '@radix-ui/colors'
+import StackDoc from '../docs/components/stack/Component.mdx'
+import RowDoc from '../docs/components/row/Component.mdx'
+import ClampDoc from '../docs/components/clamp/Component.mdx'
+import ColumnsDoc from '../docs/components/columns/Component.mdx'
+import GridDoc from '../docs/components/grid/Component.mdx'
+import DebugProvider from '@/components/DebugProvider/DebugProvider'
+import { link } from 'styles/index.css'
 
 function App() {
   return (
@@ -54,19 +63,42 @@ function App() {
           </header>
         </Stack>
       </div>
-      <Clamp clamp='65ch' asChild gap={1.5} xAlign='center' style={{ textAlign: 'center' }}>
+
+      <Clamp clamp='750px' asChild gap={3}>
         <main>
-          <p style={{ fontSize: '1.7em', color: 'rgb(0 0 0 / 0.6)' }}>Build any layout quickly with well-designed composable components and convenient props.</p>
-          <pre>
-            <code>
-              npm install @christiankaindl/lyts
-            </code>
-          </pre>
-          <Button href='/get-started'>
-            <span>Get started</span>
-            <ArrowRight size={20} />
-          </Button>
+          <ComponentShowcase title='Stack' description='Vertically stacked elements, taking up the full width by default. Best nested within other Stacks.'>
+            <StackDoc />
+          </ComponentShowcase>
+          <hr />
+          <ComponentShowcase title='Row' description='Horizontally stacked components, with convenience `wrap` and `expand` props. By default, all children are vertically centered and horizontally start-aligned.'>
+            <RowDoc />
+          </ComponentShowcase>
+          <hr />
+          <ComponentShowcase title='Clamp' description='Center-constrained component, supporting both horizontal and vertical clamping. Individual children can "opt out" of the clamping with the `<Breakout>` component.'>
+            <ClampDoc />
+          </ComponentShowcase>
+          <hr />
+          <ComponentShowcase title='Columns' description='Extrinsicly sized columns, filling the whole available space and wrapping all-at-once when the `collapseAt` value is reached. Space distribution can be customized with the `ratio` prop.'>
+            <ColumnsDoc />
+          </ComponentShowcase>
+          <hr />
+          <ComponentShowcase title='Grid' description='Grid layout with with responsive defaults, but also fully customizable with standard CSS grid properties.'>
+            <GridDoc />
+          </ComponentShowcase>
         </main>
+      </Clamp>
+
+      <Clamp clamp='65ch' gap={1.5} xAlign='center' style={{ textAlign: 'center', backgroundColor: mauve.mauve2, padding: "90px 30px" }}>
+        <p style={{ fontSize: '1.5em', color: 'rgb(0 0 0 / 0.6)' }}>Build any layout quickly with well-designed composable components and convenient props.</p>
+        <pre>
+          <code>
+            npm install @christiankaindl/lyts
+          </code>
+        </pre>
+        <Button href='/get-started'>
+          <span>Get started</span>
+          <ArrowRight size={20} />
+        </Button>
       </Clamp>
     </Page>
   )
@@ -101,3 +133,35 @@ export const icons = [
     icon: <GridIcon />
   }
 ]
+
+const ComponentShowcase: FunctionComponent<{title: string, description: string}> = function ({ title, description, children }) {
+  // @ts-expect-error
+  const Icon = iconMappings[title.toLowerCase()]
+  return (
+    <Stack gap={1.5}>
+      <Row>
+        {Icon !== undefined && <Icon />}
+        <h1>{title}</h1>
+      </Row>
+      {description && (
+        <ReactMarkdown
+          components={{
+            p: ({ children }) => <p style={{ fontSize: '1.2em', color: mauve.mauve11, fontWeight: 300 }}>{children}</p>
+          }}
+        >
+          {description}
+        </ReactMarkdown>
+      )}
+      <DebugProvider>
+        {children}
+      </DebugProvider>
+      <div>
+        <Link href={`/components/${title.toLowerCase()}`} passHref>
+          <Row asChild gap={0.5} className={link} style={{ fontSize: '1.2em' }}>
+            <a><span>Explore {title}</span><ArrowRight size={20} /></a>
+          </Row>
+        </Link>
+      </div>
+    </Stack>
+  )
+}
