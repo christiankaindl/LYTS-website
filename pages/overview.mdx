@@ -18,22 +18,9 @@ LYTS exposes layout-specific functionality as props on its components. The <Link
 
 ### Optical alignment: `bleed`
 
-Sometimes what is technically aligned is not visually aligned to our eyes. For example, consider this button:
-[[Example here]]
+Sometimes what is technically aligned is not visually aligned to our eyes. LYTS provides the `bleed` prop (as well as `*Top`/`*Right`/`*Bottom`/`*Left`), which makes it easy to nudge (or bleed) elements outside their bounding box to make them look visually aligned.
 
-Technically, the button is aligned perfectly with the rest of the card, but its internal padding makes it look visually un-aligned. To fix this LYTS provides the `bleed` prop (and *Top/*Right/*Bottom/*Left), which makes it easy to nudge the button to the left, and "bleed" into the bounding box to visually align it:
-[[Example here]]
-
-<Columns collapseAt='30em'>
-  <Box>
-    Before
-    <img />
-  </Box>
-  <Box>
-    After
-    <img />
-  </Box>
-</Columns>
+Slava Shestopalov's "[Optical Effects in User Interfaces](https://medium.muz.li/optical-effects-9fca82b4cd9a)" dives into this topic in great detail.
 
 ### Horizontal & vertical alignment: `xAlign`/`yAlign`
 
