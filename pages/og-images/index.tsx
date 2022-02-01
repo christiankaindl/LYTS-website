@@ -48,7 +48,6 @@ const OgImage: FunctionComponent<Props> = function ({
           margin: 0,
           fontFamily: 'Inter, sans-serif',
           fontSize: '2.5em',
-          // padding: '2em 3em',
           color: 'white',
           boxSizing: 'border-box'
         }}

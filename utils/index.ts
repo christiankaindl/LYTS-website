@@ -3,5 +3,5 @@ import { Stack, Row, Clamp, Columns, Grid, Split, Box, Breakout } from "@christi
 export const lyts = { Stack, Row, Box, Clamp, Columns, Grid, Split, Breakout }
 
 export const domain = process.env.NODE_ENV === 'development'
-  ? 'localhost:3000'
+  ? 'http://localhost:3000'
   : 'https://lyts.christiankaindl.com'
