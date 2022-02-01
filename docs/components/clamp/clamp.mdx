@@ -15,7 +15,7 @@ Clamp can also constrain an elements height rather than only its width. To clamp
 For example, this overlay is clamped both horizontally (width) and vertically (height):
 
 <Clamp clamp={['min(350px, 50vw)', '200px']} style={{ height: 400 }}>
-  <Box />
+  <Box style={{ height: '100%' }} />
 </Clamp>
 
 If the previous example were to be an overlay, the Clamp container could be positioned aboslutely.
