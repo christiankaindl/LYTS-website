@@ -5,6 +5,7 @@ import { blue } from "@radix-ui/colors";
 import { GetServerSideProps } from "next";
 import { icons } from "pages";
 import { FunctionComponent } from "react";
+import ReactMarkdown from 'react-markdown'
 
 interface Props {
   title: string
@@ -64,19 +65,27 @@ const OgImage: FunctionComponent<Props> = function ({
           </Row>
         )}
         {description && (
-          <p
-            style={{
-              fontSize: home ? '1.7em' : '1.2em',
-              color: 'white',
-              opacity: 0.8,
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              display: '-webkit-box'
+          <ReactMarkdown
+            components={{
+              p: ({ children }) => (
+                <p
+                  style={{
+                    fontSize: home ? '1.7em' : '1.2em',
+                    color: 'white',
+                    opacity: 0.8,
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    display: '-webkit-box'
+                  }}
+                >
+                  {children}
+                </p>
+              )
             }}
           >
             {description}
-          </p>
+          </ReactMarkdown>
         )}
       </Stack>
     </Clamp>

@@ -10,7 +10,7 @@ globalStyle('html, body', {
 
 globalStyle('code', {
   backgroundColor: mauveA.mauveA3,
-  color: mauve.mauve12
+  fontWeight: 400
 })
 globalStyle('pre > code', {
   backgroundColor: mauveA.mauveA2,
