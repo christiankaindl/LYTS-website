@@ -13,21 +13,20 @@ import { link } from "styles/index.css";
 
 const Sidebar: FunctionComponent = function () {
   return (
-    <Stack gap={1.5} asChild className={styles.sidebar}>
+    <Stack gap={2.25} asChild className={styles.sidebar}>
       <nav>
-      <Row yAlign='end'>
-        <Link href='/' passHref>
-          <Stack gap={0} asChild className={link}>
-            <a>
-              <Logo />
-            </a>
-          </Stack>
-        </Link>
-        <Link href='https://github.com/christiankaindl/LYTS'>
-          <a style={{ color: mauve.mauve11, fontSize: 14 }}>{libraryVersion}</a>
-        </Link>
-        
-      </Row>
+        <Row yAlign='end'>
+          <Link href='/' passHref>
+            <Stack gap={0} asChild className={link}>
+              <a>
+                <Logo />
+              </a>
+            </Stack>
+          </Link>
+          <Link href='https://github.com/christiankaindl/LYTS'>
+            <a style={{ color: mauve.mauve11, fontSize: 14 }}>{libraryVersion}</a>
+          </Link>
+        </Row>
 
         <Stack gap={1.5}>
           {navigationData.sections.map((item) => {
