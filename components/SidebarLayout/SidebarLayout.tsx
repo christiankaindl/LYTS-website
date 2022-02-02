@@ -46,7 +46,7 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
           <main>
             <Stack gap={1.5}>
               <Row gap={0.75}>
-                <Link href='/'>Docs</Link>
+                <Link href='/'>LYTS</Link>
                 <ChevronRight size={20} />
                 {nav.current?.sectionName && (
                   <>
@@ -55,32 +55,34 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
                   </>
                 )}
               </Row>
-              {title && (
-                <Row wrap>
-                  {Icon !== undefined && <Icon />}
-                  <h1>{title}</h1>
-                  <Split />
-                  {nav.current?.sectionName && (
-                    <Link passHref href={`https://github.com/christiankaindl/LYTS-website/tree/${process.env.VERCEL_GIT_COMMIT_SHA}/docs/${nav.current?.sectionName?.toLowerCase()}/${nav.current?.id}`}>
-                      <Row gap={0.5} asChild style={{ color: mauve.mauve11 }}>
-                        <a>
-                          <Github size={20} />
-                          <span>Page source</span>
-                        </a>
-                      </Row>
-                    </Link>
-                  )}
-                </Row>
-              )}
-              {description && (
-                <ReactMarkdown
-                  components={{
-                    p: ({ children }) => <p style={{ fontSize: '1.2em', color: mauve.mauve11, fontWeight: 300 }}>{children}</p>
-                  }}
-                >
-                  {description}
-                </ReactMarkdown>
-              )}
+              <Stack gap={0.75}>
+                {title && (
+                  <Row wrap>
+                    {Icon !== undefined && <Icon />}
+                    <h1>{title}</h1>
+                    <Split />
+                    {nav.current?.sectionName && (
+                      <Link passHref href={`https://github.com/christiankaindl/LYTS-website/tree/${process.env.VERCEL_GIT_COMMIT_SHA}/docs/${nav.current?.sectionName?.toLowerCase()}/${nav.current?.id}`}>
+                        <Row gap={0.5} asChild style={{ color: mauve.mauve11 }}>
+                          <a>
+                            <Github size={20} />
+                            <span>Page source</span>
+                          </a>
+                        </Row>
+                      </Link>
+                    )}
+                  </Row>
+                )}
+                {description && (
+                  <ReactMarkdown
+                    components={{
+                      p: ({ children }) => <p style={{ fontSize: '1.2em', color: mauve.mauve11, fontWeight: 300 }}>{children}</p>
+                    }}
+                  >
+                    {description}
+                  </ReactMarkdown>
+                )}
+              </Stack>
               {children}
             </Stack>
             <hr />
