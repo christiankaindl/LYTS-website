@@ -14,6 +14,12 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#0090ff" />
           <meta name="theme-color" content="#0090ff" />
 
+          {/*
+            Needed for react-live to not error with "ReferenceError: global is not defined"
+            See https://github.com/satya164/react-simple-code-editor/issues/86
+            */}
+          <script>const global = globalThis;</script>
+
           <style
             type="text/css"
             dangerouslySetInnerHTML={{ __html: mediaStyles }}

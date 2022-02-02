@@ -15,6 +15,9 @@ import PropsTable from "@/components/PropsTable"
 import { mauve } from '@radix-ui/colors'
 import { ArrowRight } from "lucide-react"
 import { link } from "styles/index.css"
+// Import the CodeEditor styles here instead of in CodeEditor.tsx,
+// because when only used in MDX files bundled with mdx-bundler the styles are missing from the page
+import '@/components/CodeEditor/CodeEditor.css'
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.component === undefined) {
