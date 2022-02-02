@@ -1,7 +1,8 @@
 import { FunctionComponent } from "react";
+import { isDev } from "utils";
 import { debug } from '../../styles/index.css'
 
-const debugClass = !debug.startsWith('styles_debug_') ? `styles_debug_${debug}` : debug
+const debugClass = (isDev && !debug.startsWith('styles_debug_')) ? `styles_debug_${debug}` : debug
 
 /**
  * Render all children LYTS components with extra visual cues
