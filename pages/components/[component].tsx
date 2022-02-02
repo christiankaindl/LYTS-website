@@ -9,7 +9,7 @@ import { withSidebarLayout } from "components/SidebarLayout/SidebarLayout"
 import { Row, Stack } from "@christiankaindl/lyts"
 import { getFilteredExamples } from "utils/getFilteredExamples"
 import Link from "next/link"
-import { lyts } from "utils"
+import { mdxBundlerGlobals } from "utils"
 import { withCustomConfig, PropItem } from 'react-docgen-typescript'
 import PropsTable from "@/components/PropsTable"
 import { mauve } from '@radix-ui/colors'
@@ -72,12 +72,12 @@ interface Props {
 }
 
 const Component: FunctionComponent<Props> = function ({ code, meta, examples, docs, component }) {
-  const Story = useMemo(() => getMDXComponent(code, { lyts }), [code])
-  const Component = useMemo(() => getMDXComponent(component.code, { lyts }), [component.code])
+  const Story = useMemo(() => getMDXComponent(code, mdxBundlerGlobals), [code])
+  const Component = useMemo(() => getMDXComponent(component.code, mdxBundlerGlobals), [component.code])
   const [_examples, setExamples] = useState<[]>(() => {
     return examples.map(({ code, meta }: any) => {
       return {
-        Component: getMDXComponent(code, { lyts }),
+        Component: getMDXComponent(code, mdxBundlerGlobals),
         ...meta
       }
     })
@@ -85,7 +85,7 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples, do
   useEffect(() => {
     setExamples(examples.map(({ code, meta }: any) => {
       return {
-        Component: getMDXComponent(code, { lyts }),
+        Component: getMDXComponent(code, mdxBundlerGlobals),
         ...meta
       }
     }))

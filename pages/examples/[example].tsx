@@ -6,7 +6,7 @@ import { getMDXComponent, getMDXExport } from 'mdx-bundler/client'
 import { getComponentPage } from "utils/getComponentPage"
 import DebugProvider from "components/DebugProvider/DebugProvider"
 import { withSidebarLayout } from "components/SidebarLayout/SidebarLayout"
-import { lyts } from "utils"
+import { mdxBundlerGlobals } from "utils"
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.example === undefined) {
@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (!bundled.meta.title) {
     bundled.meta = {
       ...bundled.meta,
-      ...getMDXExport<{ frontmatter: object }, typeof lyts>(bundled.code, { lyts }).frontmatter
+      ...getMDXExport<{ frontmatter: object }, typeof mdxBundlerGlobals>(bundled.code, mdxBundlerGlobals).frontmatter
     }
   }
 
@@ -49,7 +49,7 @@ interface Props {
 }
 
 const Component: FunctionComponent<Props> = function ({ code, meta, examples }) {
-  const Content = useMemo(() => getMDXComponent(code, { lyts }), [code])
+  const Content = useMemo(() => getMDXComponent(code, mdxBundlerGlobals), [code])
 
   return (
     <>
