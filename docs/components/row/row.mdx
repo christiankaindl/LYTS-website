@@ -5,6 +5,7 @@ category: Components
 ---
 
 import { Row, Box, Split } from '@christiankaindl/lyts'
+import CodeEditor from '@/components/CodeEditor'
 
 Use Row when you need to stack elements horizontally. This has many use cases such as [toolbars](/examples/toolbar), [breadcrumbs](/examples/breadcrumbs) or a [list of tags](/examples/wrapped-tags).
 
@@ -12,43 +13,46 @@ Use Row when you need to stack elements horizontally. This has many use cases su
 
 Row supports the `wrap` prop which, as the name suggests, wraps items into the next line when the current row doesn't have enaugh space. This is useful when displaying a set of tags or metadata where the content is often dynamic:
 
-<Row wrap style={{ maxWidth: 500 }}>
-  <Pill width={65} />
-  <Pill width={150} />
-  <Pill width={100} />
-  <Pill width={150} />
-  <Pill width={10} />
-  <Pill width={75} />
-</Row>
-
-export const Pill = ({ width = 60 }) => {
-  return (
-    <Box style={{ width }} />
-  )
-}
+<CodeEditor
+  defaultExpanded
+  code={
+`<Row wrap style={{ maxWidth: 500 }}>
+  <Box style={{ width: 65 }} />
+  <Box style={{ width: 150 }} />
+  <Box style={{ width: 100 }} />
+  <Box style={{ width: 150 }} />
+  <Box style={{ width: 15 }} />
+  <Box style={{ width: 75 }} />
+</Row>`}
+/>
 
 ## Split-layouts
 
 It is common to  have elements on opposite sides of each other, but aligned on the same axis. LYTS provides the Split component, which can be used together with Row and Stack to "split" up the remaining space:
 
-<Row>
+<CodeEditor
+  code={
+`<Row>
   <Box style={{ width: 70 }} />
   <Box style={{ width: 120 }} />
   <Split />
   <Box style={{ width: 85 }} />
-</Row>
-
+</Row>`}
+/>
 
 Split layouts also work great with the `wrap` prop. When used together you get a large layout on desktops which collapses below each other on small screens:
 
-<Row gap={1.5} wrap>
+<CodeEditor
+  code={
+`<Row gap={1.5} wrap>
   <Box style={{ width: 70 }} />
   <Split />
   <Row>
     <Box style={{ width: 120 }} />
     <Box style={{ width: 85 }} />
   </Row>
-</Row>
+</Row>`}
+/>
 
 The elements on the right are contained in another Row (but could be any container) so they will wrap into the next line together, removing odd in-between states when resizing.
 
@@ -56,6 +60,9 @@ The elements on the right are contained in another Row (but could be any contain
 
 By default, Row centers its children vertically, and start-aligns items horizontally. This can be easily customized with the `xAlign` and `yAlign` props:
 
+<CodeEditor
+  code={
+`<>
 <Row>
   <Box style={{ width: 70 }} />
   <Box style={{ width: 120 }} />
@@ -73,5 +80,7 @@ By default, Row centers its children vertically, and start-aligns items horizont
   <Box style={{ width: 120 }} />
   <Box style={{ width: 85 }} />
 </Row>
+</>`}
+/>
 
 Note: `xAlign` and `yAlign` are convenience props. The same effect can be achieved using "align-items" (`yAlign`) and "justify-content" (`xAlign`)

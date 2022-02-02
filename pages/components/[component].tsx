@@ -96,13 +96,9 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples, do
 
   return (
     <>
-      <DebugProvider>
-        <Component />
-      </DebugProvider>
+      <Component />
       <PropsTable {...docs} />
-      <DebugProvider>
-        <Story />
-      </DebugProvider>
+      <Story />
       <div />
       <h2>Examples using <code>{meta.title}</code></h2>
       <Stack

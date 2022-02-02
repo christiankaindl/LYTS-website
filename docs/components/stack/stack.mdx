@@ -5,7 +5,7 @@ category: Components
 ---
 
 import { Stack, Box } from '@christiankaindl/lyts'
-import Component from './Component.mdx'
+import CodeEditor from '@/components/CodeEditor'
 
 Use Stack when you need consistent spacing between elements and/or a way to group elements together easily. Perfect to space passages of text, controls like links & buttons or page sections. Stack can be used both in large contexts (e.g. page sections) and small contexts (e.g. links in the footer).
 
@@ -13,7 +13,10 @@ Use Stack when you need consistent spacing between elements and/or a way to grou
 
 Stacks can be nested within each other with different gaps, making it easy to [visually group](https://lawsofux.com/law-of-proximity/) elements together:
 
-<Stack gap={2.5}>
+<CodeEditor
+  defaultExpanded
+  code={
+`<Stack gap={2.5}>
   <Stack>
     <Box />
     <Box />
@@ -22,12 +25,16 @@ Stacks can be nested within each other with different gaps, making it easy to [v
     <Box />
     <Box />
   </Stack>
-</Stack>
+</Stack>`}
+/>
 
 ## Aligning children
 
 By default Stack stretches its children to the full width (which is the CSS flexbox default), but this can be easily customized with the `xAlign` prop:
 
+<CodeEditor
+  code={
+`<>
 <Stack xAlign='start'>
   <Box style={{ width: 100 }} />
   <Box style={{ width: 170 }} />
@@ -45,5 +52,8 @@ By default Stack stretches its children to the full width (which is the CSS flex
   <Box style={{ width: 170 }} />
   <Box style={{ width: 120 }} />
 </Stack>
+</>`}
+/>
+
 
 Note: `xAlign` and `yAlign` are convenience props. The same effect can be achieved using "align-items" (`xAlign`) and "justify-content" (`yAlign`)

@@ -6,6 +6,7 @@ description: Add LYTS to your project in < 1 minute.
 import Link from 'next/link'
 import { Box, Stack, Row, Clamp } from '@christiankaindl/lyts'
 import DebugProvider from '@/components/DebugProvider/DebugProvider'
+import CodeEditor from '@/components/CodeEditor'
 
 export { default } from 'components/SidebarLayout/SidebarLayout'
 
@@ -40,17 +41,10 @@ And that's all there is to set up! Now import one of the base components—<Link
 
 Layout components can be composed until you achieve your desired layout. For example, The following \<CenterCard> component renders a card with a max-width of 400px, centers it and uses a <Link href='/components/stack'><a>Stack</a></Link> to get consistent spacing:
 
-<DebugProvider>
-  <Clamp clamp='400px'>
-    <Stack gap={0.75} className='card'>
-      <h3>Card title</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </Stack>
-  </Clamp>
-</DebugProvider>
-
-```jsx
-const CenterCard: FunctionComponent = function () {
+<CodeEditor
+  defaultExpanded
+  code={
+`function CenterCard () {
   return (
     // A card with clamped 400px and centered
     <Clamp clamp='400px'>
@@ -60,8 +54,8 @@ const CenterCard: FunctionComponent = function () {
       </Stack>
     </Clamp>
   )
-}
-```
+}`}
+/>
 
 Check out the <Link href='/examples'>Examples</Link> page for a comprehensive collection of layouts and how to build them with LYTS.
 

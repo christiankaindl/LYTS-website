@@ -1,7 +1,11 @@
 import { Clamp, Box } from '@christiankaindl/lyts'
+import CodeEditor from '@/components/CodeEditor'
 
-<Clamp clamp='min(350px, 50vw)'>
+<CodeEditor
+  code={
+`<Clamp clamp='min(350px, 50vw)'>
   <Box
     style={{ height: '200px' }}
   />
-</Clamp>
+</Clamp>`}
+/>

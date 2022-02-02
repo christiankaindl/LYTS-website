@@ -5,6 +5,7 @@ category: Components
 ---
 
 import { Clamp, Box, Breakout } from '@christiankaindl/lyts'
+import CodeEditor from '@/components/CodeEditor'
 
 Use Clamp when you want to center elements with a maximum width and/or height. Common use cases for this are [articles](/examples/article) and [overlays](/examples/overlay).
 
@@ -14,30 +15,40 @@ Clamp can also constrain an elements height rather than only its width. To clamp
 
 For example, this overlay is clamped both horizontally (width) and vertically (height):
 
-<Clamp clamp={['min(350px, 50vw)', '200px']} style={{ height: 400 }}>
+<CodeEditor
+  defaultExpanded
+  code={
+`<Clamp clamp={['min(350px, 50vw)', '200px']} style={{ height: 400 }}>
   <Box style={{ height: '100%' }} />
-</Clamp>
+</Clamp>`}
+/>
 
-If the previous example were to be an overlay, the Clamp container could be positioned aboslutely.
+If the previous example were to be an overlay, the Clamp container could be positioned absolutely.
 
 ## Multiple children
 
 Clamp supports multiple children (not when vertical clamping is used). When using multiple children, Clamp can be used similar to a Stack, with consistent spacing between elements, provided via the `gap` prop:
 
-<Clamp clamp='min(350px, 50vw)'>
+<CodeEditor
+  code={
+`<Clamp clamp='min(350px, 50vw)'>
   <Box />
   <Box />
   <Box />
-</Clamp>
+</Clamp>`}
+/>
 
 ## Break-out elements
 
 Clamp also supports "break-out" elements, as described in Josh Comeau's [Full-Bleed Layout Using CSS Grid](https://www.joshwcomeau.com/css/full-bleed/) (check it out, it's a great read!). LYTS provides [Breakout](/components/breakout), which can be used as a direct child to Clamp to make it "opt out" of the clamping and become full-width:
 
-<Clamp clamp='min(350px, 50vw)'>
+<CodeEditor
+  code={
+`<Clamp clamp='min(350px, 50vw)'>
   <Box />
   <Breakout xAlign='center'>
-    Full-width element using `<Breakout>`
+    Full-width element using Breakout
   </Breakout>
   <Box />
-</Clamp>
+</Clamp>`}
+/>

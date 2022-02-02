@@ -1,9 +1,13 @@
 import { Box, Clamp, Breakout } from '@christiankaindl/lyts'
+import CodeEditor from '@/components/CodeEditor'
 
-<Clamp clamp={'400px'}>
+<CodeEditor
+  code={
+`<Clamp clamp={'400px'}>
   <Box />
   <Breakout xAlign='center'>
-    Full-width element using `<Breakout>`
+    Full-width element using Breakout
   </Breakout>
   <Box />
-</Clamp>
+</Clamp>`}
+/>
