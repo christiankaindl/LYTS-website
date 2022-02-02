@@ -7,6 +7,7 @@ import { getComponentPage } from "utils/getComponentPage"
 import DebugProvider from "components/DebugProvider/DebugProvider"
 import { withSidebarLayout } from "components/SidebarLayout/SidebarLayout"
 import { mdxBundlerGlobals } from "utils"
+import CodeEditor from "@/components/CodeEditor"
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.example === undefined) {
@@ -54,7 +55,8 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples }) 
   return (
     <>
       <DebugProvider>
-        <Content />
+        {/* @ts-expect-error */}
+        <Content components={{ CodeEditor }} />
       </DebugProvider>
     </>
   )

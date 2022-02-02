@@ -17,6 +17,7 @@ import ColumnsDoc from '../docs/components/columns/Component.mdx'
 import GridDoc from '../docs/components/grid/Component.mdx'
 import DebugProvider from '@/components/DebugProvider/DebugProvider'
 import { link } from 'styles/index.css'
+import CodeEditor from '@/components/CodeEditor'
 
 function App() {
   return (
@@ -67,23 +68,28 @@ function App() {
       <Clamp clamp='750px' asChild gap={3}>
         <main>
           <ComponentShowcase title='Stack' description='Vertically stacked elements, taking up the full width by default. Best nested within other Stacks.'>
-            <StackDoc />
+            {/* @ts-expect-error */}
+            <StackDoc components={{ CodeEditor }} />
           </ComponentShowcase>
           <hr />
           <ComponentShowcase title='Row' description='Horizontally stacked components, with convenience `wrap` and `expand` props. By default, all children are vertically centered and horizontally start-aligned.'>
-            <RowDoc />
+            {/* @ts-expect-error */}
+            <RowDoc components={{ CodeEditor }} />
           </ComponentShowcase>
           <hr />
           <ComponentShowcase title='Clamp' description='Center-constrained component, supporting both horizontal and vertical clamping. Individual children can "opt out" of the clamping with the `<Breakout>` component.'>
-            <ClampDoc />
+            {/* @ts-expect-error */}
+            <ClampDoc components={{ CodeEditor }} />
           </ComponentShowcase>
           <hr />
           <ComponentShowcase title='Columns' description='Extrinsicly sized columns, filling the whole available space and wrapping all-at-once when the `collapseAt` value is reached. Space distribution can be customized with the `ratio` prop.'>
-            <ColumnsDoc />
+            {/* @ts-expect-error */}
+            <ColumnsDoc components={{ CodeEditor }} />
           </ComponentShowcase>
           <hr />
           <ComponentShowcase title='Grid' description='Grid layout with with responsive defaults, but also fully customizable with standard CSS grid properties.'>
-            <GridDoc />
+            {/* @ts-expect-error */}
+            <GridDoc components={{ CodeEditor }} />
           </ComponentShowcase>
         </main>
       </Clamp>

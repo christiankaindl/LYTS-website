@@ -9,7 +9,7 @@ import { withSidebarLayout } from "components/SidebarLayout/SidebarLayout"
 import { Row, Stack } from "@christiankaindl/lyts"
 import { getFilteredExamples } from "utils/getFilteredExamples"
 import Link from "next/link"
-import { mdxBundlerGlobals } from "utils"
+import { lyts, mdxBundlerGlobals } from "utils"
 import { withCustomConfig, PropItem } from 'react-docgen-typescript'
 import PropsTable from "@/components/PropsTable"
 import { mauve } from '@radix-ui/colors'
@@ -17,7 +17,8 @@ import { ArrowRight } from "lucide-react"
 import { link } from "styles/index.css"
 // Import the CodeEditor styles here instead of in CodeEditor.tsx,
 // because when only used in MDX files bundled with mdx-bundler the styles are missing from the page
-import '@/components/CodeEditor/CodeEditor.css'
+import CodeEditor from "@/components/CodeEditor"
+// import '@/components/CodeEditor/CodeEditor.css'
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.component === undefined) {
@@ -96,9 +97,11 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples, do
 
   return (
     <>
-      <Component />
+      {/* @ts-expect-error */}
+      <Component components={{ CodeEditor }} />
       <PropsTable {...docs} />
-      <Story />
+      {/* @ts-expect-error */}
+      <Story components={{ CodeEditor }} />
       <div />
       <h2>Examples using <code>{meta.title}</code></h2>
       <Stack
@@ -117,7 +120,7 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples, do
                     <h3>{title}</h3>
                     <p>{description}</p>
                     <DebugProvider style={{ fontSize: '0.85em' }}>
-                      <Component />
+                      <Component components={{ CodeEditor }} />
                     </DebugProvider>
                     <Row gap={0.5} className={link} style={{ display: 'inline-flex', alignSelf: 'start' }}>
                       <span>View full example</span><ArrowRight size={20} />
