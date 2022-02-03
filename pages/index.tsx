@@ -15,7 +15,6 @@ import RowDoc from '../docs/components/row/Component.mdx'
 import ClampDoc from '../docs/components/clamp/Component.mdx'
 import ColumnsDoc from '../docs/components/columns/Component.mdx'
 import GridDoc from '../docs/components/grid/Component.mdx'
-import DebugProvider from '@/components/DebugProvider/DebugProvider'
 import { link } from 'styles/index.css'
 import CodeEditor from '@/components/CodeEditor'
 
@@ -159,9 +158,7 @@ const ComponentShowcase: FunctionComponent<{title: string, description: string}>
           {description}
         </ReactMarkdown>
       )}
-      <DebugProvider>
-        {children}
-      </DebugProvider>
+      {children}
       <div>
         <Link href={`/components/${title.toLowerCase()}`} passHref>
           <Row asChild gap={0.5} className={link} style={{ fontSize: '1.2em' }}>
