@@ -7,14 +7,12 @@ import {
   LiveError,
   LivePreview
 } from 'react-live'
-import { isDev, lyts } from 'utils'
+import { lyts } from 'utils'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import DebugProvider from '../DebugProvider/DebugProvider'
 import { Check, ChevronsDownUp, ChevronsUpDown, Copy } from 'lucide-react'
 import * as styles from './CodeEditor.css'
 import { useCopyToClipboard } from 'react-use'
-
-const buttonClass = (isDev && !styles.button.startsWith('CodeEditor_button__')) ? `CodeEditor_button__${styles.button}` : styles.button
 
 interface Props {
   code: string
@@ -78,7 +76,7 @@ export default CodeEditor
 const Button: FunctionComponent<RowProps> = function ({ children, ...props }) {
   return (
     <Row asChild gap={0.25} {...props}>
-      <button className={buttonClass}>
+      <button className={styles.button}>
         {children}
       </button>
     </Row>

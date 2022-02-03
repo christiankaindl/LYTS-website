@@ -8,4 +8,4 @@ export const domain = process.env.NODE_ENV === 'development'
   ? 'http://localhost:3000'
   : 'https://lyts.christiankaindl.com'
 
-export const isDev = process.env.NODE_ENV === 'development';
+export const isDev = process.env.NODE_ENV === 'development'
