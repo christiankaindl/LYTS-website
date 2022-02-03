@@ -22,6 +22,10 @@ export async function getComponentPage (pathname: string) {
       }
     },
     esbuildOptions(options, frontmatter) {
+      options.define = {
+        'process.env.NODE_ENV': process.env.NODE_ENV
+      }
+
       options.platform = 'browser'
       // Use the esbuild vanilla-extract plugin to get the bundled classNames.
       // The actual CSS is already bundled on the page globally (by the Next.js vanilla-extract plugin)
