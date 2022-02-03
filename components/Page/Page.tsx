@@ -8,8 +8,9 @@ interface PageProps {
   title: string
   description?: string
   ogTitle?: string
-  ogDescription?: string,
+  ogDescription?: string
   robots?: 'noindex'
+  titleSuffix?: string
 }
 
 const Page: FunctionComponent<PageProps & BoxProps> = function ({
@@ -19,10 +20,12 @@ const Page: FunctionComponent<PageProps & BoxProps> = function ({
   ogTitle = title,
   ogDescription = description,
   robots,
+  titleSuffix = ' | LYTS',
   ...props
 }) {
   const router = useRouter()
 
+  title = `${title}${titleSuffix}`
   const image = `${domain}/api/og-image?title=${encodeURIComponent(title)}${description ? `&description=${encodeURIComponent(description)}` : ''}${router.pathname === '/' ? `&home=1` : ''}`
   const url = `${domain}${router.asPath}`
 

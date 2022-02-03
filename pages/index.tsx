@@ -26,6 +26,7 @@ function App() {
       description='Build any layout quickly with well-designed composable components'
       ogDescription='Layout primitives for React'
       ogTitle='LYTS'
+      titleSuffix=''
     >
       <div>
         <Stack asChild>
