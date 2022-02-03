@@ -24,7 +24,8 @@ function App() {
     <Page
       className={styles.App}
       title='LYTS—Layout primitives for React'
-      description='Layout primitives for React.'
+      description='Build any layout quickly with well-designed composable components'
+      ogDescription='Layout primitives for React'
       ogTitle='LYTS'
     >
       <div>
