@@ -12,7 +12,7 @@ import { Media } from "@/components/MediaQuery/MediaQuery"
 import NavMenu from "../NavMenu/NavMenu"
 import * as styles from './SidebarLayout.css'
 import ReactMarkdown from 'react-markdown'
-import Footer from "../Footer/Footer"
+import Navigation from "../Navigation/Navigation"
 import { useNav } from "hooks/useNav"
 interface Props {
   meta: {
@@ -86,7 +86,7 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
               {children}
             </Stack>
             <hr />
-            <Footer />
+            <Navigation />
           </main>
         </Clamp>
       </Columns>

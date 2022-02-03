@@ -4,9 +4,9 @@ import { useNav } from "hooks/useNav";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { FunctionComponent } from "react";
-import * as styles from './Footer.css'
+import * as styles from './Navigation.css'
 
-const Footer: FunctionComponent = function () {
+const Navigation: FunctionComponent = function () {
   const nav = useNav()
 
   return (
@@ -65,4 +65,4 @@ const Footer: FunctionComponent = function () {
   )
 }
 
-export default Footer
+export default Navigation

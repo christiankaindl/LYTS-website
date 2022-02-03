@@ -1,7 +1,7 @@
 import { mauve } from "@radix-ui/colors";
 import { style } from "@vanilla-extract/css";
 
-export const footer = style({
+export const navigation = style({
 
 })
 
