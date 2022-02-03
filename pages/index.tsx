@@ -17,6 +17,7 @@ import ColumnsDoc from '../docs/components/columns/Component.mdx'
 import GridDoc from '../docs/components/grid/Component.mdx'
 import { link } from 'styles/index.css'
 import CodeEditor from '@/components/CodeEditor'
+import Footer from '@/components/Footer/Footer'
 
 function App() {
   return (
@@ -108,18 +109,9 @@ function App() {
         </main>
       </Clamp>
 
-      <Clamp clamp='65ch' gap={1.5} xAlign='center' style={{ textAlign: 'center', backgroundColor: mauve.mauve2, padding: "90px 30px" }}>
-        <p style={{ fontSize: '1.5em', color: 'rgb(0 0 0 / 0.6)' }}>Build any layout quickly with well-designed composable components and convenient props.</p>
-        <pre>
-          <code>
-            npm install @christiankaindl/lyts
-          </code>
-        </pre>
-        <Button href='/get-started'>
-          <span>Get started</span>
-          <ArrowRight size={20} />
-        </Button>
-      </Clamp>
+      <div style={{ padding: '90px 30px', backgroundColor: mauve.mauve2 }}>
+        <Footer />
+      </div>
     </Page>
   )
 }

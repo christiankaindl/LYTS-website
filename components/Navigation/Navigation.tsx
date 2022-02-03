@@ -10,7 +10,7 @@ const Navigation: FunctionComponent = function () {
   const nav = useNav()
 
   return (
-    <footer>
+    <nav>
       <Columns collapseAt="40em" gap={0} bleedLeft='18px' bleedRight='18px'>
         {!nav.previous.href && <div />}
         {nav.previous.href && (
@@ -61,7 +61,7 @@ const Navigation: FunctionComponent = function () {
           </Link>
         )}
       </Columns>
-    </footer>
+    </nav>
   )
 }
 

@@ -14,6 +14,7 @@ import * as styles from './SidebarLayout.css'
 import ReactMarkdown from 'react-markdown'
 import Navigation from "../Navigation/Navigation"
 import { useNav } from "hooks/useNav"
+import Footer from "../Footer/Footer"
 interface Props {
   meta: {
     title: string
@@ -87,6 +88,10 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
             </Stack>
             <hr />
             <Navigation />
+            <hr />
+            <div style={{ padding: '30px 0px' }}>
+              <Footer />
+            </div>
           </main>
         </Clamp>
       </Columns>

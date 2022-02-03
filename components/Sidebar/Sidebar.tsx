@@ -1,7 +1,5 @@
-import { Row, Split, Stack } from "@christiankaindl/lyts";
+import { Row, Stack } from "@christiankaindl/lyts";
 import { mauve } from "@radix-ui/colors";
-import Badge from "components/Badge/Badge";
-import { ClampIcon, ColumnsIcon, GridIcon, RowIcon, StackIcon } from "components/Icons/Icons";
 import Link from "next/link";
 import { FunctionComponent } from "react";
 import { libraryVersion } from "utils/data";
@@ -60,18 +58,6 @@ const Sidebar: FunctionComponent = function () {
               </Stack>
             )
           })}
-        </Stack>
-        <Split />
-        <Stack>
-          <Row bleedLeft='4px' gap={0.5} wrap>
-            <Badge href='https://github.com/christiankaindl/LYTS/issues'>
-              Report issue
-            </Badge>
-            <Badge href='https://github.com/christiankaindl/LYTS'>
-              Star on GitHub
-            </Badge>
-          </Row>
-          <p>Made with ❤️ by <Link href='https://twitter.com/christiankaindl'><a>Christian Kaindl</a></Link></p>
         </Stack>
       </nav>
     </Stack>
