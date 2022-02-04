@@ -4,7 +4,6 @@ import fs from 'fs'
 import { FunctionComponent, useMemo } from "react"
 import { getMDXComponent, getMDXExport } from 'mdx-bundler/client'
 import { getComponentPage } from "utils/getComponentPage"
-import DebugProvider from "components/DebugProvider/DebugProvider"
 import { withSidebarLayout } from "components/SidebarLayout/SidebarLayout"
 import { mdxBundlerGlobals } from "utils"
 import CodeEditor from "@/components/CodeEditor"
@@ -53,12 +52,8 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples }) 
   const Content = useMemo(() => getMDXComponent(code, mdxBundlerGlobals), [code])
 
   return (
-    <>
-      <DebugProvider>
-        {/* @ts-expect-error */}
-        <Content components={{ CodeEditor }} />
-      </DebugProvider>
-    </>
+    // @ts-expect-error
+    <Content components={{ CodeEditor, ...mdxBundlerGlobals.lyts }} />
   )
 }
 

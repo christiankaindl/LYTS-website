@@ -1,9 +1,16 @@
-import Component, { frontmatter } from './Component.mdx'
+---
+title: Toolbar
+description: Compose Row with Split to create a toolbar layout, wrapping to the next line on small screens.
+components:
+  - Split
+  - Row
+---
 
-export { frontmatter }
+import { Edit, Share } from 'lucide-react'
+import Component from './Component.txt'
 
-<Component />
-
-## Some more Details
-
-Some additional text
+<CodeEditor
+  defaultExpanded
+  scope={{ Edit, Share }}
+  code={Component}
+/>

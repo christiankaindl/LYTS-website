@@ -23,7 +23,7 @@ const Examples: FunctionComponent<any> = function ({ examples }) {
   const [_examples] = useState(() => {
     return examples.map(({ code, meta }: any) => {
       return {
-        Component: getMDXComponent(code, { lyts }),
+        // Component: getMDXComponent(code, { lyts }),
         ...meta
       }
     })
@@ -45,9 +45,6 @@ const Examples: FunctionComponent<any> = function ({ examples }) {
                 <a>
                   <h3>{title}</h3>
                   <p>{description}</p>
-                  <DebugProvider>
-                    <Component />
-                  </DebugProvider>
                   <Row gap={0.5} className={link} style={{ display: 'inline-flex', alignSelf: 'start' }}>
                     <span>View full example</span><ArrowRight size={20} />
                   </Row>

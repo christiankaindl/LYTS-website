@@ -19,7 +19,7 @@ const examples = fs
   .filter((name) => name !== '.DS_Store' && name !== 'template')
   .map((name) => {
     // Extract metadata using gray-matter
-    const data = matter(fs.readFileSync(path.join(process.cwd(), './docs/examples', `${name}/Component.mdx`)))
+    const data = matter(fs.readFileSync(path.join(process.cwd(), './docs/examples', `${name}/story.mdx`)))
 
     return {
       id: name,

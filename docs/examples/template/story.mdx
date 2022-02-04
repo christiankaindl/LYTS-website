@@ -1,9 +1,17 @@
-import Component, { frontmatter } from './Component.mdx'
+---
+title: Component example template
+description: Copy this to add an example
+components:
+  - Template
+---
 
-export { frontmatter }
+import Component from './Component.txt'
 
-<Component />
+<CodeEditor
+  defaultExpanded
+  code={Component}
+/>
 
 ## Some more Details
 
-Some additional text
+All LYTS components are available globally

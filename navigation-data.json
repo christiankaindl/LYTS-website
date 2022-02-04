@@ -150,14 +150,6 @@
             "Split",
             "Row"
           ]
-        },
-        {
-          "id": "wrapped-tags",
-          "title": "Wrapped tags",
-          "description": "Use the `wrap` prop to achieve commonly used inline tags with wrapping behavior.",
-          "components": [
-            "Row"
-          ]
         }
       ]
     }

@@ -1,0 +1,7 @@
+<Row wrap gap={0.5}>
+  <span>Docs</span>
+  <ChevronRight size={20} />
+  <span>Examples</span>
+  <ChevronRight size={20} />
+  <span>Breadcrumbs</span>
+</Row>

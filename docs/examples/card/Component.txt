@@ -1,0 +1,15 @@
+<Clamp clamp='400px'>
+  <Stack gap={0.75}>
+    <b>Shrimp and Chorizo Paella</b>
+    <Box style={{ height: 100 }}>
+      Image
+    </Box>
+    <p>This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.</p>
+    <Row>
+      <Heart />
+      <Share />
+      <Split />
+      <MoreHorizontal />
+    </Row>
+  </Stack>
+</Clamp>

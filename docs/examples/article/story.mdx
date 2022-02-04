@@ -1,8 +1,17 @@
-import Component, { frontmatter } from './Component.mdx'
+---
+title: Article
+description: Create a common article layout with Clamp, with support for full-width "break out" elements.
+components:
+  - Clamp
+  - Breakout
+---
 
-export { frontmatter }
+import Component from './Component.txt'
 
-<Component />
+<CodeEditor
+  defaultExpanded
+  code={Component}
+/>
 
 To achieve a simple article layout  the example is wrapped in a Clamp, which privides us with 3 things:
 

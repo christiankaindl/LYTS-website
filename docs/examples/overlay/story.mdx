@@ -1,7 +1,16 @@
-import Component, { frontmatter } from './Component.mdx'
+---
+title: Overlay
+description: Use Clamp to create an overlay which is centered both horizontally and vertically.
+components:
+  - Clamp
+  - Box
+---
 
-export { frontmatter }
+import Component from './Component.txt'
 
-<Component />
+<CodeEditor
+  defaultExpanded
+  code={Component}
+/>
 
 Using clamp for the overlay also makes sure that the child shrinks when the vertical space is small (e.g. on phones).

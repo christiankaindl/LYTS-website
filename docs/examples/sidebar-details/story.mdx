@@ -1,8 +1,16 @@
-import Component, { frontmatter } from './Component.mdx'
+---
+title: Sidebar/details view
+description: Use Columns with a combination of `ratio` and min-/max-width to create a responsive sidebar.
+components:
+  - Columns
+---
 
-export { frontmatter }
+import Component from './Component.txt'
 
-<Component />
+<CodeEditor
+  defaultExpanded
+  code={Component}
+/>
 
 First we must decide how much space the sidebar and details view will get. In this example it is split up in a 1:3 ratio, meaning the sidebar takes up 25% of the width and the details view take up 75%.
 

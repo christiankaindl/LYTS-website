@@ -1,0 +1,12 @@
+<Columns collapseAt='30em' ratio='1/2' style={{ minHeight: '40vh' }}>
+  <Box xAlign='center' yAlign='center'>
+    <BatteryCharging size='42px' />
+  </Box>
+  <Stack yAlign='center'>
+    <b>Batteries included</b>
+
+    <p>LYTS comes with many useful components out of the box to make your life easier.</p>
+
+    <a>BUY NOW</a>
+  </Stack>
+</Columns>

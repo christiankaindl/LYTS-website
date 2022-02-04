@@ -1,0 +1,5 @@
+<Clamp clamp={['300px', '250px']} style={{ height: '450px' }}>
+  <Box xAlign='center' yAlign='center' style={{ height: '100%' }}>
+    Centered overlay
+  </Box>
+</Clamp>

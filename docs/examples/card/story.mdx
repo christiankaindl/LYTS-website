@@ -1,5 +1,18 @@
-import Component, { frontmatter } from './Component.mdx'
+---
+title: Card
+description: Compose multiple layout components to achieve the common card style
+components:
+  - Stack
+  - Row
+  - Box
+  - Split
+---
 
-export { frontmatter }
+import { Heart, Share, MoreHorizontal } from 'lucide-react'
+import Component from './Component.txt'
 
-<Component />
+<CodeEditor
+  defaultExpanded
+  scope={{ Heart, Share, MoreHorizontal }}
+  code={Component}
+/>

@@ -16,14 +16,17 @@ import { useCopyToClipboard } from 'react-use'
 
 interface Props {
   code: string
-  defaultExpanded: boolean
+  defaultExpanded?: boolean
+  scope?: {
+    [key: string]: any
+  }
 }
-const CodeEditor: FunctionComponent<Props> = function ({ code, defaultExpanded = false }) {
+const CodeEditor: FunctionComponent<Props> = function ({ code, defaultExpanded = false, scope = {} }) {
   const [isOpen, setIsOpen] = useState(defaultExpanded)
   const [{ value }, copyToClipboard] = useCopyToClipboard()
   return (
     <LiveProvider
-      scope={lyts}
+      scope={{ ...lyts, ...scope }}
       code={`// Edit the live code below\n${code}`}
     >
       <Collapsible.Root asChild open={isOpen} onOpenChange={(isOpen) => setIsOpen(isOpen)}>

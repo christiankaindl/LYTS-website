@@ -1,9 +1,16 @@
-import Component, { frontmatter } from './Component.mdx'
+---
+title: Page section (3 columns)
+description: Use Columns to create a three-columns landing page section, which collapses to a single column on small sizes.
+components:
+  - Columns
+  - Stack
+---
 
-export { frontmatter }
+import { BatteryCharging, Smile, Gem } from 'lucide-react'
+import Component from './Component.txt'
 
-<Component />
-
-## Some more Details
-
-Some additional text
+<CodeEditor
+  defaultExpanded
+  scope={{ BatteryCharging, Smile, Gem }}
+  code={Component}
+/>

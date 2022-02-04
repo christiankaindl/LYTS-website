@@ -13,7 +13,7 @@ export async function getFilteredExamples (filters?: string[]) {
 
   // 2. Bundle them all
   const bundledExamples = await Promise.all(availableExamples.map(async (dirName) => {
-    return await getComponentPage(`examples/${dirName}/Component`)
+    return await getComponentPage(`examples/${dirName}/story`)
   }))
 
   if (!filters) return bundledExamples

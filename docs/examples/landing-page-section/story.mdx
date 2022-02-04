@@ -1,5 +1,17 @@
-import Component, { frontmatter } from './Component.mdx'
+---
+title: Page section (2 columns)
+description: Use Columns to create a two-columns landing page section, which collapses to a single column on small sizes.
+components:
+  - Columns
+  - Stack
+  - Box
+---
 
-export { frontmatter }
+import { BatteryCharging } from 'lucide-react'
+import Component from './Component.txt'
 
-<Component />
+<CodeEditor
+  defaultExpanded
+  scope={{ BatteryCharging }}
+  code={Component}
+/>

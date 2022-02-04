@@ -1,0 +1,8 @@
+<Row gap={1.5}>
+  <b>
+    Toolbar
+  </b>
+  <Split />
+  <Edit />
+  <Share />
+</Row>

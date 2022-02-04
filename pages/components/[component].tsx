@@ -119,9 +119,6 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples, do
                   <a>
                     <h3>{title}</h3>
                     <p>{description}</p>
-                    <DebugProvider style={{ fontSize: '0.85em' }}>
-                      <Component components={{ CodeEditor }} />
-                    </DebugProvider>
                     <Row gap={0.5} className={link} style={{ display: 'inline-flex', alignSelf: 'start' }}>
                       <span>View full example</span><ArrowRight size={20} />
                     </Row>
