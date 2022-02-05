@@ -1,0 +1,13 @@
+---
+title: Server-side rendering (SSR)
+---
+
+LYTS supports rendering on the server out-of-the-box, which means the first render on the client is always the same as what was rendered on the server.
+
+For an in-depth look at responsive layout design with SSR in mind, have a look at the [Responsive design](/guides/responsive-design) guide.
+
+## How it works
+
+Traditionally, container-based features such as the `collapseAt` prop would be incompatible with SSR, because they rely on the ResizeObserver JavaScript API which is only available in the browser (the client). That also means hooks like `useContainerQuery()` or `useMediaBreakpoint()` can never be truly SSR-compatible, because they must return a "best guess" on the server, leading to wrong and/or incomplete first renders on the client.
+
+LYTS doesn't rely on the ResizeObserver API and instead leverages native CSS techniques, which don't require a browser context to render correctly.

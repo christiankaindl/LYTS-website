@@ -1,0 +1,41 @@
+---
+title: Acknowledgements
+description: Or "The invisible team effort behind LYTS"
+hidden: true
+---
+
+export { default } from 'components/SidebarLayout/SidebarLayout'
+
+LYTS was originally designed and written by me, Christian Kaindl. But, as anything great, I didn't (and couldn't) have done everything myself. This is the "inspiration" page, with many useful links and much to explore. So grab your coffe (or tea) and read on!
+
+First things first, LYTS is the spiritual successor of [@quantargo/react-layout](https://github.com/quantargo/react-layout), which is used in production on [quantargo.com](https://www.quantargo.com). Without it LYTS would never have come to be in the first place.
+
+The original design and implementation of LYTS was also influenced by a lot of people in the web community, as well as my own experience working with React and design systems. Here's a non-exhaustive, unordered list of people and projects which influenced LYTS:
+
+### Josh Comeau
+
+Josh is probably already known to many. His writing style and blog posts are a great ressource in of itself. Specifically, LYTS implements the [Full-bleed layout using CSS Grid]() technique (see Clamp).
+
+### Heydon Pickering
+
+Heydon's work is very foundational and always uses a [first-principles]() aproach to problems and API design. LYTS implements his [Holy albatross]() technique (see Columns). Quantargo's React Layout (the predecessor to LYTS) also used the [negative margin technique](), which I first read about on Heydon's brilliant every-layout.dev
+
+### Jon Yablonski
+
+Jon Yablonski's lawsofux.com has been a great resource and inspiration, both in its design as well as in its content.
+
+### Mark Dalgleish: vanilla-extract, CSS Modules, general design, capsize
+
+Mark is pretty much an icon, heavily influencing the web development landscape with his projects like the universally used [CSS Modules](), its "successor" [vanilla-extract](), [Capsize]() and many more, as well as his design thinking.
+
+LYTS (as well as this docs site) is buit using vanilla-extract and Capsize, and directly influenced by Mark's public sharings around layout components and design systems.
+
+### Radix UI: Primitives, colors, API design
+
+Radix UI's components are extremely well-built. Their API design has been an inspiration and their Radix UI's [colors]() are used for the docs website as well. Besides this, LYTS uses their [Slot]() component to implement the `asChild` prop, which is available on all layout components.
+
+## Alternatives to LYTS
+
+- Bedrock Layout primitives (React, vanilla)
+- Every Layout (web components)
+- Quantargo React Layout. 

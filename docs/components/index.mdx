@@ -1,0 +1,43 @@
+---
+title: Components
+---
+
+Layout components come **unstyled** with a **minimal API surface**. LYTS is [is less than 4kB](https://bundlephobia.com/package/@christiankaindl/lyts@1.0.0-alpha.10) when using *all* components and is also tree-shakable, so features that you don't use will not add to your bundle size.
+
+There are 5 main components (<Link href='/components/stack'>Stack</Link>, <Link href='/components/row'>Row</Link>, <Link href='/components/clamp'>Clamp</Link>, <Link href='/components/columns'>Columns</Link>, <Link href='/components/grid'>Grid</Link>) and 3 helper components (<Link href='/components/box'>Box</Link>, <Link href='/components/split'>Split</Link>, <Link href='/components/breakout'>Breakout</Link>).
+
+## Layout props
+
+LYTS exposes layout-specific functionality as props on its components, each component has its own props specific for its problem domain. All layout components inherit props from <Link href='/components/box'><a>Box</a></Link> making the following props available globally:
+
+### `bleed`: Optical alignment
+
+Sometimes what is technically aligned is not visually aligned to our eyes. LYTS provides the `bleed` prop (as well as `*Top`/`*Right`/`*Bottom`/`*Left`), which makes it easy to nudge (or bleed) elements outside their bounding box to make them look visually aligned.
+
+Slava Shestopalov's "[Optical Effects in User Interfaces](https://medium.muz.li/optical-effects-9fca82b4cd9a)" dives into this topic in great detail.
+
+### `xAlign`/`yAlign`: Horizontal & vertical alignment
+
+CSS Flexbox provides `alignItems` and `justifyContent` properties to control the alignment of children from the parent element. Depending on the `flex-direction`, each property controls a different axis.
+
+LYTS normalizes this into `xAlign` and `yAlign` props, so you don't have to think about those details while writing layout code. Of course, manually setting alignItems/justifyContent still works as well.
+
+### `asChild`: Render as anything
+
+By default, all LYTS components render a `<div>` element. This is not always desirable, because you should use semantic HTML wherever possible, which means changing the rendered element. To support this, LYTS provides the `asChild` prop on all components.
+
+```jsx
+const MyComponent = function () {
+  return (
+    // Because of `asChild`, only the <a> element will be rendered, without an additionl wrapping div.
+    <Row asChild gap={0.5}>
+      <a href='/bla'>
+        <span>Interesting link</span>
+        <ArrowRightIcon />
+      </a>
+    </Row>
+  )
+}
+```
+
+The `asChild` API works exactly like all Radix UI components, and is even using their `<Slot />` component under-the-hood. Check out the <Link href='https://www.radix-ui.com/docs/primitives/utilities/slot'>official documentation for Slot</Link>.

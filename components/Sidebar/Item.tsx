@@ -1,4 +1,4 @@
-import { Row } from "@christiankaindl/lyts";
+import { Row, RowProps } from "@christiankaindl/lyts";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { FunctionComponent } from "react";
@@ -9,17 +9,17 @@ interface ItemProps {
   title: string
   icon?: React.ReactElement
   href: string
-  id: string
+  id?: string
 }
 
-const Item: FunctionComponent<ItemProps> = function ({ icon, title, href, id }) {
+const Item: FunctionComponent<ItemProps & RowProps> = function ({ icon, title, href, id, ...props }) {
   const router = useRouter()
   const isActive = router.asPath === href
   // @ts-expect-error
   const Icon = iconMappings[id]
   return (
     <Link href={href} passHref>
-      <Row bleed='0 15px' asChild className={`${styles.item} ${isActive ? styles.active : ''}`} xAlign='space-between'>
+      <Row {...props} bleedLeft='15px' bleedRight='15px' asChild className={`${styles.item} ${isActive ? styles.active : ''}`} xAlign='space-between'>
         <a>
           <span>{title}</span>
           {Icon && <Icon small />}

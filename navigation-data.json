@@ -4,13 +4,9 @@
       "content": [
         {
           "id": "get-started",
+          "fullId": "get-started",
           "title": "Get started",
           "description": "Add LYTS to your project in < 1 minute."
-        },
-        {
-          "id": "overview",
-          "title": "Overview",
-          "description": "Simple primitives to build any layout with minimal CSS."
         }
       ]
     },
@@ -20,48 +16,84 @@
       "content": [
         {
           "id": "stack",
+          "fullId": "components/stack",
           "title": "Stack",
           "description": "Vertical stack",
           "category": "Components"
         },
         {
           "id": "row",
+          "fullId": "components/row",
           "title": "Row",
           "description": "Horizontal stack",
           "category": "Components"
         },
         {
           "id": "clamp",
+          "fullId": "components/clamp",
           "title": "Clamp",
           "description": "Clamps its child to a maximum width and/or height",
           "category": "Components"
         },
         {
           "id": "columns",
+          "fullId": "components/columns",
           "title": "Columns",
           "description": "Responsive full-width horizontal columns",
           "category": "Components"
         },
         {
           "id": "grid",
+          "fullId": "components/grid",
           "title": "Grid",
           "description": "Responsive grid",
           "category": "Components"
         },
         {
           "id": "box",
+          "fullId": "components/box",
           "title": "Box",
           "description": "Lowest common denominator"
         },
         {
           "id": "split",
+          "fullId": "components/split",
           "title": "Split",
           "description": "Separates items along a single axis."
         },
         {
           "id": "breakout",
+          "fullId": "components/breakout",
           "title": "Breakout",
           "description": "Separates items along a single axis."
+        }
+      ]
+    },
+    {
+      "title": "Guides",
+      "id": "guides",
+      "content": [
+        {
+          "id": "global-styles",
+          "fullId": "guides/global-styles",
+          "title": "Global styles",
+          "description": "Apply global styling to some or all layout components."
+        },
+        {
+          "id": "responsive-design",
+          "fullId": "guides/responsive-design",
+          "title": "Responsive design"
+        },
+        {
+          "id": "server-side-rendering",
+          "fullId": "guides/server-side-rendering",
+          "title": "Server-side rendering (SSR)"
+        },
+        {
+          "id": "typescript",
+          "fullId": "guides/typescript",
+          "title": "TypeScript",
+          "description": "Add types to your components to support layout props."
         }
       ]
     },
@@ -71,6 +103,7 @@
       "content": [
         {
           "id": "article",
+          "fullId": "examples/article",
           "title": "Article",
           "description": "Create a common article layout with Clamp, with support for full-width \"break out\" elements.",
           "components": [
@@ -80,6 +113,7 @@
         },
         {
           "id": "breadcrumbs",
+          "fullId": "examples/breadcrumbs",
           "title": "Breadcrumbs",
           "description": "Use Row with the `wrap` prop to create mobile-friendly breadcrumbs",
           "components": [
@@ -88,6 +122,7 @@
         },
         {
           "id": "card",
+          "fullId": "examples/card",
           "title": "Card",
           "description": "Compose multiple layout components to achieve the common card style",
           "components": [
@@ -99,6 +134,7 @@
         },
         {
           "id": "footer",
+          "fullId": "examples/footer",
           "title": "Footer",
           "description": "Leverage Columns to create a 4-columns footer layout, collapsing into a single column on small screens",
           "components": [
@@ -108,6 +144,7 @@
         },
         {
           "id": "landing-page-section",
+          "fullId": "examples/landing-page-section",
           "title": "Page section (2 columns)",
           "description": "Use Columns to create a two-columns landing page section, which collapses to a single column on small sizes.",
           "components": [
@@ -118,6 +155,7 @@
         },
         {
           "id": "landing-page-section-2",
+          "fullId": "examples/landing-page-section-2",
           "title": "Page section (3 columns)",
           "description": "Use Columns to create a three-columns landing page section, which collapses to a single column on small sizes.",
           "components": [
@@ -127,6 +165,7 @@
         },
         {
           "id": "overlay",
+          "fullId": "examples/overlay",
           "title": "Overlay",
           "description": "Use Clamp to create an overlay which is centered both horizontally and vertically.",
           "components": [
@@ -136,6 +175,7 @@
         },
         {
           "id": "sidebar-details",
+          "fullId": "examples/sidebar-details",
           "title": "Sidebar/details view",
           "description": "Use Columns with a combination of `ratio` and min-/max-width to create a responsive sidebar.",
           "components": [
@@ -144,6 +184,7 @@
         },
         {
           "id": "toolbar",
+          "fullId": "examples/toolbar",
           "title": "Toolbar",
           "description": "Compose Row with Split to create a toolbar layout, wrapping to the next line on small screens.",
           "components": [

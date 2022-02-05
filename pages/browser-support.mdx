@@ -1,0 +1,24 @@
+---
+title: Browser support
+hidden: true
+---
+
+export { default } from 'components/SidebarLayout/SidebarLayout'
+
+| Firefox | Safari | Chrome |
+| --- | --- | --- |
+| v63  | v14.1 | v84 |
+
+LYTS uses the CSS `gap` property for spacing, as well as other quite modern CSS features such as the `min()`, and `minmax()` functions. These are now supported by the [vast majority of users](https://caniuse.com/?search=gap), but that may still be a deal-breaker if you need to support older browsers.
+
+## Alternatives
+
+A different approach the one LYTS uses is the negative margin technique, as described in [Every Layout's "The Cluster"](https://every-layout.dev/layouts/cluster/). This achieves the same effect as using native `gap` (with better browser support), but also has drawbacks:
+
+- Every layout component has to render 2 container elements
+- Implementing bleeding via negative margins is only possible with another (3rd) wrapper element
+- You can't pass `string` children to components (must be wrapped in e.g. a \<span>)
+
+Layout components may be used quite heavily, which can lead to lots of DOM elements on a page. The `gap` property is now reasonably well supported in browsers, so the trade-off has been made to rely on it.
+
+One alternative to LYTS which uses the negative-margin technique is [Every Layout](https://every-layout.dev). They provide Web Components, but their documentation can also be helpful to implement it yourself. Another alternative is Quantargo's [React Layout](https://github.com/quantargo/react-layout), which also uses the negative-margin technique, and was written by the same author as LYTS (Christian Kaindl).

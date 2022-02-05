@@ -1,0 +1,33 @@
+---
+title: Global styles
+description: Apply global styling to some or all layout components.
+---
+
+LYTS exposes all CSS classes and custom properties, which are used by the components internally, as a JavaScript API:
+
+``` js
+import {
+  boxStyles,
+  stackStyles,
+  rowStyles
+  // ...
+} from '@christiankaindl/lyts'
+```
+
+This makes it possible to, for example, add global styles targeting all or individual LYTS components. To use this feature a JavaScript based approach to styling is required, such as [vanilla-extract](https://vanilla-extract.style/), [Stitches](https://stitches.dev/) or [styled-components](https://styled-components.com/).
+
+For example, here we add a global outline for all Stack components, using vanilla-extract:
+
+```ts
+/* MyComponent.css.ts */
+import { stackStyles, toSelectorString } from '@christiankaindl/lyts'
+import { globalStyle } from '@vanilla-extract/css'
+
+const stackSelector = toSelectorString(stackStyles.stack)
+globalStyle(stackSelector, {
+  backgroundColor: 'whitesmoke',
+  outline: '1px solid blue'
+})
+```
+
+This documentation site uses the class names API to render examples with [colored outlines](https://github.com/christiankaindl/LYTS-website/blob/main/styles/index.css.ts). But the class names API can also be used to change already existing style defaults. For example, this site uses a global style for the HTML `<a>` tag, but [special-cases the selector](https://github.com/christiankaindl/LYTS-website/blob/main/styles/index.css.ts) with a ":not()" function to not inlcude links which are a LYTS component (they are styled separately and don't need the default link styling).

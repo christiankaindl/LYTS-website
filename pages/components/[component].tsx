@@ -22,9 +22,13 @@ import CodeEditor from "@/components/CodeEditor"
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.component === undefined) {
+    const page = await getComponentPage(`components/index`)
+    // console.log('page', page)
     return {
-      props: {},
-      notFound: true
+      props: {
+        ...page
+      },
+      // notFound: true
     }
   }
 
@@ -75,9 +79,9 @@ interface Props {
   docs: any
 }
 
-const Component: FunctionComponent<Props> = function ({ code, meta, examples, docs, component }) {
+const Component: FunctionComponent<Props> = function ({ code, meta, examples = [], docs, component }) {
   const Story = useMemo(() => getMDXComponent(code, mdxBundlerGlobals), [code])
-  const Component = useMemo(() => getMDXComponent(component.code, mdxBundlerGlobals), [component.code])
+  const Component = useMemo(() => component?.code && getMDXComponent(component.code, mdxBundlerGlobals), [component?.code])
   const [_examples, setExamples] = useState<[]>(() => {
     return examples.map(({ code, meta }: any) => {
       return {
@@ -97,38 +101,41 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples, do
 
   return (
     <>
+      {Component && <Component components={{ CodeEditor }} />}
+      {docs && <PropsTable {...docs} />}
       {/* @ts-expect-error */}
-      <Component components={{ CodeEditor }} />
-      <PropsTable {...docs} />
-      {/* @ts-expect-error */}
-      <Story components={{ CodeEditor }} />
-      <div />
-      <h2>Examples using <code>{meta.title}</code></h2>
-      <Stack
-        gap={2.5}
-        style={{ backgroundColor: mauve.mauve2, padding: '30px 30px', borderRadius: 30 }}
-        bleedLeft='30px'
-        bleedRight='30px'
-      >
-        {_examples.map(({ Component, title, description, id }: any, index) => {
-          return (
-            <>
-              {index > 0 && <hr />}
-              <Link href={`/examples/${id}`} passHref key={id}>
-                <Stack asChild style={{ textDecoration: 'none', color: 'black' }}>
-                  <a>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                    <Row gap={0.5} className={link} style={{ display: 'inline-flex', alignSelf: 'start' }}>
-                      <span>View full example</span><ArrowRight size={20} />
-                    </Row>
-                  </a>
-                </Stack>
-              </Link>
-            </>
-          )
-        })}
-      </Stack>
+      <Story components={{ CodeEditor, Link }} />
+      {_examples && _examples?.length > 0 && (
+        <>
+          <div />
+          <h2>Examples using <code>{meta.title}</code></h2>
+          <Stack
+            gap={2.5}
+            style={{ backgroundColor: mauve.mauve2, padding: '30px 30px', borderRadius: 30 }}
+            bleedLeft='30px'
+            bleedRight='30px'
+          >
+            {_examples.map(({ Component, title, description, id }: any, index) => {
+              return (
+                <>
+                  {index > 0 && <hr />}
+                  <Link href={`/examples/${id}`} passHref key={id}>
+                    <Stack asChild style={{ textDecoration: 'none', color: 'black' }}>
+                      <a>
+                        <h3>{title}</h3>
+                        <p>{description}</p>
+                        <Row gap={0.5} className={link} style={{ display: 'inline-flex', alignSelf: 'start' }}>
+                          <span>View full example</span><ArrowRight size={20} />
+                        </Row>
+                      </a>
+                    </Stack>
+                  </Link>
+                </>
+              )
+            })}
+          </Stack>
+      </>
+      )}
     </>
   )
 }

@@ -1,0 +1,39 @@
+---
+title: TypeScript
+description: Add types to your components to support layout props.
+---
+
+LYTS supports TypeScript and exports various interfaces and types for each component:
+
+``` js
+import {
+  BoxProps,
+  StackProps,
+  RowProps,
+  // etc...
+} from '@christiankaindl/lyts'
+```
+
+You can use these types with your own custom components. For example, if you want to support layout props in addition to your own custom props:
+
+``` tsx
+import { StackProps } from '@christiankaindl/lyts'
+
+interface CardProps {
+  myProp?: string
+}
+
+const Card: FunctionComponent<CardProps & StackProps> = function ({
+  children,
+  myProp,
+  ...props
+}) {
+  return (
+    <Stack {...props}>
+      {children}
+    </Stack>
+  )
+}
+```
+
+Now when using this component, you can not only pass `myProp` but also any prop from Stack.

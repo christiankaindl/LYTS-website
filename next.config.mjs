@@ -25,7 +25,7 @@ export function remarkExportMeta() {
               props: {
                 meta: {
                   title,
-                  description
+                  description: typeof description === "undefined" ? null : description
                 }
               },
             }

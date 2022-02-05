@@ -9,7 +9,7 @@ export async function getFilteredExamples (filters?: string[]) {
   // 1. Get all Component.mdx files in the example folder
   const availableExamples = fs
     .readdirSync(path.join(process.cwd(), `docs/examples`))
-    .filter((dirName) => dirName !== 'template' && dirName !== '.DS_Store')
+    .filter((dirName) => dirName !== 'template' && dirName !== '.DS_Store' && !dirName.endsWith('.mdx'))
 
   // 2. Bundle them all
   const bundledExamples = await Promise.all(availableExamples.map(async (dirName) => {

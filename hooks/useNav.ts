@@ -27,26 +27,30 @@ interface NavObject {
 }
 
 function getNav (path: string): { current: NavObject, next: NavObject, previous: NavObject } {
-  // Fun way of getting the last element (array.at(-1) would be nicer, but isn't supported yet)
-  // See https://github.com/tc39/proposal-relative-indexing-method#existing-methods
-  const id = path.split('/').slice(-1)[0]
   const flatList = navigationData.sections
     .map((item) => {
-      if (item.content) return item.content.map((content) => {
-        return {
-          ...content,
-          href: `/${item.id ? `${item.id}/` : ''}${content.id}`,
-          sectionName: item.title
-        }
-      })
-      return {
-        ...item,
+      const sectionIndex = item.id
+      ? {
+        title: item.title,
         href: `/${item.id}`
       }
+      : null
+
+      if (!item.content) return
+      return [
+        sectionIndex ?? [],
+        item.content.map((content) => {
+          return {
+            ...content,
+            href: `/${content.fullId}`,
+            sectionName: item.title
+          }
+        })
+      ]
     })
-    .flat()
-  
-  const currentIndex = flatList.findIndex((item) => item.id === id)
+    .flat(2)
+
+  const currentIndex = flatList.findIndex((item) => item?.href === path)
   return {
     current: flatList[currentIndex] || {},
     next: flatList?.[currentIndex + 1] || {},

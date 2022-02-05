@@ -11,7 +11,7 @@ import { link } from "styles/index.css";
 
 const Sidebar: FunctionComponent = function () {
   return (
-    <Stack gap={2.25} asChild className={styles.sidebar}>
+    <Stack asChild className={styles.sidebar}>
       <nav>
         <Row yAlign='end'>
           <Link href='/' passHref>
@@ -26,12 +26,12 @@ const Sidebar: FunctionComponent = function () {
           </Link>
         </Row>
 
-        <Stack gap={1.5}>
+        <Stack gap={2.25}>
           {navigationData.sections.map((item) => {
             if (item.content === undefined) return null
 
             return (
-              <Stack gap='1px' key={item.id}>
+              <Stack key={item.id}>
                 {item.title && (
                   <span
                     style={{
@@ -45,19 +45,46 @@ const Sidebar: FunctionComponent = function () {
                     {item.title}
                   </span>
                 )}
-                {item.content.map(({ title, id }) => {
-                  return (
+                <Stack gap='1px' style={item.id ? { borderLeft: `1.5px dashed ${mauve.mauve8}`, paddingLeft: 21 } : undefined}>
+                  {item.id && (
+                    // @ts-expect-error
                     <Item
-                      key={id}
-                      title={title}
-                      href={`/${item.id ? `${item.id}/` : ''}${id}`}
-                      id={id}
+                      key={item.id}
+                      title="Overview"
+                      href={`/${item.id}`}
+                      id={item.id}
+                      bleedTop={9}
                     />
-                  )
-                })}
+                  )}
+                  {item.content.map(({ title, id, fullId }, index) => {
+                    return (
+                      // @ts-expect-error
+                      <Item
+                        key={id}
+                        title={title}
+                        href={`/${fullId}`}
+                        id={id}
+                        bleedBottom={index + 1 === item.content.length ? '9px' : undefined}
+                      />
+                    )
+                  })}
+                </Stack>
               </Stack>
             )
           })}
+
+          <Stack gap='1px'>
+            {/* @ts-expect-error */}
+            <Item
+              title="Browser support"
+              href={`/browser-support`}
+            />
+            {/* @ts-expect-error */}
+            <Item
+              title="Acknowledgements"
+              href={`/acknowledgements`}
+            />
+          </Stack>
         </Stack>
       </nav>
     </Stack>

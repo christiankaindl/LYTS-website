@@ -2,6 +2,7 @@ import { bundleMDX } from "mdx-bundler"
 import path from "path"
 import { lyts } from "utils";
 import { mdxBundlerSetup } from "./mdxBundlerSetup";
+import rehypeHighlight from 'rehype-highlight'
 const {
   vanillaExtractPlugin
 } = require('@vanilla-extract/esbuild-plugin');
@@ -21,7 +22,11 @@ export async function getComponentPage (pathname: string) {
         defaultExport: false
       }
     },
-    esbuildOptions(options, frontmatter) {
+    xdmOptions (options) {
+      options.rehypePlugins = [...(options.rehypePlugins || []), rehypeHighlight]
+      return options
+    },
+    esbuildOptions (options, frontmatter) {
       options.platform = 'browser'
       // Use the esbuild vanilla-extract plugin to get the bundled classNames.
       // The actual CSS is already bundled on the page globally (by the Next.js vanilla-extract plugin)
@@ -33,6 +38,7 @@ export async function getComponentPage (pathname: string) {
     }
   });
   frontmatter.id = path.basename(path.dirname(pathname))
+  console.log('frontmatter', frontmatter)
   return {
     code,
     meta: frontmatter,
