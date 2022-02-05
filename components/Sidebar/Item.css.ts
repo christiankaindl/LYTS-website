@@ -4,8 +4,9 @@ import { style } from "@vanilla-extract/css";
 export const item = style({
   borderRadius: 9,
   padding: '3px 15px',
-  minHeight: 42,
+  minHeight: 40,
   color: mauve.mauve12,
+  fontSize: '0.95em',
   textDecoration: 'none',
   fontWeight: 500,
   transition: 'background-color 80ms linear',

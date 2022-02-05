@@ -6,7 +6,7 @@ export const navigation = style({
 })
 
 export const navLink = style({
-  padding: 18,
+  padding: '18px 15px',
   borderRadius: 15,
   textDecoration: 'none',
   ":hover": {

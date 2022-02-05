@@ -26,7 +26,8 @@ globalStyle('hr', {
 })
 
 globalStyle(`main h2`, {
-  marginTop: '1.5em !important'
+  marginTop: '1.5em !important',
+  fontWeight: 500
 })
 
 export const link = style({})
