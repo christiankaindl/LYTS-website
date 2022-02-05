@@ -3,6 +3,7 @@ import remarkFrontmatter from 'remark-frontmatter'
 import { remarkMdxFrontmatter } from 'remark-mdx-frontmatter'
 import MDX from '@next/mdx'
 import rehypeHighlight from 'rehype-highlight'
+import remarkGfm from 'remark-gfm'
 import { parse } from "acorn"
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin'
 const withVanillaExtract = createVanillaExtractPlugin();
@@ -42,7 +43,7 @@ export function remarkExportMeta() {
 const withMDX = MDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkExportMeta],
+    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkExportMeta, remarkGfm],
     rehypePlugins: [rehypeHighlight],
   },
 })
