@@ -125,3 +125,32 @@ export const nav = style([debug, {
   boxShadow: '0 5px 24px -7px rgb(0 0 0 / 0.1)',
   padding: 18
 }])
+
+globalStyle('table', {
+  border: 'none',
+  width: 'calc(100% + 60px)',
+  borderSpacing: 0,
+  display: 'block',
+  overflowX: 'auto',
+  whiteSpace: 'nowrap',
+  borderCollapse: 'collapse'
+})
+
+globalStyle(`table th`, {
+  fontSize: '0.8em',
+  textTransform: 'uppercase',
+  letterSpacing: '1px',
+  fontWeight: 'normal',
+  color: mauve.mauve11,
+})
+
+globalStyle(`table td, table th`, {
+  textAlign: 'left',
+  padding: '12px 18px 12px 0px',
+  verticalAlign: 'top',
+  whiteSpace: 'initial',
+  borderBottom: `1px solid ${mauve.mauve4}`
+})
+globalStyle(`table th`, {
+  verticalAlign: 'top'
+})
