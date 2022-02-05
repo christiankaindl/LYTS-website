@@ -38,7 +38,6 @@ export async function getComponentPage (pathname: string) {
     }
   });
   frontmatter.id = path.basename(path.dirname(pathname))
-  console.log('frontmatter', frontmatter)
   return {
     code,
     meta: frontmatter,
