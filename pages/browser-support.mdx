@@ -1,6 +1,6 @@
 ---
 title: Browser support
-hidden: true
+hidden: true # Is manually linked in Sidebar.ts
 ---
 
 export { default } from 'components/SidebarLayout/SidebarLayout'
@@ -13,12 +13,12 @@ LYTS uses the CSS `gap` property for spacing, as well as other quite modern CSS 
 
 ## Alternatives
 
-A different approach the one LYTS uses is the negative margin technique, as described in [Every Layout's "The Cluster"](https://every-layout.dev/layouts/cluster/). This achieves the same effect as using native `gap` (with better browser support), but also has drawbacks:
+A different approach the one LYTS uses is the negative margin technique, as described in [Every Layout's "The Cluster"](https://every-layout.dev/layouts/cluster/). This achieves the same effect as using native `gap`, but with better browser support. But this approach also has drawbacks:
 
 - Every layout component has to render 2 container elements
 - Implementing bleeding via negative margins is only possible with another (3rd) wrapper element
-- You can't pass `string` children to components (must be wrapped in e.g. a \<span>)
+- You can't pass `string` children to components (must be wrapped in e.g. `<span>`)
 
 Layout components may be used quite heavily, which can lead to lots of DOM elements on a page. The `gap` property is now reasonably well supported in browsers, so the trade-off has been made to rely on it.
 
-One alternative to LYTS which uses the negative-margin technique is [Every Layout](https://every-layout.dev). They provide Web Components, but their documentation can also be helpful to implement it yourself. Another alternative is Quantargo's [React Layout](https://github.com/quantargo/react-layout), which also uses the negative-margin technique, and was written by the same author as LYTS (Christian Kaindl).
+One alternative to LYTS which uses the negative-margin technique is [Every Layout](https://every-layout.dev). They provide Web Components, but their documentation can also be helpful to implement it yourself. Another alternative is Quantargo's [React Layout](https://github.com/quantargo/react-layout), which also uses the negative-margin technique (written by the same author as LYTS, Christian Kaindl), but is not maintained any more so not recommended.
