@@ -139,33 +139,23 @@
           ]
         },
         {
-          "id": "landing-page-section",
-          "fullId": "examples/landing-page-section",
-          "title": "Page section (2 columns)",
-          "description": "Use Columns to create a two-columns landing page section, which collapses to a single column on small sizes.",
-          "components": [
-            "Columns",
-            "Stack",
-            "Box"
-          ]
-        },
-        {
-          "id": "landing-page-section-2",
-          "fullId": "examples/landing-page-section-2",
-          "title": "Page section (3 columns)",
-          "description": "Use Columns to create a three-columns landing page section, which collapses to a single column on small sizes.",
-          "components": [
-            "Columns",
-            "Stack"
-          ]
-        },
-        {
           "id": "overlay",
           "fullId": "examples/overlay",
           "title": "Overlay",
           "description": "Use Clamp to create an overlay which is centered both horizontally and vertically.",
           "components": [
             "Clamp",
+            "Box"
+          ]
+        },
+        {
+          "id": "page-sections",
+          "fullId": "examples/page-sections",
+          "title": "Page sections",
+          "description": "Use Columns to create landing page sections, which collapse to a single column on small sizes.",
+          "components": [
+            "Columns",
+            "Stack",
             "Box"
           ]
         },
