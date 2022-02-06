@@ -24,7 +24,9 @@ export const activeStore = create<{ id: string | null }>(() => ({
 const Sidebar: FunctionComponent = function () {
   const router = useRouter()
   useEffect(() => {
-    activeStore.setState({ id: router.asPath })
+    setTimeout(() => {
+      activeStore.setState({ id: router.asPath })
+    }, 0)
   }, [router.asPath])
 
   return (
