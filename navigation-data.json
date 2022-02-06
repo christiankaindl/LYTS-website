@@ -80,11 +80,6 @@
           "description": "Apply global styling to some or all layout components."
         },
         {
-          "id": "responsive-design",
-          "fullId": "guides/responsive-design",
-          "title": "Responsive design"
-        },
-        {
           "id": "server-side-rendering",
           "fullId": "guides/server-side-rendering",
           "title": "Server-side rendering (SSR)"
