@@ -83,7 +83,7 @@
           "id": "server-side-rendering",
           "fullId": "guides/server-side-rendering",
           "title": "Server-side rendering (SSR)",
-          "description": "Learn about SSR details"
+          "description": "Learn how to make SSR compatible layouts."
         },
         {
           "id": "typescript",
