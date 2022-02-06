@@ -1,34 +1,28 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import path from "path"
 import fs from 'fs'
-import { Component as ReactComponent, FunctionComponent, useEffect, useMemo, useState } from "react"
+import { Component as ReactComponent, FunctionComponent, useMemo } from "react"
 import { getMDXComponent } from 'mdx-bundler/client'
 import { getComponentPage } from "utils/getComponentPage"
-import DebugProvider from "components/DebugProvider/DebugProvider"
 import { withSidebarLayout } from "components/SidebarLayout/SidebarLayout"
 import { Row, Stack } from "@christiankaindl/lyts"
 import { getFilteredExamples } from "utils/getFilteredExamples"
 import Link from "next/link"
-import { lyts, mdxBundlerGlobals } from "utils"
+import { mdxBundlerGlobals } from "utils"
 import { withCustomConfig, PropItem } from 'react-docgen-typescript'
 import PropsTable from "@/components/PropsTable"
 import { mauve } from '@radix-ui/colors'
 import { ArrowRight } from "lucide-react"
 import { link } from "styles/index.css"
-// Import the CodeEditor styles here instead of in CodeEditor.tsx,
-// because when only used in MDX files bundled with mdx-bundler the styles are missing from the page
 import CodeEditor from "@/components/CodeEditor"
-// import '@/components/CodeEditor/CodeEditor.css'
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.component === undefined) {
     const page = await getComponentPage(`components/index`)
-    // console.log('page', page)
     return {
       props: {
         ...page
-      },
-      // notFound: true
+      }
     }
   }
 
@@ -82,22 +76,6 @@ interface Props {
 const Component: FunctionComponent<Props> = function ({ code, meta, examples = [], docs, component }) {
   const Story = useMemo(() => getMDXComponent(code, mdxBundlerGlobals), [code])
   const Component = useMemo(() => component?.code && getMDXComponent(component.code, mdxBundlerGlobals), [component?.code])
-  const [_examples, setExamples] = useState<[]>(() => {
-    return examples.map(({ code, meta }: any) => {
-      return {
-        Component: getMDXComponent(code, mdxBundlerGlobals),
-        ...meta
-      }
-    })
-  })
-  useEffect(() => {
-    setExamples(examples.map(({ code, meta }: any) => {
-      return {
-        Component: getMDXComponent(code, mdxBundlerGlobals),
-        ...meta
-      }
-    }))
-  }, [examples])
 
   return (
     <>
@@ -105,7 +83,7 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples = [
       {docs && <PropsTable {...docs} />}
       {/* @ts-expect-error */}
       <Story components={{ CodeEditor, Link }} />
-      {_examples && _examples?.length > 0 && (
+      {examples && examples?.length > 0 && (
         <>
           <div />
           <h2>Examples using <code>{meta.title}</code></h2>
@@ -115,7 +93,7 @@ const Component: FunctionComponent<Props> = function ({ code, meta, examples = [
             bleedLeft='30px'
             bleedRight='30px'
           >
-            {_examples.map(({ Component, title, description, id }: any, index) => {
+            {examples.map(({ meta: { title, description, id } }: any, index) => {
               return (
                 <>
                   {index > 0 && <hr />}

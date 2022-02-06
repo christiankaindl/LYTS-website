@@ -32,6 +32,7 @@ globalStyle(`main h2`, {
 
 export const link = style({})
 const boxClassName = toClassName(boxStyles.box)
+// Add default link styles, but only for links which are not a LYTS component (they are typically styled separately and don't need the default link styling)
 globalStyle(`a:not(${boxClassName}), ${link}`, {
   color: blue.blue11,
   borderRadius: 4,
