@@ -13,7 +13,7 @@ interface ItemProps {
   id?: string
 }
 
-const Item: FunctionComponent<ItemProps & RowProps> = memo(function ({ icon, title, href, id, ...props }) {
+const Item: FunctionComponent<ItemProps & RowProps> = memo(function Item ({ icon, title, href, id, ...props }) {
   const isActive = activeStore((obj) => obj.id === href)
 
   // @ts-expect-error
