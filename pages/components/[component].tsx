@@ -15,6 +15,7 @@ import { mauve } from '@radix-ui/colors'
 import { ArrowRight } from "lucide-react"
 import { link } from "styles/index.css"
 import CodeEditor from "@/components/CodeEditor"
+import '@/components/Icons/Icons.css'
 
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.component === undefined) {
@@ -74,7 +75,7 @@ interface Props {
 }
 
 const Component: FunctionComponent<Props> = function ({ code, meta, examples = [], docs, component }) {
-  const Story = useMemo(() => getMDXComponent(code, mdxBundlerGlobals), [code])
+  const Story = useMemo(() => getMDXComponent(code, { ...mdxBundlerGlobals, Link, process: { env: {} } }), [code])
   const Component = useMemo(() => component?.code && getMDXComponent(component.code, mdxBundlerGlobals), [component?.code])
 
   return (

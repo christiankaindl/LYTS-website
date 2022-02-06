@@ -1,10 +1,30 @@
 ---
 title: Components
+description: Layout primitives for building any kind of layout.
 ---
 
-Layout components come **unstyled** with a **minimal API surface**. LYTS is [is less than 4kB](https://bundlephobia.com/package/@christiankaindl/lyts@1.0.0-alpha.10) when using *all* components and is also tree-shakable, so features that you don't use will not add to your bundle size.
+import { icons } from '../../pages'
+import { Tooltip } from '@/components/Tooltip/Tooltip'
+import { Row } from '@christiankaindl/lyts'
 
-There are 5 main components (<Link href='/components/stack'>Stack</Link>, <Link href='/components/row'>Row</Link>, <Link href='/components/clamp'>Clamp</Link>, <Link href='/components/columns'>Columns</Link>, <Link href='/components/grid'>Grid</Link>) and 3 helper components (<Link href='/components/box'>Box</Link>, <Link href='/components/split'>Split</Link>, <Link href='/components/breakout'>Breakout</Link>).
+<Row style={{ padding: '0 2em 0 0' }} wrap>
+  {icons.map(({ name, icon, href }) => {
+    return (
+      <Tooltip delayDuration={0} key={name}>
+        <Link href={href} passHref>
+          <Tooltip.Trigger asChild>
+            <a aria-label={name}>{icon}</a>
+          </Tooltip.Trigger>
+        </Link>
+        <Tooltip.Content>
+          {name}
+        </Tooltip.Content>
+      </Tooltip>
+    )
+  })}
+</Row>
+
+Layout components come unstyled with a minimal API surface. LYTS is [is less than 4kB](https://bundlephobia.com/package/@christiankaindl/lyts@1.0.0-alpha.10) when using *all* components and is also tree-shakable, so features that you don't use will not add to your bundle size.
 
 ## Layout props
 
