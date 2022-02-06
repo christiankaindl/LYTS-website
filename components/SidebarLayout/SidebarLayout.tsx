@@ -15,6 +15,7 @@ import ReactMarkdown from 'react-markdown'
 import Navigation from "../Navigation/Navigation"
 import { useNav } from "hooks/useNav"
 import Footer from "../Footer/Footer"
+
 interface Props {
   meta: {
     title: string
@@ -51,7 +52,9 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
                 <ChevronRight size={20} />
                 {nav.current?.sectionName && (
                   <>
-                    <span>{nav.current.sectionName}</span>
+                    <Link href={`/${nav.current.fullId?.split('/')[0]}`}>
+                      <a>{nav.current.sectionName}</a>
+                    </Link>
                     <ChevronRight size={20} />
                   </>
                 )}
