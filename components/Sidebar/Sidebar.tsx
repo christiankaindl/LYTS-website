@@ -45,7 +45,7 @@ const Sidebar: FunctionComponent = function () {
                     {item.title}
                   </span>
                 )}
-                <Stack gap='1px' style={item.id ? { borderLeft: `1.5px dashed ${mauve.mauve8}`, paddingLeft: 21 } : undefined}>
+                <Stack gap='1px' style={item.id ? { borderLeft: `1px dashed ${mauve.mauve8}`, paddingLeft: 21 } : undefined}>
                   {item.id && (
                     // @ts-expect-error
                     <Item
