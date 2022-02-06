@@ -7,19 +7,23 @@ import { ArrowRight } from 'lucide-react'
 import { mauve } from '@radix-ui/colors'
 import { link } from '../../styles/index.css'
 
-{props.guides.map(({ meta: { title, description, id } }) => {
-  return (
-    <Link href={`/guides/${id}`} passHref key={id}>
-      <Stack bleedLeft={30} bleedRight={30} asChild style={{ padding: 30, backgroundColor: mauve.mauve2, borderRadius: 30, textDecoration: 'none', color: 'black' }}>
-        <a>
-          <h3>{title}</h3>
-          <p>{description}</p>
-          <Row gap={0.5} className={link} style={{ display: 'inline-flex', alignSelf: 'start' }}>
-            <span>View full example</span><ArrowRight size={20} />
-          </Row>
-        </a>
-      </Stack>
-    </Link>
-  )
-})}
-
+<Stack gap={2.5} bleedLeft={30} bleedRight={30} style={{ padding: 30, backgroundColor: mauve.mauve3, borderRadius: 30 }}>
+  {props.guides.map(({ meta: { title, description, id } }, index) => {
+    return (
+      <>
+        {index > 0 && <hr />}
+        <Link href={`/guides/${id}`} passHref key={id}>
+          <Stack asChild style={{ textDecoration: 'none', color: 'black' }}>
+            <a>
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <Row gap={0.5} className={link} style={{ display: 'inline-flex', alignSelf: 'start' }}>
+                <span>View guide</span><ArrowRight size={20} />
+              </Row>
+            </a>
+          </Stack>
+        </Link>
+      </>
+    )
+  })}
+</Stack>

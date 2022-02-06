@@ -21,24 +21,26 @@ const Examples: FunctionComponent<any> = function ({ examples }) {
     <Stack gap={1.5}>
       <h1>Examples</h1>
       <p style={{ fontSize: '1.3em', color: mauve.mauve11 }}>Copy/paste-able snippets for common layouts.</p>
-      <p>All components come unstyled and only add CSS necessary for layout. Examples focus on how to achieve different layouts by composing the available components. Also, <a href='https://github.com/christiankaindl/LYTS-website/'>check out the source code for this very site</a>, which makes extensive use of all the components.</p>
 
       <div />
 
-      <Stack gap={2.5}>
-        {examples.map(({ meta: { title, description, id } }: any) => {
+      <Stack gap={2.5} bleedLeft={30} bleedRight={30} style={{ padding: 30, backgroundColor: mauve.mauve3, borderRadius: 30 }}>
+        {examples.map(({ meta: { title, description, id } }: any, index: number) => {
           return (
-            <Link href={`/examples/${id}`} passHref key={id}>
-              <Stack bleedLeft={30} bleedRight={30} asChild style={{ padding: 30, backgroundColor: mauve.mauve2, borderRadius: 30, textDecoration: 'none', color: 'black' }}>
-                <a>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                  <Row gap={0.5} className={link} style={{ display: 'inline-flex', alignSelf: 'start' }}>
-                    <span>View full example</span><ArrowRight size={20} />
-                  </Row>
-                </a>
-              </Stack>
-            </Link>
+            <>
+              {index > 0 && <hr />}
+              <Link href={`/examples/${id}`} passHref key={id}>
+                <Stack asChild style={{ textDecoration: 'none', color: 'black' }}>
+                  <a>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                    <Row gap={0.5} className={link} style={{ display: 'inline-flex', alignSelf: 'start' }}>
+                      <span>View example</span><ArrowRight size={20} />
+                    </Row>
+                  </a>
+                </Stack>
+              </Link>
+            </>
           )
         })}
       </Stack>
