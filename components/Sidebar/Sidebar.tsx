@@ -1,15 +1,32 @@
 import { Row, Stack } from "@christiankaindl/lyts";
 import { mauve } from "@radix-ui/colors";
 import Link from "next/link";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { libraryVersion } from "utils/data";
 import Item from "./Item";
 import * as styles from './Sidebar.css'
 import navigationData from '../../navigation-data.json'
 import Logo from "../Logo/Logo";
 import { link } from "styles/index.css";
+import create from 'zustand'
+import { useRouter } from "next/router";
+
+/**
+ * Store the active sidebar element in a separate store.
+ * 
+ * With the previous approach, where the active item was determined in Item.ts, the scroll-handling from Next.js interfered with the measuring of framer-motion, leading to wrong layout animations of the active-item indicator.
+ * With this aproach the item is updated lazily (in a useEffect) so it doesn't the layout measuring from framer-motion doesn't interfere with the scroll-handling of Next.js
+ */
+export const activeStore = create<{ id: string | null }>(() => ({
+  id: null
+}))
 
 const Sidebar: FunctionComponent = function () {
+  const router = useRouter()
+  useEffect(() => {
+    activeStore.setState({ id: router.asPath })
+  }, [router.asPath])
+
   return (
     <Stack asChild className={styles.sidebar}>
       <nav>

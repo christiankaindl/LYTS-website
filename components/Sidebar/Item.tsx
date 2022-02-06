@@ -1,10 +1,10 @@
 import { Row, RowProps } from "@christiankaindl/lyts";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, memo } from "react";
 import { iconMappings } from "../Icons/Icons";
 import * as styles from './Item.css'
+import { activeStore } from "./Sidebar";
 
 interface ItemProps {
   title: string
@@ -13,9 +13,9 @@ interface ItemProps {
   id?: string
 }
 
-const Item: FunctionComponent<ItemProps & RowProps> = function ({ icon, title, href, id, ...props }) {
-  const router = useRouter()
-  const isActive = router.asPath === href
+const Item: FunctionComponent<ItemProps & RowProps> = memo(function ({ icon, title, href, id, ...props }) {
+  const isActive = activeStore((obj) => obj.id === href)
+
   // @ts-expect-error
   const Icon = iconMappings[id]
   return (
@@ -29,6 +29,6 @@ const Item: FunctionComponent<ItemProps & RowProps> = function ({ icon, title, h
       </Row>
     </Link>
   )
-}
+})
 
 export default Item
