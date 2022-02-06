@@ -7,7 +7,9 @@ import { ArrowRight } from 'lucide-react'
 import { mauve } from '@radix-ui/colors'
 import { link } from '../../styles/index.css'
 
-<Stack gap={2.5} bleedLeft={30} bleedRight={30} style={{ padding: 30, backgroundColor: mauve.mauve3, borderRadius: 30 }}>
+<div />
+
+<Stack gap={2.5} bleedLeft={30} bleedRight={30} style={{ boxShadow: 'inset 0 0 1px 0 rgb(0 0 0 / 0.2)', padding: 30, backgroundColor: mauve.mauve2, borderRadius: 30 }}>
   {props.guides.map(({ meta: { title, description, id } }, index) => {
     return (
       <>

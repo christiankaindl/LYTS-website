@@ -45,6 +45,7 @@ export const smallButton = style({
   fontSize: 15,
   fontWeight: 500,
   fontFamily: 'Inter',
+  zIndex: 2,
   '@supports': {
     'not (backdrop-filter: blur(1px))': {
       backgroundColor: mauve.mauve4

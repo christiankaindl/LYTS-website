@@ -19,12 +19,14 @@ export const getStaticProps: GetStaticProps = async function () {
 const Examples: FunctionComponent<any> = function ({ examples }) {
   return (
     <Stack gap={1.5}>
-      <h1>Examples</h1>
-      <p style={{ fontSize: '1.3em', color: mauve.mauve11 }}>Copy/paste-able snippets for common layouts.</p>
+      <Stack gap={0.75}>
+        <h1>Examples</h1>
+        <p style={{ fontSize: '1.3em', color: mauve.mauve11 }}>Copy/paste-able snippets for common layouts.</p>
+      </Stack>
 
       <div />
 
-      <Stack gap={2.5} bleedLeft={30} bleedRight={30} style={{ padding: 30, backgroundColor: mauve.mauve3, borderRadius: 30 }}>
+      <Stack gap={2.5} bleedLeft={30} bleedRight={30} style={{ boxShadow: 'inset 0 0 1px 0 rgb(0 0 0 / 0.2)', padding: 30, backgroundColor: mauve.mauve2, borderRadius: 30 }}>
         {examples.map(({ meta: { title, description, id } }: any, index: number) => {
           return (
             <>

@@ -38,11 +38,11 @@ function App() {
               {icons.map(({ name, icon, href }) => {
                 return (
                   <Tooltip delayDuration={0} key={name}>
-                      <Link href={href} passHref>
-                        <Tooltip.Trigger asChild>
-                          <a aria-label={name}>{icon}</a>
-                        </Tooltip.Trigger>
-                      </Link>
+                    <Link href={href} passHref>
+                      <Tooltip.Trigger asChild>
+                        <a aria-label={name}>{icon}</a>
+                      </Tooltip.Trigger>
+                    </Link>
                     <Tooltip.Content>
                       {name}
                     </Tooltip.Content>
