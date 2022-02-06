@@ -36,8 +36,8 @@ export async function getComponentPage (pathname: string) {
       options.outfile = 'out.js'
       return options
     }
-  });
-  frontmatter.id = path.basename(path.dirname(pathname))
+  })
+  frontmatter.id = pathname.split('/')[1]
   return {
     code,
     meta: frontmatter,

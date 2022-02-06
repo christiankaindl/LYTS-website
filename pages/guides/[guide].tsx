@@ -15,12 +15,12 @@ export const getStaticProps: GetStaticProps = async function ({ params }) {
 
     const bundledPages = await Promise.all(
       fs
-      .readdirSync(path.join(process.cwd(), `docs/guides`))
-      .filter((dirName) => dirName !== 'template' && dirName !== '.DS_Store' && dirName !== 'index.mdx')
-      .map((dirName) => dirName.split('.')[0])
-      .map((dirName) => {
-        return getComponentPage(`guides/${dirName}`)
-      })
+        .readdirSync(path.join(process.cwd(), `docs/guides`))
+        .filter((dirName) => dirName !== 'template' && dirName !== '.DS_Store' && dirName !== 'index.mdx')
+        .map((dirName) => dirName.split('.')[0])
+        .map((dirName) => {
+          return getComponentPage(`guides/${dirName}`)
+        })
     )
 
     return {
