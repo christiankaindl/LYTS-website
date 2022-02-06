@@ -69,7 +69,7 @@ interface Props {
   code: string
   meta: { [key: string]: any }
   component: any
-  examples: any
+  examples: []
   docs: any
 }
 
