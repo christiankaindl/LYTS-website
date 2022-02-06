@@ -8,7 +8,8 @@ export const container = style({
   backgroundImage: 'linear-gradient(32deg, #aa99ec, #5eb0ef)',
   height: 64,
   width: 64,
-  boxShadow: '0 4px 15px -4px rgba(0, 0, 0, 0.15)'
+  boxShadow: '0 4px 15px -4px rgba(0, 0, 0, 0.15)',
+  zIndex: 1
 })
 
 export const small = style({

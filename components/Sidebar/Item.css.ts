@@ -10,16 +10,19 @@ export const item = style({
   textDecoration: 'none',
   fontWeight: 500,
   transition: 'background-color 80ms linear',
+  position: 'relative',
   ':hover': {
     backgroundColor: 'rgb(0 0 0 / 0.08)',
     transition: 'none'
   }
 })
 
-export const active = style({
+export const activeHighlight = style({
   backgroundColor: 'rgb(0 0 0 / 0.08)',
-  fontWeight: 700,
-  ':hover': {
-    backgroundColor: 'rgb(0 0 0 / 0.12)'
-  }
+  borderRadius: 9,
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  height: '100%',
+  width: '100%'
 })

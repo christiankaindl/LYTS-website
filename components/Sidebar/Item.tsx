@@ -1,4 +1,5 @@
 import { Row, RowProps } from "@christiankaindl/lyts";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { FunctionComponent } from "react";
@@ -19,8 +20,9 @@ const Item: FunctionComponent<ItemProps & RowProps> = function ({ icon, title, h
   const Icon = iconMappings[id]
   return (
     <Link href={href} passHref>
-      <Row {...props} bleedLeft='15px' bleedRight='15px' asChild className={`${styles.item} ${isActive ? styles.active : ''}`} xAlign='space-between'>
+      <Row {...props} bleedLeft='15px' bleedRight='15px' asChild className={styles.item} xAlign='space-between'>
         <a>
+          {isActive && <motion.div layoutId="sidebar-active-item" className={styles.activeHighlight} />}
           <span>{title}</span>
           {Icon && <Icon small />}
         </a>
