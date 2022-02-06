@@ -58,20 +58,9 @@ const SidebarLayout: FunctionComponent<Props> = function ({ children, meta, docs
               </Row>
               <Stack gap={0.75}>
                 {title && (
-                  <Row wrap>
+                  <Row>
                     {Icon !== undefined && <Icon />}
                     <h1>{title}</h1>
-                    <Split />
-                    {nav.current?.sectionName && (
-                      <Link passHref href={`https://github.com/christiankaindl/LYTS-website/tree/${process.env.VERCEL_GIT_COMMIT_SHA}/docs/${nav.current?.sectionName?.toLowerCase()}/${nav.current?.id}`}>
-                        <Row gap={0.5} asChild style={{ color: mauve.mauve11 }}>
-                          <a>
-                            <Github size={20} />
-                            <span>Page source</span>
-                          </a>
-                        </Row>
-                      </Link>
-                    )}
                   </Row>
                 )}
                 {description && (
