@@ -4,4 +4,5 @@ import { style } from "@vanilla-extract/css";
 export const sidebar = style({
   padding: 30,
   backgroundColor: mauve.mauve3,
+  contain: 'layout paint'
 })

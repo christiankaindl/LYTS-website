@@ -43,12 +43,12 @@ const Sidebar: FunctionComponent = function () {
           </Link>
         </Row>
 
-        <Stack gap={2.25}>
+        <Stack gap={2.5}>
           {navigationData.sections.map((item) => {
             if (item.content === undefined) return null
 
             return (
-              <Stack key={item.id}>
+              <Stack gap='9px' key={item.id}>
                 {item.title && (
                   <span
                     style={{
@@ -70,7 +70,7 @@ const Sidebar: FunctionComponent = function () {
                       title="Overview"
                       href={`/${item.id}`}
                       id={item.id}
-                      bleedTop={9}
+                      bleedTop={3}
                     />
                   )}
                   {item.content.map(({ title, id, fullId }, index) => {

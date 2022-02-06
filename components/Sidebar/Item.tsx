@@ -22,7 +22,17 @@ const Item: FunctionComponent<ItemProps & RowProps> = memo(function ({ icon, tit
     <Link href={href} passHref>
       <Row {...props} bleedLeft='15px' bleedRight='15px' asChild className={styles.item} xAlign='space-between'>
         <a>
-          {isActive && <motion.div layoutId="sidebar-active-item" className={styles.activeHighlight} />}
+          {isActive && (
+            <motion.div
+              layoutId="sidebar-active-item"
+              className={styles.activeHighlight}
+              transition={{
+                type: 'spring',
+                bounce: 0,
+                duration: 0.3
+              }}
+            />
+          )}
           <span>{title}</span>
           {Icon && <Icon small />}
         </a>
