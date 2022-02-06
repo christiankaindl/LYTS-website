@@ -49,5 +49,8 @@ const withMDX = MDX({
 })
 export default withVanillaExtract(withMDX({
   pageExtensions: ['tsx', 'ts', 'js', 'jsx', 'md', 'mdx'],
-  reactStrictMode: true
+  reactStrictMode: true,
+  experimental: {
+    scrollRestoration: true
+  }
 }))
