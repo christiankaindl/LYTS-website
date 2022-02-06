@@ -57,6 +57,7 @@ const guides = fs
       ...data?.data
     }
   })
+  .filter(({ draft = false, hidden = false }) => draft !== true && hidden !== true)
 
 const topLevel = fs
   .readdirSync(path.join(process.cwd(), './pages'))

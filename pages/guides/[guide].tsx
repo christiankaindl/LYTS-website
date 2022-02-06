@@ -12,9 +12,22 @@ import CodeEditor from "@/components/CodeEditor"
 export const getStaticProps: GetStaticProps = async function ({ params }) {
   if (params?.guide === undefined) {
     const page = await getComponentPage(`guides/index`)
+
+    const bundledPages = await Promise.all(
+      fs
+      .readdirSync(path.join(process.cwd(), `docs/guides`))
+      .filter((dirName) => dirName !== 'template' && dirName !== '.DS_Store' && dirName !== 'index.mdx')
+      .map((dirName) => dirName.split('.')[0])
+      .map((dirName) => {
+        return getComponentPage(`guides/${dirName}`)
+      })
+    )
+
     return {
       props: {
-        ...page
+        ...page,
+        // @ts-expect-error
+        guides: bundledPages.filter(({ meta: { draft = false } }) => draft !== true)
       }
     }
   }
@@ -44,15 +57,16 @@ interface Props {
   component: any
   examples: any
   docs: any
+  guides: []
 }
 
-const Component: FunctionComponent<Props> = function ({ code, meta }) {
+const Component: FunctionComponent<Props> = function ({ code, guides = [] }) {
   const Story = useMemo(() => getMDXComponent(code, mdxBundlerGlobals), [code])
 
   return (
     <>
       {/* @ts-expect-error */}
-      <Story components={{ CodeEditor, Link }} />
+      <Story components={{ CodeEditor, Link, ...mdxBundlerGlobals.lyts }} guides={guides} />
     </>
   )
 }

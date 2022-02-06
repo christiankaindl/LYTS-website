@@ -21,6 +21,7 @@ export function useNav () {
 interface NavObject {
   title?: string
   id?: string
+  fullId?: string
   href?: string
   sectionName?: string
   content?: NavObject[]
