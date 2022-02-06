@@ -5,7 +5,8 @@ import { toClassName } from "utils/toClassName";
 
 globalStyle('html, body', {
   margin: 0,
-  fontFamily: 'Inter, Roboto, sans-serif'
+  fontFamily: 'Inter, Roboto, sans-serif',
+  WebkitTapHighlightColor: 'transparent'
 })
 
 globalStyle('code', {
