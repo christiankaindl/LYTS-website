@@ -66,7 +66,6 @@ const Sidebar: FunctionComponent = function () {
                 )}
                 <Stack gap='1px' style={item.id ? { borderLeft: `1px dashed ${mauve.mauve8}`, paddingLeft: 21 } : undefined}>
                   {item.id && (
-                    // @ts-expect-error
                     <Item
                       key={item.id}
                       title="Overview"
@@ -77,7 +76,6 @@ const Sidebar: FunctionComponent = function () {
                   )}
                   {item.content.map(({ title, id, fullId }, index) => {
                     return (
-                      // @ts-expect-error
                       <Item
                         key={id}
                         title={title}
@@ -93,12 +91,10 @@ const Sidebar: FunctionComponent = function () {
           })}
 
           <Stack gap='1px'>
-            {/* @ts-expect-error */}
             <Item
               title="Browser support"
               href={`/browser-support`}
             />
-            {/* @ts-expect-error */}
             <Item
               title="Acknowledgements"
               href={`/acknowledgements`}

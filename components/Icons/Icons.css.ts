@@ -1,6 +1,6 @@
+import { toSelectorString } from "@christiankaindl/lyts";
 import { crimson, tomato } from "@radix-ui/colors";
 import { globalStyle, style } from "@vanilla-extract/css";
-import { toClassName } from "utils/toClassName";
 
 export const container = style({
   padding: '12px !important',
@@ -38,6 +38,6 @@ export const columns = style([container, {
 export const grid = style([container, {
   backgroundImage: 'linear-gradient(32grad, #5eb0ef, #53b9ab)'
 }])
-globalStyle(`${toClassName(grid)}${toClassName(small)}`, {
+globalStyle(`${toSelectorString(grid)}${toSelectorString(small)}`, {
   padding: '7px !important'
 })
