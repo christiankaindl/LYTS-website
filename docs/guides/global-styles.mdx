@@ -26,6 +26,7 @@ import { globalStyle } from '@vanilla-extract/css'
 // The stackStyles.stack className looks something like "box stack"
 // The toSelectorString() function transforms it into a valid CSS selector -> ".box.stack"
 const stackSelector = toSelectorString(stackStyles.stack)
+
 // Apply an outline to all Stack components
 globalStyle(stackSelector, {
   outline: '1px solid blue'
@@ -41,8 +42,8 @@ import { style, globalStyle } from '@vanilla-extract/css'
 
 // Create a className for your component
 export const myComponent = style({})
-
 const boxSelector = toSelectorString(boxStyles.box)
+
 // Target all LYTS components in MyComponent, and increase the font-size of the first child
 globalStyle(`${myComponent} ${boxSelector} > *:first-child`, {
   fontSize: '1.2em'

@@ -21,6 +21,6 @@ To achieve a simple article layout  the example is wrapped in a Clamp, which pri
 
 ## What about that "break-out" thing?
 
-Clamp is using a technique popularized by Josh Comeau's [*Full-Bleed Layout Using CSS Grid*](https://www.joshwcomeau.com/css/full-bleed/). With this technique, any direct child can "opt-out" of the clamping by using `grid-column` to "1 / -1". LYTS implements this behavior with the \<Breakout> component.
+Clamp is using a technique popularized by Josh Comeau's [*Full-Bleed Layout Using CSS Grid*](https://www.joshwcomeau.com/css/full-bleed/). With this technique, any direct child can "opt-out" of the clamping by using `grid-column` to "1 / -1". LYTS implements this behavior with the [Breakout](/components/breakout) component.
 
 This makes it possible to use a Clamp at the top-level, but to still have the flexibility to include full-width content, such as section with a different background-color or -image.
