@@ -1,12 +1,59 @@
 ---
 title: Server-side rendering (SSR)
-description: Learn how to make SSR compatible layouts.
+description: Learn how to make SSR compatible layouts with responsive design.
 ---
 
-LYTS supports rendering on the server out-of-the-box, which means the first render on the client is always the same as what was rendered on the server.
+LYTS' components support rendering on the server out-of-the-box, which means the first render on the client is always the same as what was rendered on the server.
 
-## How it works
+All layout components have responsive behavior built-in with props like `wrap` and `collapseAt`, which often is all that you need. But what if you want to render completely different components based on the screen size? How would you go about that? It is very tempting to use convenient hooks like [`useMediaQuery()`](https://github.com/yocontra/react-responsive) or [`useContainerQuery()`](https://github.com/react-container-query/react-container-query), but these have some downsides when it comes to SSR.
 
-Traditionally, container-based features such as the `collapseAt` prop would be incompatible with SSR, because they rely on the ResizeObserver JavaScript API which is only available in the browser (the client). That also means hooks like `useContainerQuery()` or `useMediaBreakpoint()` can never be truly SSR-compatible, because they must return a "best guess" on the server, leading to wrong and/or incomplete first renders on the client.
+## Responsive design
 
-LYTS doesn't rely on the ResizeObserver API and instead leverages native CSS techniques, which don't require a browser context to render correctly.
+The server doesn't have any screen-size. For example, if your site has a sidebar on desktop and a menu on mobile, which one do you render on the server? The user requesting the page could be using either device so there is really no way of knowing, only a "best guess".
+
+An effective solution to this problem is to render *all* variants on the server (.e.g. for desktop and mobile), and use CSS media queries to hide all but the one which matches for the user's screen:
+
+```css
+@media (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  .mobile {
+    display: none;
+  }
+}
+```
+
+Then render both components in the JSX:
+
+```jsx
+function MyApp () {
+  return (
+    <div>
+      {/* Either .mobile or .destop will be visible, but not both */}
+      <MobileMenu className='mobile' />
+      <DesktopSidebar className='desktop' />
+      <main>Some content</main>
+    </div>
+  )
+}
+```
+
+This works because of one important detail: CSS is applied from the very first render on the client, so variants which should not be shown will be hidden cleanly, without odd "initial" states where the rendered layout from the server doesn't match the user's screen. A JavaScript based approach cannot do this.
+
+To summarize, for screen-size based queries this is how you can do it:
+1. Add CSS Media queries for your variants (e.g. mobile and desktop)
+1. Render all possible variants on the server
+1. Only matching variants will be displayed on the client
+
+The library [@artsy/fresnel](https://github.com/artsy/fresnel) implements this approach as React components, if you don't want to implement it yourselves. It also takes care to not keep rendering every variant on the client once the app has mounted, for performance and accessibility reasons. The LYTS docs website uses the @artsy/fresnel package (together with the Columns component) for its responsive sidebar, which becomes a menu on mobile ([check out the code here](https://github.com/christiankaindl/LYTS-website/tree/main/components/MediaQuery)).
+
+## What about container queries?
+
+Traditionally, container-based features such as the `collapseAt` prop would be incompatible with SSR, because measuring a container performantly relies on the [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) JavaScript API which is only available in the browser (remember, the server doesn't have a screen size). That also means hooks like `useContainerQuery()` or `useMediaQuery()` can never be truly SSR-compatible, because they must return a "best guess" on the server, leading to wrong and/or incomplete first renders on the client.
+
+A JavaScript based approach is generally not recommended if your site is public facing, as it can lead to a jarring user experience. For apps with an initial loading screen, or if your app doesn't use server-side rendering at all, it might be a good option.
+
+LYTS doesn't rely on the ResizeObserver API and instead leverages native CSS techniques for its container-based props, which don't require a browser context to render correctly.
