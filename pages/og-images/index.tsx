@@ -33,6 +33,9 @@ const OgImage: FunctionComponent<Props> = function ({
   // @ts-expect-error
   const Icon = iconMappings?.[title?.toLowerCase()]
 
+  const small = title.length > 14
+  const fontSize = small ? '2.2em' : '3em'
+
   return (
     <>
       <Head>
@@ -58,7 +61,7 @@ const OgImage: FunctionComponent<Props> = function ({
           </div>
           {!home && (
             <Row gap={2}>
-              <h1 style={{ fontSize: '3em' }}>{title}</h1>
+              <h1 style={{ fontSize, lineHeight: 1.2 }}>{title}</h1>
               {Icon && <div style={{ transform: 'scale(2)' }}><Icon /></div>}
             </Row>
           )}
