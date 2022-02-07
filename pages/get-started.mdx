@@ -4,17 +4,50 @@ description: Add LYTS to your project in < 1 minute.
 ---
 
 import Link from 'next/link'
-import { Box, Stack, Row, Clamp } from '@christiankaindl/lyts'
+import { Box, Stack, Row, Clamp, Grid } from '@christiankaindl/lyts'
 import DebugProvider from '@/components/DebugProvider/DebugProvider'
 import CodeEditor from '@/components/CodeEditor'
+import { blueA, mauve } from '@radix-ui/colors'
+import { Minimize2, LayoutTemplate, Brush } from 'lucide-react'
 
 export { default } from 'components/SidebarLayout/SidebarLayout'
 
-Layout primitives to build any kind of layout, with useful props like `bleed`, `asChild` and `xAlign`/`yAlign`. Components are unstyled so you can use the styling solution of your choice, like vanilla-extract, Stitches or emotion. LYTS can be adopted gradually and works with any framework or library setup.
+export const Item = ({ title, description, icon }) => {
+  return (
+    <Row>
+      <Box xAlign='center' yAlign='center' style={{ color: blueA.blueA12, flexShrink: 0, height: 64, width: 64, borderRadius: 99, backgroundColor: blueA.blueA3 }}>
+        {icon}
+      </Box>
+      <Stack gap={0} style={{ fontSize: '0.9em' }}>
+        <p style={{ fontWeight: 600 }}>{title}</p>
+        <p style={{ color: mauve.mauve11 }}>{description}</p>
+      </Stack>
+    </Row>
+  )
+}
 
-- Drop-in: Use as much or as little as you need
-- Composable: Combine to create complex layouts
-- Familiar: Apply standard CSS flexbox and grid knowledge
+<Grid bleedLeft='3px' gridItemMinWidth='250px' gap={1.5} style={{ maxWidth: '65ch' }}>
+  <Item
+    title='Small bundle'
+    description='4kB when using all exports'
+    icon={<Minimize2 size={28} />}
+  />
+    <Item
+    title='Layout props'
+    description='Simple, productive API'
+    icon={<span style={{ fontSize: 23, fontWeight: 500 }}>{'{'} {'}'}</span>}
+  />
+  <Item
+    title='Unstyled'
+    description='Use the styling solution of your choice'
+    icon={<Brush size={28} />}
+  />
+  <Item
+    title='Composable'
+    description='Combine to create complex layouts'
+    icon={<LayoutTemplate size={28} />}
+  />
+</Grid>
 
 ## Installation
 
